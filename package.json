@@ -1,0 +1,64 @@
+{
+  "name": "@Basis-Theory/basis-theory-react",
+  "version": "1.0.0-alpha.1",
+  "description": "React library for BasisTheory.js and BasisTheory Elements",
+  "repository": "https://github.com/Basis-Theory/basis-theory-react",
+  "author": {
+    "name": "Basis Theory",
+    "email": "support@basistheory.com"
+  },
+  "main": "dist/index.js",
+  "license": "UNLICENSED",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn run clean && concurrently \"yarn build:module\" \"yarn build:declarations\" \"yarn build:package\" --kill-others-on-fail",
+    "build:declarations": "tsc",
+    "build:module": "babel src --extensions .ts,.tsx --out-dir dist",
+    "build:package": "node prepare.js",
+    "clean": "rimraf dist",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@Basis-Theory/basis-theory-elements": "^1.0.0-alpha.13"
+  },
+  "devDependencies": {
+    "@Basis-Theory/basis-theory-js": "^1.0.0-alpha.20",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.1",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
+    "@types/chance": "^1.1.3",
+    "@types/jest": "^27.0.0",
+    "@types/react": "^17.0.16",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "@wessberg/rollup-plugin-ts": "^1.3.14",
+    "chance": "^1.1.7",
+    "concurrently": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-get-off-my-lawn": "^6.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "@Basis-Theory/basis-theory-js": "^1.0.0-alpha.20",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  }
+}
