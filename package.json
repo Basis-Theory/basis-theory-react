@@ -74,5 +74,11 @@
     "@Basis-Theory/basis-theory-js": "^1.0.0-alpha.20",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
+  },
+  "engines": {
+    "node": ">=10.12.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
