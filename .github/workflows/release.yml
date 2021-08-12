@@ -14,7 +14,7 @@ jobs:
     env:
       CI: 1
       HUSKY: 0 # disables husky hooks
-      NPM_TOKEN: ${{ secrets.PRIVATE_PACKAGE_TOKEN }}
+      NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_PAT }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
