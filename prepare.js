@@ -1,21 +1,26 @@
 const fs = require('fs');
-const package = require('./package.json');
+const libPackage = require('./package.json');
 
 // remove not required fields
-delete package.devDependencies;
+delete libPackage.devDependencies;
 
 // use only required temporary script in dist
-package.scripts = {
+libPackage.scripts = {
   postversion: 'cd .. && node bump.js',
 };
 
 // include all 'dist/*' files
-package.files = ['*'];
+libPackage.files = ['*'];
 
 // updates source flags removing 'dist' path
 ['main', 'module', 'typings'].forEach((prop) => {
-  package[prop] = package[prop].replace('dist/', '');
+  libPackage[prop] = libPackage[prop].replace('dist/', '');
 });
 
+/* eslint-disable node/no-sync */
 fs.mkdirSync('./dist', { recursive: true });
-fs.writeFileSync('./dist/package.json', JSON.stringify(package, null, 2));
+fs.writeFileSync(
+  './dist/package.json',
+  JSON.stringify(libPackage, undefined, 2)
+);
+/* eslint-enable node/no-sync */
