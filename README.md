@@ -57,3 +57,20 @@ export default function MyForm() {
   </>
 }
 ```
+
+## Development
+
+The provided scripts with the SDK will check for all dependencies, start docker, build the solution, and run all tests.
+
+### Dependencies
+
+- [NodeJS](https://nodejs.org/en/) > 10.12.0
+- [Yarn](https://classic.yarnpkg.com/en/docs/)
+
+
+### Build the SDK and run Tests
+Run the following command from the root of the project:
+
+```shell
+make verify
+```

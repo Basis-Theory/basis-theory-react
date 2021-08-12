@@ -1,0 +1,47 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [main, release]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: ['14.x']
+        os: [ubuntu-latest]
+    env:
+      CI: 1
+      NPM_TOKEN: ${{ secrets.PRIVATE_PACKAGE_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install deps (with cache)
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
+
+      - name: Verify
+        run: make verify
+
+      - name: Lint
+        uses: wearerequired/lint-action@v1.7.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          eslint: true
+          prettier: true
+
+#      - name: Monitor coverage
+#        uses: slavcodev/coverage-monitor-action@1.2.0
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          clover_file: 'coverage/clover.xml'
+#          threshold_alert: 80
+#          threshold_warning: 90
