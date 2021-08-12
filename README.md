@@ -28,8 +28,8 @@ export default function MyWrapper() {
 }
 ```
 
-
 Call `useElements` hook along with elements tags (i.e. `CardElement`).
+
 ```jsx
 import { CardElement, useElements } from "@Basis-Theory/basis-theory-react";
 
@@ -67,8 +67,8 @@ The provided scripts with the SDK will check for all dependencies, start docker,
 - [NodeJS](https://nodejs.org/en/) > 10.12.0
 - [Yarn](https://classic.yarnpkg.com/en/docs/)
 
-
 ### Build the SDK and run Tests
+
 Run the following command from the root of the project:
 
 ```shell
