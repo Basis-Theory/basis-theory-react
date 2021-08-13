@@ -8,13 +8,13 @@ public.
 Install the package:
 
 ```shell
-yarn add @Basis-Theory/basis-theory-react
+yarn add @basis-theory/basis-theory-react
 ```
 
 Declare the `Elements` provider in a wrapping component
 
 ```jsx
-import { Elements, useBasisTheory } from "@Basis-Theory/basis-theory-react";
+import { Elements, useBasisTheory } from "@basis-theory/basis-theory-react";
 
 export default function MyWrapper() {
 
@@ -31,7 +31,7 @@ export default function MyWrapper() {
 Call `useElements` hook along with elements tags (i.e. `CardElement`).
 
 ```jsx
-import { CardElement, useElements } from "@Basis-Theory/basis-theory-react";
+import { CardElement, useElements } from "@basis-theory/basis-theory-react";
 
 export default function MyForm() {
 
@@ -60,7 +60,7 @@ export default function MyForm() {
 
 ## Development
 
-The provided scripts with the SDK will check for all dependencies, start docker, build the solution, and run all tests.
+The provided scripts with the SDK will check for all dependencies, build the solution, and run all tests.
 
 ### Dependencies
 
