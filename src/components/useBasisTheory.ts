@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BasisTheory } from '@Basis-Theory/basis-theory-js';
+import { BasisTheory } from '@basis-theory/basis-theory-js';
 
 export const useBasisTheory = (
   ...[key, ...rest]: Parameters<BasisTheory['init']>

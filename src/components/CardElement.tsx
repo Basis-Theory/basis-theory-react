@@ -8,7 +8,7 @@ import type {
   ReadyEvent,
   UpdateElementOptions,
   ElementEventListener,
-} from '@Basis-Theory/basis-theory-elements';
+} from '@basis-theory/basis-theory-elements';
 import { useSuperElements } from './Elements';
 
 interface Props {

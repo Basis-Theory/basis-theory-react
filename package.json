@@ -1,5 +1,5 @@
 {
-  "name": "@Basis-Theory/basis-theory-react",
+  "name": "@basis-theory/basis-theory-react",
   "version": "1.0.0-alpha.2",
   "description": "React library for BasisTheory.js and BasisTheory Elements",
   "repository": "https://github.com/Basis-Theory/basis-theory-react",
@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn run clean && concurrently \"yarn build:module\" \"yarn build:declarations\" \"yarn build:package\" --kill-others-on-fail",
+    "build": "yarn clean && concurrently \"yarn build:module\" \"yarn build:declarations\" \"yarn build:package\" --kill-others-on-fail",
     "build:declarations": "tsc",
     "build:module": "babel src --extensions .ts,.tsx --out-dir dist",
     "build:package": "node prepare.js",
@@ -26,10 +26,10 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@Basis-Theory/basis-theory-elements": "^1.0.0-alpha.13"
+    "@basis-theory/basis-theory-elements": "^1.0.0-alpha.14"
   },
   "devDependencies": {
-    "@Basis-Theory/basis-theory-js": "^1.0.0-alpha.20",
+    "@basis-theory/basis-theory-js": "^1.0.0-alpha.23",
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
@@ -52,7 +52,6 @@
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@wessberg/rollup-plugin-ts": "^1.3.14",
     "chance": "^1.1.7",
     "concurrently": "^6.2.0",
     "eslint": "^7.32.0",
@@ -71,7 +70,7 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "@Basis-Theory/basis-theory-js": "^1.0.0-alpha.20",
+    "@basis-theory/basis-theory-js": "^1.0.0-alpha.23",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   },
@@ -79,6 +78,6 @@
     "node": ">=10.12.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "restricted"
   }
 }

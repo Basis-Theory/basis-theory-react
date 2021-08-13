@@ -1,5 +1,5 @@
-import { BasisTheory } from '@Basis-Theory/basis-theory-js';
-import type { BasisTheoryInitOptions } from '@Basis-Theory/basis-theory-js/types';
+import { BasisTheory } from '@basis-theory/basis-theory-js';
+import type { BasisTheoryInitOptions } from '@basis-theory/basis-theory-js/types';
 import { renderHook } from '@testing-library/react-hooks';
 import { Chance } from 'chance';
 import { useBasisTheory } from '../src';
