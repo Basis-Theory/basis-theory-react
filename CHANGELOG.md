@@ -1,3 +1,10 @@
+# [1.0.0-alpha.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* move to NPM registry ([#4](https://github.com/Basis-Theory/basis-theory-react/issues/4)) ([752e0b7](https://github.com/Basis-Theory/basis-theory-react/commit/752e0b73dc0ee65e5cdb291bcd6447790a152410))
+
 # [1.0.0-alpha.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-08-12)
 
 
