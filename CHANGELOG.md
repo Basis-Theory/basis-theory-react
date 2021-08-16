@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-08-16)
+
+
+### Bug Fixes
+
+* prevent bt initialization with falsy key ([#5](https://github.com/Basis-Theory/basis-theory-react/issues/5)) ([92dade5](https://github.com/Basis-Theory/basis-theory-react/commit/92dade52b970e78ded8d824f5de25fdddc0392b1))
+
 # [1.0.0-alpha.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-08-13)
 
 
