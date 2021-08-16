@@ -1087,16 +1087,12 @@
   dependencies:
     csstype "^3.0.8"
 
-"@basis-theory/basis-theory-elements@^1.0.0-alpha.14":
-  version "1.0.0-alpha.14"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements/-/basis-theory-elements-1.0.0-alpha.14.tgz#f9b02f2a17853e8e99573052b032c5b000c19969"
-  integrity sha512-3+BCfOF/vFT2TvkUNo1gFpl2Xacx+ZIifuRajwgGtj5qVYmoeQ3ZrTKCD2+HbX+jh9pUYNqxZk5nzmngSWKokA==
+"@basis-theory/basis-theory-elements@^1.0.0-alpha.15":
+  version "1.0.0-alpha.15"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements/-/basis-theory-elements-1.0.0-alpha.15.tgz#de21ec9822f2655fa00a2193fbf7f4c993d1ef73"
+  integrity sha512-ZZF4LWAenVXWwvHtqCC+0XYRQYG/E5H5XHd0FYjzhC4Fae2Wc1/NqiqiD0z1IkAzgqjotBLtSzaaW1cg0ITz5A==
   dependencies:
     "@basis-theory/basis-theory-elements-interfaces" "^1.0.0-alpha.19"
-    param-case "^3.0.4"
-    rxjs "^6.6.7"
-    url-join "^4.0.1"
-    uuid "^8.3.2"
 
 "@basis-theory/basis-theory-js@^1.0.0-alpha.23":
   version "1.0.0-alpha.23"
@@ -7070,14 +7066,6 @@ pacote@^11.1.11, pacote@^11.2.6, pacote@^11.3.0, pacote@^11.3.1, pacote@^11.3.5:
     ssri "^8.0.1"
     tar "^6.1.0"
 
-param-case@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
-  integrity sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==
-  dependencies:
-    dot-case "^3.0.4"
-    tslib "^2.0.3"
-
 parent-module@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.1.tgz#691d2709e78c79fae3a156622452d00762caaaa2"
@@ -8850,7 +8838,7 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
-url-join@^4.0.0, url-join@^4.0.1:
+url-join@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.1.tgz#b642e21a2646808ffa178c4c5fda39844e12cde7"
   integrity sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==
@@ -8869,11 +8857,6 @@ uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
-
-uuid@^8.3.2:
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
-  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 v8-compile-cache@^2.0.3:
   version "2.3.0"
