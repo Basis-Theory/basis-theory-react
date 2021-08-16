@@ -8,7 +8,7 @@ export const useBasisTheory = (
 
   useEffect(() => {
     (async () => {
-      if (key !== state?.key) {
+      if (key && key !== state?.key) {
         const bt = await new BasisTheory().init(key, ...rest);
 
         setState({

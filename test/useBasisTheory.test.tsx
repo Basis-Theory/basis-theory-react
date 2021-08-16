@@ -17,6 +17,19 @@ describe('useBasisTheory', () => {
     };
   });
 
+  test('should not initialize if key is falsy', async () => {
+    const { result, rerender, waitForNextUpdate } = renderHook(() =>
+      useBasisTheory('')
+    );
+
+    expect(result.current).toBeUndefined();
+    rerender();
+    // expect rejection, because value never changes
+    // eslint-disable-next-line jest/require-to-throw-message
+    await expect(() => waitForNextUpdate()).rejects.toThrow();
+    expect(result.current).toBeUndefined();
+  });
+
   test('should pass parameters to BasisTheory init', async () => {
     const init = jest.spyOn(BasisTheory.prototype, 'init');
 
