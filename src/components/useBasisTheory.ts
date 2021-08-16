@@ -1,23 +1,37 @@
 import { useEffect, useState } from 'react';
 import { BasisTheory } from '@basis-theory/basis-theory-js';
 
+type UseBasisTheory = {
+  bt?: BasisTheory;
+  error?: Error;
+};
+
 export const useBasisTheory = (
   ...[key, ...rest]: Parameters<BasisTheory['init']>
-): BasisTheory | undefined => {
-  const [state, setState] = useState<{ key: string; bt: BasisTheory }>();
+): UseBasisTheory => {
+  const [state, setState] = useState<{ key?: string } & UseBasisTheory>({});
 
   useEffect(() => {
     (async () => {
-      if (key && key !== state?.key) {
-        const bt = await new BasisTheory().init(key, ...rest);
+      if (key && key !== state.key) {
+        try {
+          const bt = await new BasisTheory().init(key, ...rest);
 
-        setState({
-          key,
-          bt,
-        });
+          setState({
+            key,
+            bt,
+          });
+        } catch (error) {
+          setState({
+            key,
+            error,
+          });
+        }
       }
     })();
   }, [key, rest, state?.key]);
 
-  return state?.bt;
+  const { key: _key, ...use } = state;
+
+  return use;
 };
