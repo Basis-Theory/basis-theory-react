@@ -22,12 +22,30 @@ describe('useBasisTheory', () => {
       useBasisTheory('')
     );
 
-    expect(result.current).toBeUndefined();
+    expect(result.current.bt).toBeUndefined();
     rerender();
     // expect rejection, because value never changes
     // eslint-disable-next-line jest/require-to-throw-message
     await expect(() => waitForNextUpdate()).rejects.toThrow();
-    expect(result.current).toBeUndefined();
+    expect(result.current.bt).toBeUndefined();
+  });
+
+  test('should bubble up init errors', async () => {
+    const errorMessage = chance.string();
+
+    jest
+      .spyOn(BasisTheory.prototype, 'init')
+      .mockRejectedValueOnce(new Error(errorMessage));
+
+    const { waitForNextUpdate, result } = renderHook(() =>
+      useBasisTheory(key, options)
+    );
+
+    expect(result.current.error).toBeUndefined();
+
+    await waitForNextUpdate();
+
+    expect(result.current.error).toStrictEqual(new Error(errorMessage));
   });
 
   test('should pass parameters to BasisTheory init', async () => {
@@ -46,9 +64,9 @@ describe('useBasisTheory', () => {
       useBasisTheory(key, options)
     );
 
-    expect(result.current).toBeUndefined();
+    expect(result.current.bt).toBeUndefined();
     await waitForNextUpdate();
-    expect(result.current?.applications).toBeDefined();
+    expect(result.current.bt?.applications).toBeDefined();
   });
 
   test('should update instance if props change', async () => {
@@ -57,7 +75,7 @@ describe('useBasisTheory', () => {
     );
 
     await waitForNextUpdate();
-    const initial = result.current;
+    const initial = result.current.bt;
 
     expect(initial).toBeDefined();
 
@@ -66,6 +84,6 @@ describe('useBasisTheory', () => {
     rerender();
     await waitForNextUpdate();
 
-    expect(result.current === initial).toBe(false);
+    expect(result.current.bt === initial).toBe(false);
   });
 });
