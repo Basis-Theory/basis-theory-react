@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-08-16)
+
+
+### Bug Fixes
+
+* return error on useBasisTheory ([#6](https://github.com/Basis-Theory/basis-theory-react/issues/6)) ([60fc031](https://github.com/Basis-Theory/basis-theory-react/commit/60fc031b10aad2200da58911ae9decc86c2b3cd6))
+
 # [1.0.0-alpha.4](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-08-16)
 
 
