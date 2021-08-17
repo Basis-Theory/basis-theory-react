@@ -1,3 +1,10 @@
+# [1.0.0-alpha.6](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-08-17)
+
+
+### Bug Fixes
+
+* readme ([c5cd7e8](https://github.com/Basis-Theory/basis-theory-react/commit/c5cd7e869d7f1255c291181bd9acedfff2393f23))
+
 # 1.0.0-alpha.1 (2021-08-17)
 
 
