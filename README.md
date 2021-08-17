@@ -22,7 +22,7 @@ export default function MyWrapper() {
     elements: true
   })
 
-  return <Elements>
+  return <Elements bt={bt}>
     <MyForm />
   </Elements>
 }
