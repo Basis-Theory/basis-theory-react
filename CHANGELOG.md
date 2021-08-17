@@ -1,3 +1,10 @@
+# 1.0.0-alpha.1 (2021-08-17)
+
+
+### Features
+
+* inital release ([6851a10](https://github.com/Basis-Theory/basis-theory-react/commit/6851a10ee77afd5acf9cf40c418a983e48c293a8))
+
 # [1.0.0-alpha.5](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-08-16)
 
 
