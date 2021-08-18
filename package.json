@@ -26,7 +26,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@basis-theory/basis-theory-elements": "^1.0.0"
+    "@basis-theory/basis-theory-elements": "^1.1.0"
   },
   "devDependencies": {
     "@basis-theory/basis-theory-js": "^1.0.0",
