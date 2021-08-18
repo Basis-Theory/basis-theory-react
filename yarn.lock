@@ -1087,10 +1087,10 @@
   dependencies:
     csstype "^3.0.8"
 
-"@basis-theory/basis-theory-elements@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements/-/basis-theory-elements-1.0.0.tgz#5c9f67475998e8d6b7890fe2fa09ba0dbf266fe4"
-  integrity sha512-yTsaGETQl11JyoczBwcKWFauMHA0O6gmkxvCU7hglTh1FG5b2ZlNZYbXcmgiu5Fr0PYf/NkJg84p21DGKveM5g==
+"@basis-theory/basis-theory-elements@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements/-/basis-theory-elements-1.1.0.tgz#06b96a75f2f294dd70dddad69d88ddeb43e3f2a7"
+  integrity sha512-KZxYJSnKhMG0Egir8Ztjt9am36200Ezp47n3LqkIgF/UOmgB1E2qyS5ILBNaLhZUQ7sG/Tk9THHKoqSNHUgxtg==
   dependencies:
     "@basis-theory/basis-theory-elements-interfaces" "^1.0.0"
 
