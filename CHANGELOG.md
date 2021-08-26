@@ -1,3 +1,10 @@
+# [1.0.0-alpha.8](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-08-26)
+
+
+### Bug Fixes
+
+* bump bt dependencies ([#9](https://github.com/Basis-Theory/basis-theory-react/issues/9)) ([aa6680d](https://github.com/Basis-Theory/basis-theory-react/commit/aa6680db56ae89d9befe9ef2eb4659bcd6efe48d))
+
 # [1.0.0-alpha.7](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2021-08-18)
 
 
