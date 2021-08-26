@@ -1087,22 +1087,20 @@
   dependencies:
     csstype "^3.0.8"
 
-"@basis-theory/basis-theory-elements@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements/-/basis-theory-elements-1.1.0.tgz#06b96a75f2f294dd70dddad69d88ddeb43e3f2a7"
-  integrity sha512-KZxYJSnKhMG0Egir8Ztjt9am36200Ezp47n3LqkIgF/UOmgB1E2qyS5ILBNaLhZUQ7sG/Tk9THHKoqSNHUgxtg==
+"@basis-theory/basis-theory-elements@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements/-/basis-theory-elements-1.1.1.tgz#9cf4d22c9b8488b0bdeff37e294c9866f76f3c58"
+  integrity sha512-PipIcOHDM+UNvtLGWE1U5OE/oKgkaODdgYpL3bo0tno7SN9n0Ji/A3GPTb7AW6Dda0UAsRdlYk7gqWaQyBe9HA==
   dependencies:
     "@basis-theory/basis-theory-elements-interfaces" "^1.0.0"
 
-"@basis-theory/basis-theory-js@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.0.0.tgz#c5bd999ab0dac23841bbf4aa2b5c231fe77dfc87"
-  integrity sha512-0Fh8UYMWpcsHMHf7HY1wkeraoeXgPzxAA27jP7HEQsphsj7/UMA0Vmu9oYECI3+Dg48oU3mwmwsXkf9iTnAVYA==
+"@basis-theory/basis-theory-js@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.1.0.tgz#091e7d8fdea03522d205664f2163122be7808bcf"
+  integrity sha512-iYHrtZ5h7cq6a9SFjWhWZhvMOCbwLILch1tEIFgX5kaWvM2YS2rFm7LbChGGrsBIz5SJ0ikjfvUesDYJXamSdw==
   dependencies:
     axios "^0.21.1"
     camelcase-keys "^6.2.2"
-    core-js "^3.8.3"
-    process "^0.11.10"
     snake-case "^3.0.4"
     snakecase-keys "^3.2.1"
 
@@ -3240,11 +3238,6 @@ core-js-pure@^3.16.0:
   version "3.16.1"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.16.1.tgz#b997df2669c957a5b29f06e95813a171f993592e"
   integrity sha512-TyofCdMzx0KMhi84mVRS8rL1XsRk2SPUNz2azmth53iRN0/08Uim9fdhQTaZTG1LqaXHYVci4RDHka6WrXfnvg==
-
-core-js@^3.8.3:
-  version "3.16.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.16.1.tgz#f4485ce5c9f3c6a7cb18fa80488e08d362097249"
-  integrity sha512-AAkP8i35EbefU+JddyWi12AWE9f2N/qr/pwnDtWz4nyUIBGMJPX99ANFFRSw6FefM374lDujdtLDyhN2A/btHw==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -7293,11 +7286,6 @@ process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
-
-process@^0.11.10:
-  version "0.11.10"
-  resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
-  integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
 progress@^2.0.0:
   version "2.0.3"
