@@ -12,7 +12,7 @@ export const useBasisTheory = (
   const [state, setState] = useState<{ key?: string } & UseBasisTheory>({});
 
   useEffect(() => {
-    (async () => {
+    (async (): Promise<void> => {
       if (key && key !== state.key) {
         try {
           const bt = await new BasisTheory().init(key, ...rest);

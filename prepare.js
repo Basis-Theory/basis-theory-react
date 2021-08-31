@@ -17,10 +17,8 @@ libPackage.files = ['*'];
   libPackage[prop] = libPackage[prop].replace('dist/', '');
 });
 
-/* eslint-disable node/no-sync */
 fs.mkdirSync('./dist', { recursive: true });
 fs.writeFileSync(
   './dist/package.json',
   JSON.stringify(libPackage, undefined, 2)
 );
-/* eslint-enable node/no-sync */

@@ -14,6 +14,7 @@
   "files": [
     "dist"
   ],
+  "prettier": "@basis-theory/eslint-config/prettier",
   "scripts": {
     "build": "yarn clean && concurrently \"yarn build:module\" \"yarn build:declarations\" \"yarn build:package\" --kill-others-on-fail",
     "build:declarations": "tsc",
@@ -29,12 +30,13 @@
     "@basis-theory/basis-theory-elements": "^1.1.1"
   },
   "devDependencies": {
-    "@basis-theory/basis-theory-js": "^1.1.0",
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
+    "@basis-theory/basis-theory-js": "^1.1.0",
+    "@basis-theory/eslint-config": "link:../basis-theory-eslint-config",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@semantic-release/changelog": "^5.0.1",
