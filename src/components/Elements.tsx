@@ -42,7 +42,7 @@ const Elements: FC<ElementsProps> = ({ bt, children }) => {
     [id: string]: BaseElement<ElementType>;
   }>({});
 
-  const getElement = <T extends BaseElement<ElementType>>(id: string) => {
+  const getElement = <T extends BaseElement<ElementType>>(id: string): T => {
     const element = elementMap[id];
 
     if (!element) {
@@ -55,7 +55,7 @@ const Elements: FC<ElementsProps> = ({ bt, children }) => {
   const indexElement = <T extends BaseElement<ElementType>>(
     id: string,
     element: T
-  ) => {
+  ): T => {
     const previous = elementMap[id];
 
     if (previous?.mounted) {
@@ -73,7 +73,9 @@ const Elements: FC<ElementsProps> = ({ bt, children }) => {
     return element;
   };
 
-  const disposeElement = <T extends BaseElement<ElementType>>(id: string) => {
+  const disposeElement = <T extends BaseElement<ElementType>>(
+    id: string
+  ): T => {
     const element = getElement(id);
 
     delete elementMap[id];

@@ -5,7 +5,6 @@ const libPackage = require('./package.json');
 
 libPackage.version = distPackage.version;
 
-/* eslint-disable node/no-sync */
 fs.writeFileSync(
   './package.json',
   `${JSON.stringify(libPackage, undefined, 2)}\n`
@@ -17,4 +16,3 @@ fs.writeFileSync(
   './dist/package.json',
   JSON.stringify(distPackage, undefined, 2)
 );
-/* eslint-enable node/no-sync */

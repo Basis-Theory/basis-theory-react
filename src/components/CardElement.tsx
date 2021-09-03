@@ -62,7 +62,7 @@ export const CardElement: FC<Props> = ({
       indexElement(id, card);
     }
 
-    return () => {
+    return (): void => {
       if (element?.mounted) {
         element.unmount();
         disposeElement(id);
