@@ -31,6 +31,8 @@ jobs:
 
       - name: Verify
         run: make verify
+        env:
+          SKIP_INSTALL: 1 # install with cache was done already
 
 #      - name: Monitor coverage
 #        uses: slavcodev/coverage-monitor-action@1.2.0
