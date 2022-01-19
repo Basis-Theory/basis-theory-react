@@ -9,7 +9,7 @@ import type {
   BasisTheoryElements,
   BaseElement,
   ElementType,
-} from '@basis-theory/basis-theory-elements';
+} from '@basis-theory/basis-theory-elements-interfaces/elements';
 import type { BasisTheory } from '@basis-theory/basis-theory-js';
 
 interface ElementsProps {

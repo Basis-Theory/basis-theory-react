@@ -1,24 +1,19 @@
 import React, { FC, useEffect, useState } from 'react';
 import type {
   CardElement as Element,
-  ChangeEvent,
-  InputBlurEvent,
-  InputFocusEvent,
-  InputKeydownEvent,
-  ReadyEvent,
-  UpdateElementOptions,
+  UpdateCardElementOptions,
   ElementEventListener,
-} from '@basis-theory/basis-theory-elements';
+} from '@basis-theory/basis-theory-elements-interfaces/elements';
 import { useSuperElements } from './Elements';
 
 interface Props {
   id: string;
-  onChange?: ElementEventListener<ChangeEvent>;
-  onFocus?: ElementEventListener<InputFocusEvent>;
-  onBlur?: ElementEventListener<InputBlurEvent>;
-  onReady?: ElementEventListener<ReadyEvent>;
-  onKeyDown?: ElementEventListener<InputKeydownEvent>;
-  options?: UpdateElementOptions<'card'>;
+  onChange?: ElementEventListener<'change'>;
+  onFocus?: ElementEventListener<'focus'>;
+  onBlur?: ElementEventListener<'blur'>;
+  onReady?: ElementEventListener<'ready'>;
+  onKeyDown?: ElementEventListener<'keydown'>;
+  options?: UpdateCardElementOptions;
 }
 
 export const CardElement: FC<Props> = ({
