@@ -4,13 +4,8 @@ import type {
 } from '@basis-theory/basis-theory-elements-interfaces/elements';
 import type { BasisTheory } from '@basis-theory/basis-theory-elements-interfaces/sdk';
 
-type ReactSafeElement = Omit<
-  BaseElement<unknown>,
-  'mount' | 'update' | 'unmount'
->;
-
 interface GetElement {
-  getElement(id: string): ReactSafeElement;
+  getElement<Element extends BaseElement<unknown>>(id: string): Element;
 }
 
 interface ElementMapper extends GetElement {
@@ -23,4 +18,4 @@ type BasisTheoryReact<Elements extends boolean = boolean> =
     ? BasisTheory & GetElement & Omit<BasisTheoryElements, 'createElement'>
     : BasisTheory;
 
-export type { ReactSafeElement, GetElement, ElementMapper, BasisTheoryReact };
+export type { GetElement, ElementMapper, BasisTheoryReact };

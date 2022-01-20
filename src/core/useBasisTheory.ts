@@ -11,10 +11,14 @@ type UseBasisTheory<Elements extends boolean> = {
   error?: Error;
   bt?: IBasisTheoryReact<Elements>;
 };
-type UseBasisTheoryState = { apiKey?: string } & UseBasisTheory<boolean>;
 
 function useBasisTheory(
   apiKey?: string,
+  options?: BasisTheoryInitOptionsWithoutElements
+): UseBasisTheory<true>;
+
+function useBasisTheory(
+  apiKey: string,
   options?: BasisTheoryInitOptionsWithoutElements
 ): UseBasisTheory<false>;
 
@@ -30,13 +34,13 @@ function useBasisTheory(
     | BasisTheoryInitOptionsWithElements
     | BasisTheoryInitOptionsWithoutElements
 ): UseBasisTheory<boolean> {
-  const [state, setState] = useState<UseBasisTheoryState>({});
+  const [state, setState] = useState<UseBasisTheory<boolean>>({});
 
   const { bt: btFromContext } = useBasisTheoryFromContext();
 
   useEffect(() => {
     (async (): Promise<void> => {
-      if (apiKey && apiKey !== state.apiKey) {
+      if (!state.bt && apiKey) {
         try {
           const bt = (await new BasisTheoryReact().init(
             apiKey,
@@ -45,28 +49,26 @@ function useBasisTheory(
           )) as BasisTheoryReact;
 
           setState({
-            apiKey,
             bt,
           });
         } catch (error) {
           setState({
-            apiKey,
             error,
           });
         }
       }
     })();
-  }, [apiKey, options, state.apiKey]);
+  }, [state.bt, apiKey, options]);
 
-  if (!apiKey) {
+  if (state.bt || state.error) {
     return {
-      bt: btFromContext,
+      bt: state.bt,
+      error: state.error,
     };
   }
 
   return {
-    bt: state.bt,
-    error: state.error,
+    bt: btFromContext,
   };
 }
 

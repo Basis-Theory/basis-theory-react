@@ -3,7 +3,6 @@ import { BasisTheory } from '@basis-theory/basis-theory-js';
 import type {
   BasisTheoryReact as IBasisTheoryReact,
   ElementMapper,
-  ReactSafeElement,
 } from './types';
 
 export class BasisTheoryReact
@@ -12,30 +11,15 @@ export class BasisTheoryReact
 {
   private elementMap: { [id: string]: BaseElement<unknown> } = {};
 
-  public getElement(id: string): ReactSafeElement {
-    return this.elementMap[id];
+  public getElement<Element extends BaseElement<unknown>>(id: string): Element {
+    return this.elementMap[id] as Element;
   }
 
-  public indexElement(
-    id: string,
-    element: BaseElement<unknown>
-  ): ReactSafeElement {
-    // TODO test if needed
-    // const previous = this.elementMap[id];
-    //
-    // if (previous?.mounted) {
-    //   console.warn(
-    //     `Multiple elements for id "${id}". Unmounting previous of type ${previous.constructor.name}.`
-    //   );
-    //   previous.unmount();
-    // }
-
+  public indexElement(id: string, element: BaseElement<unknown>): void {
     this.elementMap = {
       ...this.elementMap,
       [id]: element,
     };
-
-    return element;
   }
 
   public disposeElement(id: string): void {

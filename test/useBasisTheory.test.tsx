@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import type { BasisTheoryInitOptions } from '@basis-theory/basis-theory-js/types';
 import { renderHook } from '@testing-library/react-hooks';
 import { Chance } from 'chance';
@@ -19,6 +19,7 @@ describe('useBasisTheory', () => {
     options = {
       [chance.string()]: chance.string(),
     };
+    jest.resetAllMocks();
   });
 
   test('should not initialize if key is falsy', async () => {
@@ -76,7 +77,7 @@ describe('useBasisTheory', () => {
     expect(init).toHaveBeenCalledWith(key, options);
   });
 
-  test('should update instance if props change', async () => {
+  test('should not update instance if props change', async () => {
     const bt = {} as BasisTheoryReact;
     const init = jest.fn().mockResolvedValue(bt);
 
@@ -92,14 +93,13 @@ describe('useBasisTheory', () => {
     key = chance.string();
 
     rerender();
-    await waitForNextUpdate();
 
-    expect(init).toHaveBeenCalledTimes(2);
+    expect(init).toHaveBeenCalledTimes(1);
   });
 
   describe('Context', () => {
     let btFromContext: BasisTheoryReact;
-    let wrapper: FC<{ apiKey?: string }>;
+    let wrapper: React.FC<{ apiKey?: string }>;
 
     beforeEach(() => {
       btFromContext = {
@@ -133,22 +133,24 @@ describe('useBasisTheory', () => {
         }
       );
 
-      // no props
+      // no props, gets from Context
       expect(result.current.bt).toStrictEqual(btFromContext);
       expect(init).toHaveBeenCalledTimes(0);
 
-      // passes defined apiKey to hook
+      // passes apiKey to hook
       rerender({ apiKey: key });
       await waitForNextUpdate();
 
+      // should get back initialized instance
       expect(result.current.bt).toStrictEqual(bt);
       expect(init).toHaveBeenCalledTimes(1);
       expect(init).toHaveBeenLastCalledWith(key, undefined);
 
-      // passes undefined apiKey to hook
+      // goes back passing undefined apiKey to hook
       rerender({ apiKey: undefined });
 
-      expect(result.current.bt).toStrictEqual(btFromContext);
+      // should be the original initialized instance still
+      expect(result.current.bt).toStrictEqual(bt);
       expect(init).toHaveBeenCalledTimes(1);
     });
   });
