@@ -4,11 +4,11 @@ import type {
 } from '@basis-theory/basis-theory-elements-interfaces/elements';
 import { renderHook } from '@testing-library/react-hooks';
 import { Chance } from 'chance';
-import { ElementMapper } from '../src/core/types';
-import { useBasisTheoryValue } from '../src/elements/useBasisTheoryValue';
-import { useElement } from '../src/elements/useElement';
+import { ElementMapper } from '../../src/core/types';
+import { useBasisTheoryValue } from '../../src/elements/useBasisTheoryValue';
+import { useElement } from '../../src/elements/useElement';
 
-jest.mock('../src/elements/useBasisTheoryValue');
+jest.mock('../../src/elements/useBasisTheoryValue');
 
 describe('useElement', () => {
   const chance = new Chance();

@@ -4,7 +4,7 @@ import type {
 } from '@basis-theory/basis-theory-elements-interfaces/elements';
 import { renderHook } from '@testing-library/react-hooks';
 import { Chance } from 'chance';
-import { useListener } from '../src/elements/useListener';
+import { useListener } from '../../src/elements/useListener';
 
 describe('useListener', () => {
   const chance = new Chance();

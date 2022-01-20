@@ -2,11 +2,11 @@ import * as React from 'react';
 import type { BasisTheoryInitOptions } from '@basis-theory/basis-theory-js/types';
 import { renderHook } from '@testing-library/react-hooks';
 import { Chance } from 'chance';
-import { useBasisTheory } from '../src';
-import { BasisTheoryProvider } from '../src/core/BasisTheoryProvider';
-import { BasisTheoryReact } from '../src/core/BasisTheoryReact';
+import { useBasisTheory } from '../../src';
+import { BasisTheoryProvider } from '../../src/core/BasisTheoryProvider';
+import { BasisTheoryReact } from '../../src/core/BasisTheoryReact';
 
-jest.mock('../src/core/BasisTheoryReact');
+jest.mock('../../src/core/BasisTheoryReact');
 
 describe('useBasisTheory', () => {
   const chance = new Chance();

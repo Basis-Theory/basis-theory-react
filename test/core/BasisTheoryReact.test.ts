@@ -1,6 +1,6 @@
 import type { BaseElement } from '@basis-theory/basis-theory-elements-interfaces/elements';
 import { Chance } from 'chance';
-import { BasisTheoryReact } from '../src/core/BasisTheoryReact';
+import { BasisTheoryReact } from '../../src/core/BasisTheoryReact';
 
 describe('BasisTheoryReact', () => {
   const chance = new Chance();

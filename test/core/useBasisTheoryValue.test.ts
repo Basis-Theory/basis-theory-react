@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react-hooks';
-import type { BasisTheoryReact } from '../src';
-import { useBasisTheory } from '../src/core/useBasisTheory';
-import { useBasisTheoryValue } from '../src/elements/useBasisTheoryValue';
+import type { BasisTheoryReact } from '../../src';
+import { useBasisTheory } from '../../src/core/useBasisTheory';
+import { useBasisTheoryValue } from '../../src/elements/useBasisTheoryValue';
 
-jest.mock('../src/core/useBasisTheory');
+jest.mock('../../src/core/useBasisTheory');
 
 describe('useBasisTheoryValue', () => {
   let btParam: BasisTheoryReact<true>;
