@@ -2,18 +2,23 @@ import * as React from 'react';
 import type { ElementStyle } from '@basis-theory/basis-theory-elements-interfaces/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
-import { CardElement } from '../../src';
+import { TextElement } from '../../src';
 import { useElement } from '../../src/elements/useElement';
 import { useListener } from '../../src/elements/useListener';
 
 jest.mock('../../src/elements/useElement');
 jest.mock('../../src/elements/useListener');
 
-describe('CardElement', () => {
+describe('TextElement', () => {
   const chance = new Chance();
 
   let style: ElementStyle;
   let disabled: boolean;
+  let ariaLabel: string;
+  let password: boolean;
+  let mask: (RegExp | string)[];
+  let placeholder: string;
+  let transform: RegExp;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -26,6 +31,18 @@ describe('CardElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    ariaLabel = chance.string();
+    password = chance.bool();
+    mask = chance.pickset(
+      [/\d/u, '-'],
+      chance.integer({
+        min: 1,
+        max: 10,
+      })
+    );
+    placeholder = chance.string();
+    transform = chance.pickone([/\d/u, /./u]);
+
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -40,25 +57,36 @@ describe('CardElement', () => {
 
   test('should match snapshot and call lifecycle hook properly', () => {
     const { container } = render(
-      <CardElement
+      <TextElement
+        aria-label={ariaLabel}
         disabled={disabled}
-        id="my-card"
+        id="my-input"
+        mask={mask as never} // the need of this cast acts a props typings test :-)
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         onReady={onReady}
+        password={password}
+        placeholder={placeholder}
         style={style}
+        transform={transform}
       />
     );
 
     expect(container).toMatchSnapshot();
     expect(useElement).toHaveBeenCalledWith(
-      'my-card',
-      'card',
+      'my-input',
+      'text',
       {
+        targetId: 'my-input',
         style,
         disabled,
+        'aria-label': ariaLabel,
+        mask,
+        password,
+        placeholder,
+        transform,
       },
       undefined
     );

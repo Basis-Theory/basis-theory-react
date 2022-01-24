@@ -41,7 +41,7 @@ const shallowDifference = <
  */
 const useElement = <
   Element extends BaseElement<unknown>,
-  Options extends { [key: string]: unknown }
+  Options extends unknown
 >(
   id: string,
   type: ElementType,
@@ -55,7 +55,7 @@ const useElement = <
 
   useEffect(() => {
     if (bt && !element) {
-      const newElement = bt.createElement(type as never, options);
+      const newElement = bt.createElement(type as never, options as never);
 
       newElement.mount(`#${id}`);
       bt.indexElement(id, newElement);
@@ -78,7 +78,10 @@ const useElement = <
 
   useEffect(() => {
     if (element?.mounted && options !== lastOptions) {
-      const optionsDifference = shallowDifference(lastOptions, options);
+      const optionsDifference = shallowDifference(
+        lastOptions as Record<string, unknown>,
+        options as Record<string, unknown>
+      );
 
       if (Object.keys(optionsDifference).length) {
         setLastOptions(options);
