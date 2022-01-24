@@ -1,3 +1,17 @@
+# [1.0.0-alpha.10](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-01-24)
+
+
+### Features
+
+* add TextElement ([#46](https://github.com/Basis-Theory/basis-theory-react/issues/46)) ([76e86a4](https://github.com/Basis-Theory/basis-theory-react/commit/76e86a4377fe0564d92749ee83a5614fbe20b7e8))
+
+# [1.0.0-alpha.9](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2022-01-24)
+
+
+### Features
+
+* new implementation ([#41](https://github.com/Basis-Theory/basis-theory-react/issues/41)) ([272a147](https://github.com/Basis-Theory/basis-theory-react/commit/272a14775b81a34521f67b1bb9d887ee20fc19c8))
+
 # [1.0.0-alpha.8](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-08-26)
 
 
