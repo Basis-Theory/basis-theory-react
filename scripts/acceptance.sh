@@ -11,8 +11,6 @@ echo "Running tests..."
 
 # unit
 yarn test --coverage
-# e2e TODO
-# yarn test:e2e
 
 result=$?
 

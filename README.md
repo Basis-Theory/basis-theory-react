@@ -1,66 +1,115 @@
 # Basis Theory React
 
-This project is meant to be used in internal Basis Theory solutions (i.e. Portal), until it is strong enough for going
-public.
+[![Version](https://img.shields.io/npm/v/@basis-theory/basis-theory-react.svg)](https://www.npmjs.org/package/@basis-theory/basis-theory-react)
+[![Verify](https://github.com/Basis-Theory/basis-theory-react/actions/workflows/release.yml/badge.svg)](https://github.com/Basis-Theory/basis-theory-react/actions/workflows/release.yml)
 
-## Usage
+A thin React wrapper for [Basis Theory](https://basistheory.com/) JS SDK.
 
-Install the package:
+## Installation
 
-```shell
+Using [Node Package Manager](https://docs.npmjs.com/)
+
+```sh
+npm install --save @basis-theory/basis-theory-react
+```
+
+Using [Yarn](https://classic.yarnpkg.com/en/docs/)
+
+```sh
 yarn add @basis-theory/basis-theory-react
 ```
 
-Declare the `Elements` provider in a wrapping component
+## Documentation
+
+For a complete list of endpoints and examples, please refer to our [React docs](https://docs.basistheory.com/elements#react-package)
+
+## Usage
+
+### Initialization
+
+Initializing the SDK is done via calling the `useBasisTheory` hook with parameters:
 
 ```jsx
-import { Elements, useBasisTheory } from "@basis-theory/basis-theory-react";
+import { useBasisTheory } from '@basis-theory/basis-theory-react';
 
 export default function MyWrapper() {
+  const { bt, error } = useBasisTheory('key_N88mVGsp3sCXkykyN2EFED'); // replace with your application key
 
-  const bt = useBasisTheory('my-elements-key', {
-    elements: true
-  })
+  // instance stays undefined during initialization
+  if (bt) {
+    // able to call BasisTheory methods
+  }
 
-  return <Elements bt={bt}>
-    <MyForm />
-  </Elements>
+  if (error) {
+    // initialization error
+  }
 }
 ```
 
-Call `useElements` hook along with elements tags (i.e. `CardElement`).
+### Context Provider
+
+You can pass the `BasisTheoryReact` instance down to your component tree using `BasisTheoryProvider`, and access it later calling the `useBasisTheory` hook without any parameters:
 
 ```jsx
-import { CardElement, useElements } from "@basis-theory/basis-theory-react";
+import {
+  BasisTheoryProvider,
+  useBasisTheory,
+} from '@basis-theory/basis-theory-react';
 
-export default function MyForm() {
+const App = () => {
+  const { bt } = useBasisTheory('key_N88mVGsp3sCXkykyN2EFED', {
+    elements: true,
+  });
 
-  const { getElement, elements } = useElements();
+  return (
+    <BasisTheoryProvider bt={bt}>
+      <MyComponent />
+    </BasisTheoryProvider>
+  );
+};
 
-  const submit = async () => {
-    try {
-      const token = await elements?.storeCreditCard({
-        card: getElement("my-card")
-      });
-    } catch(e) {
-      console.error(e)
-    }
-  };
+const MyComponent = () => {
+  // calling this hook with no attributes grabs the instance from Context
+  const { bt } = useBasisTheory();
 
-  return <>
-    <div>
-      <CardElement id="my-card" />
-    </div>
-    <div>
-      <button onClick={submit}>Submit</button>
-    </div>
-  </>
-}
+  return <div>My content</div>;
+};
+```
+
+### Elements
+
+[Elements](https://docs.basistheory.com/elements) capabilities are available when passing `elements: true` in initialization options.
+
+```jsx
+import {
+  BasisTheoryProvider,
+  TextElement,
+  useBasisTheory,
+} from '@basis-theory/basis-theory-react';
+
+const App = () => {
+  const { bt } = useBasisTheory('key_N88mVGsp3sCXkykyN2EFED', {
+    elements: true,
+  });
+
+  return (
+    <BasisTheoryProvider bt={bt}>
+      <MyComponent />
+    </BasisTheoryProvider>
+  );
+};
+
+const MyComponent = () => {
+  // calling this hook with no attributes grabs the instance from Context
+  const { bt } = useBasisTheory();
+
+  return <TextElement id="myInput" />;
+};
 ```
 
 ## Development
 
-The provided scripts with the SDK will check for all dependencies, build the solution, and run all tests.
+The provided scripts with the SDK will check for all dependencies, build the solution and run all tests.
 
 ### Dependencies
 
@@ -71,6 +120,6 @@ The provided scripts with the SDK will check for all dependencies, build the sol
 
 Run the following command from the root of the project:
 
-```shell
+```sh
 make verify
 ```
