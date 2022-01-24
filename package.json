@@ -1,14 +1,14 @@
 {
   "name": "@basis-theory/basis-theory-react",
   "version": "0.0.1",
-  "description": "Thin React wrapper BasisTheory JS SDK",
+  "description": "Thin React wrapper for BasisTheory JS SDK",
   "repository": "https://github.com/Basis-Theory/basis-theory-react",
+  "license": "Apache-2.0",
   "author": {
     "name": "Basis Theory",
     "email": "support@basistheory.com"
   },
   "main": "dist/index.js",
-  "license": "UNLICENSED",
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
