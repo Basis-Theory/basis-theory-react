@@ -34,10 +34,10 @@ jobs:
         env:
           SKIP_INSTALL: 1 # install with cache was done already
 
-#      - name: Monitor coverage
-#        uses: slavcodev/coverage-monitor-action@1.2.0
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          clover_file: 'coverage/clover.xml'
-#          threshold_alert: 80
-#          threshold_warning: 90
+      - name: Monitor coverage
+        uses: slavcodev/coverage-monitor-action@1.2.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          clover_file: 'coverage/clover.xml'
+          threshold_alert: 80
+          threshold_warning: 90

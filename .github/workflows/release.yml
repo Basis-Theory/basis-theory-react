@@ -41,6 +41,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_PAT }}
 
+      - name: Dispatch integration tests run
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Verify
+          repo: Basis-Theory/basis-theory-js-examples
+          token: ${{ secrets.WORKFLOW_DISPATCH_TOKEN }}
+          ref: master
+          inputs: '{ "source": "Basis-Theory/basis-theory-react" }'
+
       - name: Slack Deploy / Release Alert
         uses: 8398a7/action-slack@v3
         if: always()
