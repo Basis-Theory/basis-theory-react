@@ -70,6 +70,9 @@ const useElement = <
         setElement(undefined);
       }
     };
+    // the only two dependencies that we need to watch for
+    // are bt and element. Anything else changing should not
+    // be considered for creating/mounting an element
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bt, element]);
 

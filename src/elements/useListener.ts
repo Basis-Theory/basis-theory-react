@@ -19,6 +19,8 @@ const useListener = <T extends EventType, E extends BaseElement<unknown>>(
     }
 
     return () => subscription?.unsubscribe();
+    // we shouldn't run this effect when eventType changes
+    // which would turn out to be a different listener
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [element, listener]);
 

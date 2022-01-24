@@ -105,7 +105,7 @@ describe('useElement', () => {
       },
     });
     expect(update).toHaveBeenLastCalledWith({
-      [option2]: expect.any(String),
+      [option2]: value2,
     });
 
     // #3 update - removes option1
