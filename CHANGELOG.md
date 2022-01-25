@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.1...v1.0.2) (2022-01-25)
+
+
+### Bug Fixes
+
+* bump ansi-regex to patch CVE-2021-3807 ([#48](https://github.com/Basis-Theory/basis-theory-react/issues/48)) ([56cc108](https://github.com/Basis-Theory/basis-theory-react/commit/56cc10830eb88620c278d8648bbe710b7e8986ef))
+
 ## [1.0.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0...v1.0.1) (2022-01-25)
 
 
