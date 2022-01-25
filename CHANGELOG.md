@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.0...v1.0.1) (2022-01-25)
+
+
+### Bug Fixes
+
+* add README to package ([3b54353](https://github.com/Basis-Theory/basis-theory-react/commit/3b543530f6d113bc399c20dddbcfc1db28cc5b3b))
+
 # 1.0.0 (2022-01-25)
 
 
