@@ -1286,21 +1286,23 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@basis-theory/basis-theory-elements-interfaces@^3.2.0", "@basis-theory/basis-theory-elements-interfaces@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements-interfaces/-/basis-theory-elements-interfaces-3.3.0.tgz#62928ad51b727d0d7bb2a665fd8524c7b4192615"
-  integrity sha512-h/92hL5L+1Uoj/fkPZaxHDw17tsDqmIrBxHKzc0i54id5o1Ylmiv0K8bYWvpRpbpPnLfSFve6JdNGEcPsd1i4g==
+"@basis-theory/basis-theory-elements-interfaces@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements-interfaces/-/basis-theory-elements-interfaces-3.8.0.tgz#b7a5edca009e7deed5a05e9169452a75544f60de"
+  integrity sha512-9CBwOttK7kKRxddfToH5MLGFEAPRT21cL+cBg9A5y5yQJWbEplDfJcQ+v//uSVxhFAsrPY1CrqNsT5bcgsfnDg==
   dependencies:
     csstype "^3.0.8"
 
-"@basis-theory/basis-theory-js@1.20.0":
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.20.0.tgz#2c8e89840c8f4b35403189f1430ccea1ffe0d539"
-  integrity sha512-aAOwEBK4rS/FP+Q8K5ra7mx2M2ENRcL1cismkFO//JXpx+alXrjIBAqYTiklir9GkK+dS+IyPbe7fZ2tQx+JYA==
+"@basis-theory/basis-theory-js@1.25.0":
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.25.0.tgz#d3814f0cc601485335f0a3d169b628e9a03c4f6f"
+  integrity sha512-6Av0bi8pWdriCoWDHfWjSqgqIyrA4k/iggjD6yQ9OL4A1bN4q2JRMDAaVDf92EWIQS4Zo5z0WuNpUyeDExTVgg==
   dependencies:
-    "@basis-theory/basis-theory-elements-interfaces" "^3.2.0"
+    "@basis-theory/basis-theory-elements-interfaces" "^3.8.0"
     axios "^0.21.2"
     camelcase-keys "^6.2.2"
+    os "^0.1.2"
+    os-browserify "^0.3.0"
     snake-case "^3.0.4"
     snakecase-keys "^3.2.1"
 
@@ -6912,6 +6914,16 @@ optionator@^0.9.1:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.3"
+
+os-browserify@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
+  integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
+
+os@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/os/-/os-0.1.2.tgz#f29a50c62908516ba42652de42f7038600cadbc2"
+  integrity sha512-ZoXJkvAnljwvc56MbvhtKVWmSkzV712k42Is2mA0+0KTSRakq5XXuXpjZjgAt9ctzl51ojhQWakQQpmOvXWfjQ==
 
 p-each-series@^2.1.0:
   version "2.2.0"
