@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.4...v1.0.5) (2022-04-20)
+
+
+### Bug Fixes
+
+* export common errors ([#70](https://github.com/Basis-Theory/basis-theory-react/issues/70)) ([9596522](https://github.com/Basis-Theory/basis-theory-react/commit/95965223f192dca7b88887490eebe738aeeae9e9))
+
 ## [1.0.4](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.3...v1.0.4) (2022-04-19)
 
 
