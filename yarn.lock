@@ -1293,10 +1293,10 @@
   dependencies:
     csstype "^3.0.8"
 
-"@basis-theory/basis-theory-js@1.25.0":
-  version "1.25.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.25.0.tgz#d3814f0cc601485335f0a3d169b628e9a03c4f6f"
-  integrity sha512-6Av0bi8pWdriCoWDHfWjSqgqIyrA4k/iggjD6yQ9OL4A1bN4q2JRMDAaVDf92EWIQS4Zo5z0WuNpUyeDExTVgg==
+"@basis-theory/basis-theory-js@1.25.1":
+  version "1.25.1"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.25.1.tgz#21199829167998e1520e57760c99610b53d26b75"
+  integrity sha512-eLsKg342u6+wQeX/hYuThndnQ7bIaOCclUqbOEem0CLiThB40gv86vTI1wnx2ciN1ilJNhoSp1QvITyT8nq82Q==
   dependencies:
     "@basis-theory/basis-theory-elements-interfaces" "^3.8.0"
     axios "^0.21.2"
