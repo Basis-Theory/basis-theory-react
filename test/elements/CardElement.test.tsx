@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ElementStyle } from '@basis-theory/basis-theory-elements-interfaces/elements';
+import type { ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
 import { CardElement } from '../../src';

@@ -1,8 +1,8 @@
 import type {
   BaseElement,
   BasisTheoryElements,
-} from '@basis-theory/basis-theory-elements-interfaces/elements';
-import type { BasisTheory } from '@basis-theory/basis-theory-elements-interfaces/sdk';
+} from '@basis-theory/basis-theory-js/types/elements';
+import type { BasisTheory } from '@basis-theory/basis-theory-js/types/sdk';
 
 interface GetElement {
   getElement<Element extends BaseElement<unknown>>(id: string): Element;

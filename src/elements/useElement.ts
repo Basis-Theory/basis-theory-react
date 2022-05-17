@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type {
   BaseElement,
   ElementType,
-} from '@basis-theory/basis-theory-elements-interfaces/elements';
+} from '@basis-theory/basis-theory-js/types/elements';
 import { BasisTheoryReact } from '../core';
 import { useBasisTheoryValue } from './useBasisTheoryValue';
 

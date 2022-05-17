@@ -1,7 +1,7 @@
 import type {
   BasisTheoryElements,
   ElementType,
-} from '@basis-theory/basis-theory-elements-interfaces/elements';
+} from '@basis-theory/basis-theory-js/types/elements';
 import { renderHook } from '@testing-library/react-hooks';
 import { Chance } from 'chance';
 import { ElementMapper } from '../../src/core/types';
