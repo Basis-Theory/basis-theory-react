@@ -4,7 +4,7 @@ import type {
   CreateCardElementOptions,
   ElementEventListener,
   ElementStyle,
-} from '@basis-theory/basis-theory-elements-interfaces/elements';
+} from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';

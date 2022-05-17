@@ -1,4 +1,4 @@
-import { BasisTheoryElements } from '@basis-theory/basis-theory-elements-interfaces/elements';
+import type { BasisTheoryElements } from '@basis-theory/basis-theory-js/types/elements';
 import { BasisTheoryReact, useBasisTheory } from '../core';
 import { ElementMapper } from '../core/types';
 

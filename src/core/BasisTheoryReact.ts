@@ -1,5 +1,5 @@
-import { BaseElement } from '@basis-theory/basis-theory-elements-interfaces/elements';
 import { BasisTheory } from '@basis-theory/basis-theory-js';
+import type { BaseElement } from '@basis-theory/basis-theory-js/types/elements';
 import type {
   BasisTheoryReact as IBasisTheoryReact,
   ElementMapper,

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type {
   BasisTheoryInitOptionsWithElements,
   BasisTheoryInitOptionsWithoutElements,
-} from '@basis-theory/basis-theory-elements-interfaces/sdk';
+} from '@basis-theory/basis-theory-js/types/sdk';
 import { useBasisTheoryFromContext } from './BasisTheoryProvider';
 import { BasisTheoryReact } from './BasisTheoryReact';
 import type { BasisTheoryReact as IBasisTheoryReact } from './types';
@@ -53,7 +53,7 @@ function useBasisTheory(
           });
         } catch (error) {
           setState({
-            error,
+            error: error as Error,
           });
         }
       }
