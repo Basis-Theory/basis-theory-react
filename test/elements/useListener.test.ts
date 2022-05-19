@@ -10,7 +10,7 @@ describe('useListener', () => {
   const chance = new Chance();
 
   let eventType: EventType;
-  let element: BaseElement<unknown>;
+  let element: BaseElement<unknown, unknown>;
   let unsubscribe: jest.Mock;
 
   beforeEach(() => {
@@ -20,7 +20,7 @@ describe('useListener', () => {
       on: jest.fn().mockReturnValue({
         unsubscribe,
       }),
-    } as unknown as BaseElement<unknown>;
+    } as unknown as BaseElement<unknown, unknown>;
   });
 
   test('should not subscribe without a listener', () => {

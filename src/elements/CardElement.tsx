@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import type {
   CardElement as ICardElement,
   CreateCardElementOptions,
+  CardElementEvents,
   ElementEventListener,
   ElementStyle,
 } from '@basis-theory/basis-theory-js/types/elements';
@@ -14,11 +15,11 @@ interface CardElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
-  onChange?: ElementEventListener<'change'>;
-  onFocus?: ElementEventListener<'focus'>;
-  onBlur?: ElementEventListener<'blur'>;
-  onReady?: ElementEventListener<'ready'>;
-  onKeyDown?: ElementEventListener<'keydown'>;
+  onChange?: ElementEventListener<CardElementEvents, 'change'>;
+  onFocus?: ElementEventListener<CardElementEvents, 'focus'>;
+  onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
+  onReady?: ElementEventListener<CardElementEvents, 'ready'>;
+  onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
 }
 
 export const CardElement: FC<CardElementProps> = ({
