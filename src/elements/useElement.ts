@@ -40,7 +40,7 @@ const shallowDifference = <
  * @returns created element and initial options used for mounting
  */
 const useElement = <
-  Element extends BaseElement<unknown>,
+  Element extends BaseElement<unknown, unknown>,
   Options extends unknown
 >(
   id: string,

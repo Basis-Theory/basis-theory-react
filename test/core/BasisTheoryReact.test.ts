@@ -18,22 +18,26 @@ describe('BasisTheoryReact', () => {
     });
 
     test('should not get non indexed elements', () => {
-      expect(bt.getElement(id)).toBeUndefined();
+      expect(() => bt.getElement(id)).toThrow(
+        `Unable to find an Element with id "${id}". Please make sure there is an Element declared in the DOM with the provided id as a prop.`
+      );
     });
     test('should index elements', () => {
-      const element = {} as BaseElement<unknown>;
+      const element = {} as BaseElement<unknown, unknown>;
 
       bt.indexElement(id, element);
 
       expect(bt.getElement(id)).toBe(element);
     });
     test('should dispose elements', () => {
-      const element = {} as BaseElement<unknown>;
+      const element = {} as BaseElement<unknown, unknown>;
 
       bt.indexElement(id, element);
       bt.disposeElement(id);
 
-      expect(bt.getElement(id)).toBeUndefined();
+      expect(() => bt.getElement(id)).toThrow(
+        `Unable to find an Element with id "${id}". Please make sure there is an Element declared in the DOM with the provided id as a prop.`
+      );
     });
   });
 });

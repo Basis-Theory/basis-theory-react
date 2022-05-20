@@ -5,11 +5,13 @@ import type {
 import type { BasisTheory } from '@basis-theory/basis-theory-js/types/sdk';
 
 interface GetElement {
-  getElement<Element extends BaseElement<unknown>>(id: string): Element;
+  getElement<Element extends BaseElement<unknown, unknown>>(
+    id: string
+  ): Element;
 }
 
 interface ElementMapper extends GetElement {
-  indexElement(id: string, element: BaseElement<unknown>): void;
+  indexElement(id: string, element: BaseElement<unknown, unknown>): void;
   disposeElement(id: string): void;
 }
 

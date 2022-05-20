@@ -4,6 +4,7 @@ import type {
   CreateTextElementOptions,
   ElementEventListener,
   ElementStyle,
+  TextElementEvents,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -17,11 +18,11 @@ interface BaseTextElementProps {
   'aria-label'?: string;
   placeholder?: string;
   transform?: RegExp | [RegExp, string?];
-  onChange?: ElementEventListener<'change'>;
-  onFocus?: ElementEventListener<'focus'>;
-  onBlur?: ElementEventListener<'blur'>;
-  onReady?: ElementEventListener<'ready'>;
-  onKeyDown?: ElementEventListener<'keydown'>;
+  onChange?: ElementEventListener<TextElementEvents, 'change'>;
+  onFocus?: ElementEventListener<TextElementEvents, 'focus'>;
+  onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
+  onReady?: ElementEventListener<TextElementEvents, 'ready'>;
+  onKeyDown?: ElementEventListener<TextElementEvents, 'keydown'>;
 }
 
 interface MaskedTextElementProps extends BaseTextElementProps {
