@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.1.0...v1.2.0) (2022-05-20)
+
+
+### Features
+
+* add cardBrand to CardElement change event ([#79](https://github.com/Basis-Theory/basis-theory-react/issues/79)) ([d26cf57](https://github.com/Basis-Theory/basis-theory-react/commit/d26cf57e526c74935a1e164be1168fbd51be6ffd))
+
 # [1.1.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.0.5...v1.1.0) (2022-05-17)
 
 
