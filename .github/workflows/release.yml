@@ -31,8 +31,8 @@ jobs:
         with:
           install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
 
-      - name: Verify
-        run: make verify
+      - name: Build
+        run: make build
         env:
           SKIP_INSTALL: 1 # install with cache was done already
 
