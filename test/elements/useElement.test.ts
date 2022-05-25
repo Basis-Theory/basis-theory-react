@@ -4,9 +4,9 @@ import type {
 } from '@basis-theory/basis-theory-js/types/elements';
 import { renderHook } from '@testing-library/react-hooks';
 import { Chance } from 'chance';
-import { ElementMapper } from '../../src/core/types';
 import { useBasisTheoryValue } from '../../src/elements/useBasisTheoryValue';
 import { useElement } from '../../src/elements/useElement';
+import { ElementMapper } from '../../src/types';
 
 jest.mock('../../src/elements/useBasisTheoryValue');
 

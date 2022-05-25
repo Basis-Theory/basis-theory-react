@@ -40,7 +40,8 @@ const shallowDifference = <
  * @returns created element and initial options used for mounting
  */
 const useElement = <
-  Element extends BaseElement<unknown, unknown>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Element extends BaseElement<any, any>,
   Options extends unknown
 >(
   id: string,

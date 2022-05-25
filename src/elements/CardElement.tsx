@@ -10,7 +10,7 @@ import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-interface CardElementProps {
+export interface CardElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;

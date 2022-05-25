@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import type {
-  TextElement as ITextElement,
-  CreateTextElementOptions,
+  CardExpirationDateElement as ICardExpirationDateElement,
+  CreateCardExpirationDateElementOptions,
   ElementEventListener,
   ElementStyle,
   TextElementEvents,
@@ -10,14 +10,13 @@ import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-interface BaseTextElementProps {
+export interface CardExpirationDateElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
   'aria-label'?: string;
   placeholder?: string;
-  transform?: RegExp | [RegExp, string?];
   onChange?: ElementEventListener<TextElementEvents, 'change'>;
   onFocus?: ElementEventListener<TextElementEvents, 'focus'>;
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
@@ -25,48 +24,31 @@ interface BaseTextElementProps {
   onKeyDown?: ElementEventListener<TextElementEvents, 'keydown'>;
 }
 
-interface MaskedTextElementProps extends BaseTextElementProps {
-  mask?: (RegExp | string)[];
-  password?: false;
-}
-
-interface PasswordTextElementProps extends BaseTextElementProps {
-  mask?: never;
-  password: true;
-}
-
-export type TextElementProps =
-  | MaskedTextElementProps
-  | PasswordTextElementProps;
-
-export const TextElement: FC<TextElementProps> = ({
+export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   id,
   bt,
   style,
   disabled,
   'aria-label': ariaLabel,
   placeholder,
-  transform,
-  mask,
-  password,
   onReady,
   onChange,
   onFocus,
   onBlur,
   onKeyDown,
 }) => {
-  const element = useElement<ITextElement, CreateTextElementOptions>(
+  const element = useElement<
+    ICardExpirationDateElement,
+    CreateCardExpirationDateElementOptions
+  >(
     id,
-    'text',
+    'cardExpirationDate',
     {
       targetId: id,
       style,
       disabled,
       'aria-label': ariaLabel,
-      mask,
-      password,
       placeholder,
-      transform,
     },
     bt
   );

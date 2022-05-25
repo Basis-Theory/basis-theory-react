@@ -1,6 +1,6 @@
 import type { BasisTheoryElements } from '@basis-theory/basis-theory-js/types/elements';
 import { BasisTheoryReact, useBasisTheory } from '../core';
-import { ElementMapper } from '../core/types';
+import { ElementMapper } from '../types';
 
 /**
  * Resolves which BasisTheoryReact instance to use,
