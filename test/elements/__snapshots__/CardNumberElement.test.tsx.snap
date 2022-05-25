@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardNumberElement should match snapshot and call lifecycle hook properly 1`] = `
+<div>
+  <div
+    id="my-card-number"
+  />
+</div>
+`;
