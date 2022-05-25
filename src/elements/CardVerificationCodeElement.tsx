@@ -1,36 +1,44 @@
 import React, { FC } from 'react';
 import type {
-  CardExpirationDateElement as ICardExpirationDateElement,
-  CreateCardExpirationDateElementOptions,
+  CardVerificationCodeElement as ICardVerificationCodeElement,
+  CreateCardVerificationCodeElementOptions,
   ElementEventListener,
   ElementStyle,
-  CardExpirationDateElementEvents,
+  CardVerificationCodeElementEvents,
+  Brand,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardExpirationDateElementProps {
+export interface CardVerificationCodeElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
   'aria-label'?: string;
   placeholder?: string;
-  onChange?: ElementEventListener<CardExpirationDateElementEvents, 'change'>;
-  onFocus?: ElementEventListener<CardExpirationDateElementEvents, 'focus'>;
-  onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
-  onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
-  onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
+  cardBrand?: Brand;
+  onChange?: ElementEventListener<CardVerificationCodeElementEvents, 'change'>;
+  onFocus?: ElementEventListener<CardVerificationCodeElementEvents, 'focus'>;
+  onBlur?: ElementEventListener<CardVerificationCodeElementEvents, 'blur'>;
+  onReady?: ElementEventListener<CardVerificationCodeElementEvents, 'ready'>;
+  onKeyDown?: ElementEventListener<
+    CardVerificationCodeElementEvents,
+    'keydown'
+  >;
 }
 
-export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
+export const CardVerificationCodeElement: FC<
+  CardVerificationCodeElementProps
+> = ({
   id,
   bt,
   style,
   disabled,
   'aria-label': ariaLabel,
   placeholder,
+  cardBrand,
   onReady,
   onChange,
   onFocus,
@@ -38,17 +46,18 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   onKeyDown,
 }) => {
   const element = useElement<
-    ICardExpirationDateElement,
-    CreateCardExpirationDateElementOptions
+    ICardVerificationCodeElement,
+    CreateCardVerificationCodeElementOptions
   >(
     id,
-    'cardExpirationDate',
+    'cardVerificationCode',
     {
       targetId: id,
       style,
       disabled,
       'aria-label': ariaLabel,
       placeholder,
+      cardBrand,
     },
     bt
   );
