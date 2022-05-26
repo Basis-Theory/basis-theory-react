@@ -1,3 +1,4 @@
+import type { ForwardedRef } from 'react';
 import { useEffect, useState } from 'react';
 import type {
   BaseElement,
@@ -37,6 +38,7 @@ const shallowDifference = <
  * @param type
  * @param options
  * @param btFromProps
+ * @param ref optional ref to set the underlying element
  * @returns created element and initial options used for mounting
  */
 const useElement = <
@@ -47,7 +49,8 @@ const useElement = <
   id: string,
   type: ElementType,
   options: Options,
-  btFromProps?: BasisTheoryReact
+  btFromProps?: BasisTheoryReact,
+  ref?: ForwardedRef<Element>
 ): Element | undefined => {
   const bt = useBasisTheoryValue(btFromProps);
 
@@ -56,12 +59,24 @@ const useElement = <
 
   useEffect(() => {
     if (bt && !element) {
-      const newElement = bt.createElement(type as never, options as never);
+      const newElement = bt.createElement(
+        type as never,
+        options as never
+      ) as Element;
+
+      if (typeof ref === 'function') {
+        ref(newElement);
+      }
+
+      if (ref && typeof ref === 'object') {
+        // eslint-disable-next-line no-param-reassign
+        ref.current = newElement;
+      }
 
       newElement.mount(`#${id}`);
       bt.indexElement(id, newElement);
       setLastOptions(options);
-      setElement(newElement as Element);
+      setElement(newElement);
     }
 
     return (): void => {

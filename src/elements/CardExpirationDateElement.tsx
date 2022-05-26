@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, ForwardedRef } from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
+  CardExpirationDateElementEvents,
   CreateCardExpirationDateElementOptions,
   ElementEventListener,
   ElementStyle,
-  CardExpirationDateElementEvents,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardExpirationDateElementProps {
+interface CardExpirationDateElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
@@ -22,9 +22,17 @@ export interface CardExpirationDateElementProps {
   onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
+  /**
+   * Container ref
+   */
+  ref?: ForwardedRef<HTMLDivElement>;
+  /**
+   * Underlying element ref
+   */
+  elementRef?: ForwardedRef<ICardExpirationDateElement>;
 }
 
-export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
+const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
   id,
   bt,
   style,
@@ -36,6 +44,8 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  ref,
+  elementRef,
 }) => {
   const element = useElement<
     ICardExpirationDateElement,
@@ -50,7 +60,8 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
       'aria-label': ariaLabel,
       placeholder,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -59,5 +70,12 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={ref} />;
 };
+
+export const CardExpirationDateElement = React.forwardRef<
+  HTMLDivElement,
+  CardExpirationDateElementProps
+>((props, ref) => <CardExpirationDateElementC {...props} ref={ref} />);
+
+export type { CardExpirationDateElementProps };
