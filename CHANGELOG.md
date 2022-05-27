@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.2.0...v1.3.0) (2022-05-27)
+
+
+### Features
+
+* add `CardExpirationDateElement`, `CardVerificationCodeElement` and `CardNumberElement` ([#81](https://github.com/Basis-Theory/basis-theory-react/issues/81)) ([0f51ce0](https://github.com/Basis-Theory/basis-theory-react/commit/0f51ce0480217a468217ba8a7c026e897d827662))
+
 # [1.2.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.1.0...v1.2.0) (2022-05-20)
 
 
