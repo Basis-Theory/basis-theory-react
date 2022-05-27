@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, ForwardedRef } from 'react';
 import type {
   CardElement as ICardElement,
-  CreateCardElementOptions,
   CardElementEvents,
+  CreateCardElementOptions,
   ElementEventListener,
   ElementStyle,
 } from '@basis-theory/basis-theory-js/types/elements';
@@ -10,7 +10,7 @@ import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardElementProps {
+interface CardElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
@@ -20,9 +20,17 @@ export interface CardElementProps {
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
+  /**
+   * Container ref
+   */
+  ref?: ForwardedRef<HTMLDivElement>;
+  /**
+   * Underlying element ref
+   */
+  elementRef?: ForwardedRef<ICardElement>;
 }
 
-export const CardElement: FC<CardElementProps> = ({
+const CardElementC: FC<CardElementProps> = ({
   id,
   bt,
   style,
@@ -32,6 +40,8 @@ export const CardElement: FC<CardElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  ref,
+  elementRef,
 }) => {
   const element = useElement<ICardElement, CreateCardElementOptions>(
     id,
@@ -40,7 +50,8 @@ export const CardElement: FC<CardElementProps> = ({
       style,
       disabled,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -49,5 +60,11 @@ export const CardElement: FC<CardElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={ref} />;
 };
+
+export const CardElement = React.forwardRef<HTMLDivElement, CardElementProps>(
+  (props, ref) => <CardElementC {...props} ref={ref} />
+);
+
+export type { CardElementProps };

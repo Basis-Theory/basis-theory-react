@@ -1,17 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, ForwardedRef } from 'react';
 import type {
+  Brand,
   CardVerificationCodeElement as ICardVerificationCodeElement,
+  CardVerificationCodeElementEvents,
   CreateCardVerificationCodeElementOptions,
   ElementEventListener,
   ElementStyle,
-  CardVerificationCodeElementEvents,
-  Brand,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardVerificationCodeElementProps {
+interface CardVerificationCodeElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
@@ -27,11 +27,17 @@ export interface CardVerificationCodeElementProps {
     CardVerificationCodeElementEvents,
     'keydown'
   >;
+  /**
+   * Container ref
+   */
+  ref?: ForwardedRef<HTMLDivElement>;
+  /**
+   * Underlying element ref
+   */
+  elementRef?: ForwardedRef<ICardVerificationCodeElement>;
 }
 
-export const CardVerificationCodeElement: FC<
-  CardVerificationCodeElementProps
-> = ({
+const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
   id,
   bt,
   style,
@@ -44,6 +50,8 @@ export const CardVerificationCodeElement: FC<
   onFocus,
   onBlur,
   onKeyDown,
+  ref,
+  elementRef,
 }) => {
   const element = useElement<
     ICardVerificationCodeElement,
@@ -59,7 +67,8 @@ export const CardVerificationCodeElement: FC<
       placeholder,
       cardBrand,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -68,5 +77,12 @@ export const CardVerificationCodeElement: FC<
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={ref} />;
 };
+
+export const CardVerificationCodeElement = React.forwardRef<
+  HTMLDivElement,
+  CardVerificationCodeElementProps
+>((props, ref) => <CardVerificationCodeElementC {...props} ref={ref} />);
+
+export type { CardVerificationCodeElementProps };
