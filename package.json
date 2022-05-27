@@ -30,7 +30,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@basis-theory/basis-theory-js": "^1.28.0"
+    "@basis-theory/basis-theory-js": "^1.31.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -38,7 +38,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@basis-theory/eslint-config": "^1.0.8",
+    "@basis-theory/eslint-config": "^1.0.12",
     "@commitlint/cli": "^16.0.2",
     "@commitlint/config-conventional": "^16.0.0",
     "@semantic-release/changelog": "^6.0.1",

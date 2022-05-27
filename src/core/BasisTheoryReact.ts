@@ -3,7 +3,7 @@ import type { BaseElement } from '@basis-theory/basis-theory-js/types/elements';
 import type {
   BasisTheoryReact as IBasisTheoryReact,
   ElementMapper,
-} from './types';
+} from '../types';
 
 export class BasisTheoryReact
   extends BasisTheory
@@ -11,7 +11,8 @@ export class BasisTheoryReact
 {
   private elementMap: { [id: string]: BaseElement<unknown, unknown> } = {};
 
-  public getElement<Element extends BaseElement<unknown, unknown>>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public getElement<Element extends BaseElement<any, any>>(
     id: string
   ): Element {
     const element = this.elementMap[id] as Element;

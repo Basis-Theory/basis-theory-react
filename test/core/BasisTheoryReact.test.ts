@@ -1,10 +1,14 @@
 import type { BaseElement } from '@basis-theory/basis-theory-js/types/elements';
 import { Chance } from 'chance';
 import { BasisTheoryReact } from '../../src/core/BasisTheoryReact';
+import {
+  BasisTheoryReact as IBasisTheoryReact,
+  ElementMapper,
+} from '../../src/types';
 
 describe('BasisTheoryReact', () => {
   const chance = new Chance();
-  let bt: BasisTheoryReact;
+  let bt: IBasisTheoryReact<true> & ElementMapper;
 
   beforeEach(() => {
     bt = new BasisTheoryReact();

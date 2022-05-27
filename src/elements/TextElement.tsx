@@ -35,7 +35,9 @@ interface PasswordTextElementProps extends BaseTextElementProps {
   password: true;
 }
 
-type TextElementProps = MaskedTextElementProps | PasswordTextElementProps;
+export type TextElementProps =
+  | MaskedTextElementProps
+  | PasswordTextElementProps;
 
 export const TextElement: FC<TextElementProps> = ({
   id,

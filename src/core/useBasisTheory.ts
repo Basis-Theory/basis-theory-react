@@ -3,9 +3,9 @@ import type {
   BasisTheoryInitOptionsWithElements,
   BasisTheoryInitOptionsWithoutElements,
 } from '@basis-theory/basis-theory-js/types/sdk';
+import type { BasisTheoryReact as IBasisTheoryReact } from '../types';
 import { useBasisTheoryFromContext } from './BasisTheoryProvider';
 import { BasisTheoryReact } from './BasisTheoryReact';
-import type { BasisTheoryReact as IBasisTheoryReact } from './types';
 
 type UseBasisTheory<Elements extends boolean> = {
   error?: Error;

@@ -4,7 +4,7 @@ import React, {
   useContext,
   useMemo,
 } from 'react';
-import type { BasisTheoryReact } from './types';
+import type { BasisTheoryReact } from '../types';
 
 interface BasisTheoryProviderValue {
   bt?: BasisTheoryReact<boolean>;

@@ -5,13 +5,16 @@ import type {
 import type { BasisTheory } from '@basis-theory/basis-theory-js/types/sdk';
 
 interface GetElement {
-  getElement<Element extends BaseElement<unknown, unknown>>(
-    id: string
-  ): Element;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getElement<T extends BaseElement<any, any>>(id: string): T;
 }
 
 interface ElementMapper extends GetElement {
-  indexElement(id: string, element: BaseElement<unknown, unknown>): void;
+  indexElement<T extends BaseElement<unknown, unknown>>(
+    id: string,
+    element: T
+  ): void;
+
   disposeElement(id: string): void;
 }
 
@@ -21,3 +24,11 @@ type BasisTheoryReact<Elements extends boolean = boolean> =
     : BasisTheory;
 
 export type { GetElement, ElementMapper, BasisTheoryReact };
+
+export type {
+  CardElement,
+  TextElement,
+  CardExpirationDateElement,
+  CardVerificationCodeElement,
+  CardNumberElement,
+} from '@basis-theory/basis-theory-js/types/elements';
