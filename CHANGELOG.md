@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.0...v1.3.1) (2022-06-02)
+
+
+### Bug Fixes
+
+* bump dependencies ([#89](https://github.com/Basis-Theory/basis-theory-react/issues/89)) ([9fe141e](https://github.com/Basis-Theory/basis-theory-react/commit/9fe141e9052aefa223daf3c0816fd5d40a53fd33))
+
 # [1.3.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.2.0...v1.3.0) (2022-05-27)
 
 
