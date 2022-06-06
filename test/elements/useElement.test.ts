@@ -18,9 +18,8 @@ describe('useElement', () => {
   let update: jest.Mock;
 
   beforeEach(() => {
-    mount = jest.fn();
-
-    update = jest.fn();
+    mount = jest.fn().mockResolvedValue(undefined);
+    update = jest.fn().mockResolvedValue(undefined);
     bt = {
       createElement: jest.fn().mockReturnValue({
         mount,
@@ -57,6 +56,22 @@ describe('useElement', () => {
     expect(mount).toHaveBeenCalledWith(`#${id}`);
     expect(result.current).toBeDefined();
     expect(bt.indexElement).toHaveBeenCalledWith(id, result.current);
+  });
+
+  test('should throw mount error in lifecycle', async () => {
+    const id = chance.string();
+    const type = chance.pickone<ElementType>(['card', 'text']);
+    const errorMessage = chance.string();
+
+    mount.mockRejectedValue(errorMessage);
+
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useElement(id, type, {})
+    );
+
+    await waitForNextUpdate();
+
+    expect(result.error).toStrictEqual(errorMessage);
   });
 
   test('should update options', () => {
@@ -134,5 +149,34 @@ describe('useElement', () => {
     });
 
     expect(update).toHaveBeenCalledTimes(4);
+  });
+
+  test('should throw update error in lifecycle', async () => {
+    const id = chance.string();
+    const type = chance.pickone<ElementType>(['card', 'text']);
+    const errorMessage = chance.string();
+
+    update.mockRejectedValue(errorMessage);
+
+    const { result, rerender, waitForNextUpdate } = renderHook(
+      ({ options }) => useElement(id, type, options),
+      {
+        initialProps: {
+          options: {},
+        },
+      }
+    );
+
+    // no error yet
+    expect(result.error).toBeUndefined();
+
+    // trigger error by updating (triggered options update)
+    rerender({
+      options: {
+        [chance.string()]: chance.string(),
+      },
+    });
+    await waitForNextUpdate();
+    expect(result.error).toStrictEqual(errorMessage);
   });
 });

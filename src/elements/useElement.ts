@@ -58,7 +58,11 @@ const useElement = <
     if (bt && !element) {
       const newElement = bt.createElement(type as never, options as never);
 
-      newElement.mount(`#${id}`);
+      newElement.mount(`#${id}`).catch((mountError) => {
+        setElement(() => {
+          throw mountError;
+        });
+      });
       bt.indexElement(id, newElement);
       setLastOptions(options);
       setElement(newElement as Element);
@@ -86,7 +90,11 @@ const useElement = <
 
       if (Object.keys(optionsDifference).length) {
         setLastOptions(options);
-        element.update(optionsDifference);
+        element.update(optionsDifference).catch((updateError) => {
+          setLastOptions(() => {
+            throw updateError;
+          });
+        });
       }
     }
   }, [element, options, lastOptions]);
