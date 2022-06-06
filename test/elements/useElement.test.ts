@@ -18,9 +18,8 @@ describe('useElement', () => {
   let update: jest.Mock;
 
   beforeEach(() => {
-    mount = jest.fn(() => Promise.resolve());
-
-    update = jest.fn(() => Promise.resolve());
+    mount = jest.fn().mockResolvedValue(undefined);
+    update = jest.fn().mockResolvedValue(undefined);
     bt = {
       createElement: jest.fn().mockReturnValue({
         mount,
