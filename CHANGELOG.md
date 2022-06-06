@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.1...v1.3.2) (2022-06-06)
+
+
+### Bug Fixes
+
+* throw Element's lifecycle rejections in the React render cycle ([#91](https://github.com/Basis-Theory/basis-theory-react/issues/91)) ([c72fc82](https://github.com/Basis-Theory/basis-theory-react/commit/c72fc829b8cdfd7912f3453ece5c3fdd6b4b0a18))
+
 ## [1.3.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.0...v1.3.1) (2022-06-02)
 
 
