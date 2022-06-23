@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.2...v1.3.3) (2022-06-23)
+
+
+### Bug Fixes
+
+* bump js sdk ([#94](https://github.com/Basis-Theory/basis-theory-react/issues/94)) ([e378a4f](https://github.com/Basis-Theory/basis-theory-react/commit/e378a4f3c9d0f2af0bc7b8b9e9f03ac47fb0e850))
+
 ## [1.3.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.1...v1.3.2) (2022-06-06)
 
 
