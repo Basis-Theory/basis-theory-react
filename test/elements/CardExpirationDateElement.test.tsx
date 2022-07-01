@@ -14,6 +14,7 @@ describe('CardExpirationDateElement', () => {
 
   let style: ElementStyle;
   let disabled: boolean;
+  let autoComplete: string;
   let ariaLabel: string;
   let placeholder: string;
   let onReady: jest.Mock;
@@ -28,6 +29,7 @@ describe('CardExpirationDateElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    autoComplete = chance.pickone(['on', 'off']);
     ariaLabel = chance.string();
     placeholder = chance.string();
 
@@ -47,6 +49,7 @@ describe('CardExpirationDateElement', () => {
     const { container } = render(
       <CardExpirationDateElement
         aria-label={ariaLabel}
+        autoComplete={autoComplete}
         disabled={disabled}
         id="my-card-expiration-date"
         onBlur={onBlur}
@@ -67,6 +70,7 @@ describe('CardExpirationDateElement', () => {
         targetId: 'my-card-expiration-date',
         style,
         disabled,
+        autoComplete,
         'aria-label': ariaLabel,
         placeholder,
       },

@@ -15,6 +15,7 @@ interface BaseTextElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  autoComplete?: string;
   'aria-label'?: string;
   placeholder?: string;
   transform?: RegExp | [RegExp, string?];
@@ -44,6 +45,7 @@ export const TextElement: FC<TextElementProps> = ({
   bt,
   style,
   disabled,
+  autoComplete,
   'aria-label': ariaLabel,
   placeholder,
   transform,
@@ -62,6 +64,7 @@ export const TextElement: FC<TextElementProps> = ({
       targetId: id,
       style,
       disabled,
+      autoComplete,
       'aria-label': ariaLabel,
       mask,
       password,

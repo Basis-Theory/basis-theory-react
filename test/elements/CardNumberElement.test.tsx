@@ -17,6 +17,7 @@ describe('CardNumberElement', () => {
 
   let style: ElementStyle;
   let disabled: boolean;
+  let autoComplete: string;
   let ariaLabel: string;
   let placeholder: string;
   let iconPosition: CreateCardNumberElementOptions['iconPosition'];
@@ -32,6 +33,7 @@ describe('CardNumberElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    autoComplete = chance.pickone(['on', 'off']);
     ariaLabel = chance.string();
     placeholder = chance.string();
     iconPosition = chance.pickone(['left', 'right', 'none', undefined]);
@@ -52,6 +54,7 @@ describe('CardNumberElement', () => {
     const { container } = render(
       <CardNumberElement
         aria-label={ariaLabel}
+        autoComplete={autoComplete}
         disabled={disabled}
         iconPosition={iconPosition}
         id="my-card-number"
@@ -73,6 +76,7 @@ describe('CardNumberElement', () => {
         targetId: 'my-card-number',
         style,
         disabled,
+        autoComplete,
         'aria-label': ariaLabel,
         placeholder,
         iconPosition,

@@ -16,6 +16,7 @@ export interface CardVerificationCodeElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  autoComplete?: string;
   'aria-label'?: string;
   placeholder?: string;
   cardBrand?: Brand;
@@ -36,6 +37,7 @@ export const CardVerificationCodeElement: FC<
   bt,
   style,
   disabled,
+  autoComplete,
   'aria-label': ariaLabel,
   placeholder,
   cardBrand,
@@ -55,6 +57,7 @@ export const CardVerificationCodeElement: FC<
       targetId: id,
       style,
       disabled,
+      autoComplete,
       'aria-label': ariaLabel,
       placeholder,
       cardBrand,

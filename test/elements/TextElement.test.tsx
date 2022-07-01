@@ -14,6 +14,7 @@ describe('TextElement', () => {
 
   let style: ElementStyle;
   let disabled: boolean;
+  let autoComplete: string;
   let ariaLabel: string;
   let password: boolean;
   let mask: (RegExp | string)[];
@@ -31,6 +32,7 @@ describe('TextElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    autoComplete = chance.pickone(['on', 'off']);
     ariaLabel = chance.string();
     password = chance.bool();
     mask = chance.pickset(
@@ -59,6 +61,7 @@ describe('TextElement', () => {
     const { container } = render(
       <TextElement
         aria-label={ariaLabel}
+        autoComplete={autoComplete}
         disabled={disabled}
         id="my-input"
         mask={mask as never} // the need of this cast acts a props typings test :-)
@@ -82,6 +85,7 @@ describe('TextElement', () => {
         targetId: 'my-input',
         style,
         disabled,
+        autoComplete,
         'aria-label': ariaLabel,
         mask,
         password,

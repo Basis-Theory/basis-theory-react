@@ -16,6 +16,7 @@ export interface CardNumberElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  autoComplete?: string;
   'aria-label'?: string;
   placeholder?: string;
   iconPosition?: SanitizedElementOptions['iconPosition'];
@@ -31,6 +32,7 @@ export const CardNumberElement: FC<CardNumberElementProps> = ({
   bt,
   style,
   disabled,
+  autoComplete,
   'aria-label': ariaLabel,
   placeholder,
   iconPosition,
@@ -50,6 +52,7 @@ export const CardNumberElement: FC<CardNumberElementProps> = ({
       targetId: id,
       style,
       disabled,
+      autoComplete,
       'aria-label': ariaLabel,
       placeholder,
       iconPosition,
