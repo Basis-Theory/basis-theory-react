@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.3...v1.4.0) (2022-07-01)
+
+
+### Features
+
+* add autoComplete option to elements ([#96](https://github.com/Basis-Theory/basis-theory-react/issues/96)) ([7cb90d4](https://github.com/Basis-Theory/basis-theory-react/commit/7cb90d40cbee57650ad8ae2f15d548e61bec27b6))
+
 ## [1.3.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.2...v1.3.3) (2022-06-23)
 
 
