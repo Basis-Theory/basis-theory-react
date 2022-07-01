@@ -14,6 +14,7 @@ describe('CardElement', () => {
 
   let style: ElementStyle;
   let disabled: boolean;
+  let autoComplete: string;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -26,6 +27,7 @@ describe('CardElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    autoComplete = chance.pickone(['on', 'off']);
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -41,6 +43,7 @@ describe('CardElement', () => {
   test('should match snapshot and call lifecycle hook properly', () => {
     const { container } = render(
       <CardElement
+        autoComplete={autoComplete}
         disabled={disabled}
         id="my-card"
         onBlur={onBlur}
@@ -59,6 +62,7 @@ describe('CardElement', () => {
       {
         style,
         disabled,
+        autoComplete,
       },
       undefined
     );

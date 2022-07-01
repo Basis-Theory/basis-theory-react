@@ -15,6 +15,7 @@ export interface CardExpirationDateElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  autoComplete?: string;
   'aria-label'?: string;
   placeholder?: string;
   onChange?: ElementEventListener<CardExpirationDateElementEvents, 'change'>;
@@ -29,6 +30,7 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   bt,
   style,
   disabled,
+  autoComplete,
   'aria-label': ariaLabel,
   placeholder,
   onReady,
@@ -47,6 +49,7 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
       targetId: id,
       style,
       disabled,
+      autoComplete,
       'aria-label': ariaLabel,
       placeholder,
     },

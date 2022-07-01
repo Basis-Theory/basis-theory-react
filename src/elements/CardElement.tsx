@@ -15,6 +15,7 @@ export interface CardElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  autoComplete?: string;
   onChange?: ElementEventListener<CardElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardElementEvents, 'focus'>;
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
@@ -27,6 +28,7 @@ export const CardElement: FC<CardElementProps> = ({
   bt,
   style,
   disabled,
+  autoComplete,
   onReady,
   onChange,
   onFocus,
@@ -39,6 +41,7 @@ export const CardElement: FC<CardElementProps> = ({
     {
       style,
       disabled,
+      autoComplete,
     },
     bt
   );
