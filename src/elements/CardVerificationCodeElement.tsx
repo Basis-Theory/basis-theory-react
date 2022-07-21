@@ -28,13 +28,9 @@ interface CardVerificationCodeElementProps {
     'keydown'
   >;
   /**
-   * Container ref
+   * Element ref
    */
-  ref?: ForwardedRef<HTMLDivElement>;
-  /**
-   * Underlying element ref
-   */
-  elementRef?: ForwardedRef<ICardVerificationCodeElement>;
+  ref?: ForwardedRef<ICardVerificationCodeElement>;
 }
 
 const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
@@ -51,7 +47,6 @@ const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
   onBlur,
   onKeyDown,
   ref,
-  elementRef,
 }) => {
   const element = useElement<
     ICardVerificationCodeElement,
@@ -68,7 +63,7 @@ const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
       cardBrand,
     },
     bt,
-    elementRef
+    ref
   );
 
   useListener('ready', element, onReady);
@@ -77,11 +72,11 @@ const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} ref={ref} />;
+  return <div id={id} />;
 };
 
 export const CardVerificationCodeElement = React.forwardRef<
-  HTMLDivElement,
+  ICardVerificationCodeElement,
   CardVerificationCodeElementProps
 >((props, ref) => <CardVerificationCodeElementC {...props} ref={ref} />);
 

@@ -21,13 +21,9 @@ interface CardElementProps {
   onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
   /**
-   * Container ref
+   * Element ref
    */
-  ref?: ForwardedRef<HTMLDivElement>;
-  /**
-   * Underlying element ref
-   */
-  elementRef?: ForwardedRef<ICardElement>;
+  ref?: ForwardedRef<ICardElement>;
 }
 
 const CardElementC: FC<CardElementProps> = ({
@@ -41,7 +37,6 @@ const CardElementC: FC<CardElementProps> = ({
   onBlur,
   onKeyDown,
   ref,
-  elementRef,
 }) => {
   const element = useElement<ICardElement, CreateCardElementOptions>(
     id,
@@ -51,7 +46,7 @@ const CardElementC: FC<CardElementProps> = ({
       disabled,
     },
     bt,
-    elementRef
+    ref
   );
 
   useListener('ready', element, onReady);
@@ -60,10 +55,10 @@ const CardElementC: FC<CardElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} ref={ref} />;
+  return <div id={id} />;
 };
 
-export const CardElement = React.forwardRef<HTMLDivElement, CardElementProps>(
+export const CardElement = React.forwardRef<ICardElement, CardElementProps>(
   (props, ref) => <CardElementC {...props} ref={ref} />
 );
 

@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, ForwardedRef } from 'react';
 import type {
-  TextElement as ITextElement,
   CreateTextElementOptions,
   ElementEventListener,
   ElementStyle,
+  TextElement as ITextElement,
   TextElementEvents,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
@@ -23,6 +23,10 @@ interface BaseTextElementProps {
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
   onReady?: ElementEventListener<TextElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<TextElementEvents, 'keydown'>;
+  /**
+   * Element ref
+   */
+  ref?: ForwardedRef<ITextElement>;
 }
 
 interface MaskedTextElementProps extends BaseTextElementProps {
@@ -35,11 +39,9 @@ interface PasswordTextElementProps extends BaseTextElementProps {
   password: true;
 }
 
-export type TextElementProps =
-  | MaskedTextElementProps
-  | PasswordTextElementProps;
+type TextElementProps = MaskedTextElementProps | PasswordTextElementProps;
 
-export const TextElement: FC<TextElementProps> = ({
+const TextElementC: FC<TextElementProps> = ({
   id,
   bt,
   style,
@@ -54,6 +56,7 @@ export const TextElement: FC<TextElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  ref,
 }) => {
   const element = useElement<ITextElement, CreateTextElementOptions>(
     id,
@@ -68,7 +71,8 @@ export const TextElement: FC<TextElementProps> = ({
       placeholder,
       transform,
     },
-    bt
+    bt,
+    ref
   );
 
   useListener('ready', element, onReady);
@@ -79,3 +83,9 @@ export const TextElement: FC<TextElementProps> = ({
 
   return <div id={id} />;
 };
+
+export const TextElement = React.forwardRef<ITextElement, TextElementProps>(
+  (props, ref) => <TextElementC {...props} ref={ref} />
+);
+
+export type { TextElementProps };

@@ -23,13 +23,9 @@ interface CardExpirationDateElementProps {
   onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
   /**
-   * Container ref
+   * Element ref
    */
-  ref?: ForwardedRef<HTMLDivElement>;
-  /**
-   * Underlying element ref
-   */
-  elementRef?: ForwardedRef<ICardExpirationDateElement>;
+  ref?: ForwardedRef<ICardExpirationDateElement>;
 }
 
 const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
@@ -45,7 +41,6 @@ const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
   onBlur,
   onKeyDown,
   ref,
-  elementRef,
 }) => {
   const element = useElement<
     ICardExpirationDateElement,
@@ -61,7 +56,7 @@ const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
       placeholder,
     },
     bt,
-    elementRef
+    ref
   );
 
   useListener('ready', element, onReady);
@@ -70,11 +65,11 @@ const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} ref={ref} />;
+  return <div id={id} />;
 };
 
 export const CardExpirationDateElement = React.forwardRef<
-  HTMLDivElement,
+  ICardExpirationDateElement,
   CardExpirationDateElementProps
 >((props, ref) => <CardExpirationDateElementC {...props} ref={ref} />);
 

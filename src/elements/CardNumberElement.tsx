@@ -25,13 +25,9 @@ interface CardNumberElementProps {
   onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardNumberElementEvents, 'keydown'>;
   /**
-   * Container ref
+   * Element ref
    */
-  ref?: ForwardedRef<HTMLDivElement>;
-  /**
-   * Underlying element ref
-   */
-  elementRef?: ForwardedRef<ICardNumberElement>;
+  ref?: ForwardedRef<ICardNumberElement>;
 }
 
 const CardNumberElementC: FC<CardNumberElementProps> = ({
@@ -48,7 +44,6 @@ const CardNumberElementC: FC<CardNumberElementProps> = ({
   onBlur,
   onKeyDown,
   ref,
-  elementRef,
 }) => {
   const element = useElement<
     ICardNumberElement,
@@ -65,7 +60,7 @@ const CardNumberElementC: FC<CardNumberElementProps> = ({
       iconPosition,
     },
     bt,
-    elementRef
+    ref
   );
 
   useListener('ready', element, onReady);
@@ -74,11 +69,11 @@ const CardNumberElementC: FC<CardNumberElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} ref={ref} />;
+  return <div id={id} />;
 };
 
 export const CardNumberElement = React.forwardRef<
-  HTMLDivElement,
+  ICardNumberElement,
   CardNumberElementProps
 >((props, ref) => <CardNumberElementC {...props} ref={ref} />);
 
