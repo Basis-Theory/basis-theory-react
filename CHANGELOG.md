@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.0...v1.4.1) (2022-08-12)
+
+
+### Bug Fixes
+
+* add wrapper ref to wrapper div and use element hook ([#110](https://github.com/Basis-Theory/basis-theory-react/issues/110)) ([030304a](https://github.com/Basis-Theory/basis-theory-react/commit/030304a5693f3d06fc7873e92b4a765c57ebd52e))
+
 # [1.4.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.3...v1.4.0) (2022-07-01)
 
 
