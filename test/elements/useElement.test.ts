@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import type {
   BasisTheoryElements,
   ElementType,
