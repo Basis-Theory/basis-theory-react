@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type {
   BaseElement,
   ElementType,
@@ -36,6 +36,7 @@ const shallowDifference = <
  * @param id
  * @param type
  * @param options
+ * @param wrapperRef
  * @param btFromProps
  * @returns created element and initial options used for mounting
  */
@@ -52,35 +53,41 @@ const useElement = <
 ): Element | undefined => {
   const bt = useBasisTheoryValue(btFromProps);
 
-  const [element, setElement] = useState<Element>();
   const [lastOptions, setLastOptions] = useState<Options>();
 
+  const elementRef = useRef<Element | null>(null);
+
   useEffect(() => {
-    if (bt && wrapperRef.current && !element) {
-      const newElement = bt.createElement(type as never, options as never);
+    if (bt && wrapperRef.current && !elementRef.current) {
+      const newElement = bt.createElement(
+        type as never,
+        options as never
+      ) as Element;
+
+      elementRef.current = newElement;
 
       newElement.mount(`#${id}`).catch((mountError) => {
-        setElement(() => {
+        setLastOptions(() => {
           throw mountError;
         });
       });
       bt.indexElement(id, newElement);
       setLastOptions(options);
-      setElement(newElement as Element);
     }
 
     return (): void => {
-      if (element?.mounted) {
-        element.unmount();
+      if (elementRef.current?.mounted) {
         bt?.disposeElement(id);
-        setElement(undefined);
+        // let React do the unmounting
       }
     };
     // the only two dependencies that we need to watch for
-    // are bt and element. Anything else changing should not
+    // are bt and wrapperRef. Anything else changing should not
     // be considered for creating/mounting an element
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bt, element, wrapperRef]);
+  }, [bt, wrapperRef]);
+
+  const element = elementRef.current || undefined;
 
   useEffect(() => {
     if (element?.mounted && options !== lastOptions) {
