@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CreateCardExpirationDateElementOptions,
@@ -39,12 +39,14 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   onBlur,
   onKeyDown,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
     ICardExpirationDateElement,
     CreateCardExpirationDateElementOptions
   >(
     id,
     'cardExpirationDate',
+    wrapperRef,
     {
       targetId: id,
       style,
@@ -62,5 +64,5 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={wrapperRef} />;
 };

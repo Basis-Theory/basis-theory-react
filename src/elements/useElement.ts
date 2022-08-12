@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type {
   BaseElement,
   ElementType,
@@ -46,6 +46,7 @@ const useElement = <
 >(
   id: string,
   type: ElementType,
+  wrapperRef: React.RefObject<HTMLDivElement>,
   options: Options,
   btFromProps?: BasisTheoryReact
 ): Element | undefined => {
@@ -55,7 +56,7 @@ const useElement = <
   const [lastOptions, setLastOptions] = useState<Options>();
 
   useEffect(() => {
-    if (bt && !element) {
+    if (bt && wrapperRef.current && !element) {
       const newElement = bt.createElement(type as never, options as never);
 
       newElement.mount(`#${id}`).catch((mountError) => {
@@ -79,7 +80,7 @@ const useElement = <
     // are bt and element. Anything else changing should not
     // be considered for creating/mounting an element
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bt, element]);
+  }, [bt, element, wrapperRef]);
 
   useEffect(() => {
     if (element?.mounted && options !== lastOptions) {

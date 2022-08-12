@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import type {
   TextElement as ITextElement,
   CreateTextElementOptions,
@@ -57,9 +57,11 @@ export const TextElement: FC<TextElementProps> = ({
   onBlur,
   onKeyDown,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ITextElement, CreateTextElementOptions>(
     id,
     'text',
+    wrapperRef,
     {
       targetId: id,
       style,
@@ -80,5 +82,5 @@ export const TextElement: FC<TextElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={wrapperRef} />;
 };
