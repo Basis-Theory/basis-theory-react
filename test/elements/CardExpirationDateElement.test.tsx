@@ -12,6 +12,8 @@ jest.mock('../../src/elements/useListener');
 describe('CardExpirationDateElement', () => {
   const chance = new Chance();
 
+  let id: string;
+  let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
   let autoComplete: string;
@@ -25,6 +27,9 @@ describe('CardExpirationDateElement', () => {
   let element: unknown;
 
   beforeEach(() => {
+    id = 'my-card-expiration-date';
+    wrapperDiv = document.createElement('div');
+    wrapperDiv.setAttribute('id', id);
     style = {
       [chance.string()]: chance.string(),
     };
@@ -51,7 +56,7 @@ describe('CardExpirationDateElement', () => {
         aria-label={ariaLabel}
         autoComplete={autoComplete}
         disabled={disabled}
-        id="my-card-expiration-date"
+        id={id}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
@@ -64,10 +69,11 @@ describe('CardExpirationDateElement', () => {
 
     expect(container).toMatchSnapshot();
     expect(useElement).toHaveBeenCalledWith(
-      'my-card-expiration-date',
+      id,
       'cardExpirationDate',
+      { current: wrapperDiv },
       {
-        targetId: 'my-card-expiration-date',
+        targetId: id,
         style,
         disabled,
         autoComplete,

@@ -12,6 +12,8 @@ jest.mock('../../src/elements/useListener');
 describe('TextElement', () => {
   const chance = new Chance();
 
+  let id: string;
+  let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
   let autoComplete: string;
@@ -28,6 +30,9 @@ describe('TextElement', () => {
   let element: unknown;
 
   beforeEach(() => {
+    id = 'my-input';
+    wrapperDiv = document.createElement('div');
+    wrapperDiv.setAttribute('id', id);
     style = {
       [chance.string()]: chance.string(),
     };
@@ -63,7 +68,7 @@ describe('TextElement', () => {
         aria-label={ariaLabel}
         autoComplete={autoComplete}
         disabled={disabled}
-        id="my-input"
+        id={id}
         mask={mask as never} // the need of this cast acts a props typings test :-)
         onBlur={onBlur}
         onChange={onChange}
@@ -79,10 +84,11 @@ describe('TextElement', () => {
 
     expect(container).toMatchSnapshot();
     expect(useElement).toHaveBeenCalledWith(
-      'my-input',
+      id,
       'text',
+      { current: wrapperDiv },
       {
-        targetId: 'my-input',
+        targetId: id,
         style,
         disabled,
         autoComplete,

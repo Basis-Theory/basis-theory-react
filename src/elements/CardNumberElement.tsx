@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import type {
   CardNumberElement as ICardNumberElement,
   CreateCardNumberElementOptions,
@@ -42,12 +42,14 @@ export const CardNumberElement: FC<CardNumberElementProps> = ({
   onBlur,
   onKeyDown,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
     ICardNumberElement,
     CreateCardNumberElementOptions
   >(
     id,
     'cardNumber',
+    wrapperRef,
     {
       targetId: id,
       style,
@@ -66,5 +68,5 @@ export const CardNumberElement: FC<CardNumberElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={wrapperRef} />;
 };

@@ -34,9 +34,26 @@ describe('useElement', () => {
   });
 
   test("shouldn't do anything while bt instance is not available", () => {
+    const mockRef = { current: document.createElement('div') };
+
     jest.mocked(useBasisTheoryValue).mockReturnValue(undefined);
+
     const { result } = renderHook(() =>
-      useElement(chance.string(), chance.pickone(['card', 'text']), {})
+      useElement(chance.string(), chance.pickone(['card', 'text']), mockRef, {})
+    );
+
+    expect(bt.createElement).toHaveBeenCalledTimes(0);
+    expect(bt.indexElement).toHaveBeenCalledTimes(0);
+    expect(bt.disposeElement).toHaveBeenCalledTimes(0);
+    expect(result.current).toBeUndefined();
+  });
+
+  test("shouldn't do anything while wrapper ref is not in the DOM", () => {
+    // eslint-disable-next-line unicorn/no-null
+    const mockRef = { current: null };
+
+    const { result } = renderHook(() =>
+      useElement(chance.string(), chance.pickone(['card', 'text']), mockRef, {})
     );
 
     expect(bt.createElement).toHaveBeenCalledTimes(0);
@@ -48,7 +65,8 @@ describe('useElement', () => {
   test('should create, mount and index element', () => {
     const id = chance.string();
     const type = chance.pickone<ElementType>(['card', 'text']);
-    const { result } = renderHook(() => useElement(id, type, {}));
+    const mockRef = { current: document.createElement('div') };
+    const { result } = renderHook(() => useElement(id, type, mockRef, {}));
 
     expect(bt.createElement).toHaveBeenCalledTimes(1);
     expect(bt.createElement).toHaveBeenCalledWith(type, {});
@@ -61,12 +79,13 @@ describe('useElement', () => {
   test('should throw mount error in lifecycle', async () => {
     const id = chance.string();
     const type = chance.pickone<ElementType>(['card', 'text']);
+    const mockRef = { current: document.createElement('div') };
     const errorMessage = chance.string();
 
     mount.mockRejectedValue(errorMessage);
 
     const { result, waitForNextUpdate } = renderHook(() =>
-      useElement(id, type, {})
+      useElement(id, type, mockRef, {})
     );
 
     await waitForNextUpdate();
@@ -83,9 +102,10 @@ describe('useElement', () => {
 
     const id = chance.string();
     const type = chance.pickone<ElementType>(['card', 'text']);
+    const mockRef = { current: document.createElement('div') };
 
     const { rerender } = renderHook(
-      ({ options }) => useElement(id, type, options),
+      ({ options }) => useElement(id, type, mockRef, options),
       {
         initialProps: {
           options: {
@@ -154,12 +174,13 @@ describe('useElement', () => {
   test('should throw update error in lifecycle', async () => {
     const id = chance.string();
     const type = chance.pickone<ElementType>(['card', 'text']);
+    const mockRef = { current: document.createElement('div') };
     const errorMessage = chance.string();
 
     update.mockRejectedValue(errorMessage);
 
     const { result, rerender, waitForNextUpdate } = renderHook(
-      ({ options }) => useElement(id, type, options),
+      ({ options }) => useElement(id, type, mockRef, options),
       {
         initialProps: {
           options: {},

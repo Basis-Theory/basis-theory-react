@@ -12,6 +12,8 @@ jest.mock('../../src/elements/useListener');
 describe('CardElement', () => {
   const chance = new Chance();
 
+  let id: string;
+  let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
   let autoComplete: string;
@@ -23,6 +25,9 @@ describe('CardElement', () => {
   let element: unknown;
 
   beforeEach(() => {
+    id = 'my-card';
+    wrapperDiv = document.createElement('div');
+    wrapperDiv.setAttribute('id', id);
     style = {
       [chance.string()]: chance.string(),
     };
@@ -45,7 +50,7 @@ describe('CardElement', () => {
       <CardElement
         autoComplete={autoComplete}
         disabled={disabled}
-        id="my-card"
+        id={id}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
@@ -57,8 +62,9 @@ describe('CardElement', () => {
 
     expect(container).toMatchSnapshot();
     expect(useElement).toHaveBeenCalledWith(
-      'my-card',
+      id,
       'card',
+      { current: wrapperDiv },
       {
         style,
         disabled,

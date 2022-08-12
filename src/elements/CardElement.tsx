@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import type {
   CardElement as ICardElement,
   CreateCardElementOptions,
@@ -35,9 +35,11 @@ export const CardElement: FC<CardElementProps> = ({
   onBlur,
   onKeyDown,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ICardElement, CreateCardElementOptions>(
     id,
     'card',
+    wrapperRef,
     {
       style,
       disabled,
@@ -52,5 +54,5 @@ export const CardElement: FC<CardElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={wrapperRef} />;
 };
