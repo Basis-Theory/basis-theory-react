@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type {
   BaseElement,
   ElementType,
@@ -75,22 +75,22 @@ const useElement = <
       setLastOptions(options);
     }
 
-    return (): void => {
-      if (elementRef.current?.mounted) {
-        bt?.disposeElement(id);
-        // let React do the unmounting
-      }
-    };
+    // return (): void => {
+    //   if (elementRef.current?.mounted) {
+    //     bt?.disposeElement(id);
+    //     // let React do the unmounting
+    //   }
+    // };
     // the only two dependencies that we need to watch for
     // are bt and wrapperRef. Anything else changing should not
     // be considered for creating/mounting an element
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bt, wrapperRef]);
 
-  const element = elementRef.current || undefined;
+  const element = elementRef.current;
 
   useEffect(() => {
-    if (element?.mounted && options !== lastOptions) {
+    if (element && options !== lastOptions) {
       const optionsDifference = shallowDifference(
         lastOptions as Record<string, unknown>,
         options as Record<string, unknown>
@@ -105,9 +105,10 @@ const useElement = <
         });
       }
     }
-  }, [element, options, lastOptions]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options, lastOptions]);
 
-  return element;
+  return elementRef?.current || undefined;
 };
 
 export { useElement };
