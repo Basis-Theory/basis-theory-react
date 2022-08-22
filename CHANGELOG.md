@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.1...v1.4.2) (2022-08-22)
+
+
+### Bug Fixes
+
+* remove unmount logic and use internal element ref ([#111](https://github.com/Basis-Theory/basis-theory-react/issues/111)) ([52976f5](https://github.com/Basis-Theory/basis-theory-react/commit/52976f51568835dd20fffcaa3064779460ea8c4f))
+
 ## [1.4.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.0...v1.4.1) (2022-08-12)
 
 
