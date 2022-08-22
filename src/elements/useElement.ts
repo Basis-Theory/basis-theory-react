@@ -75,12 +75,6 @@ const useElement = <
       setLastOptions(options);
     }
 
-    // return (): void => {
-    //   if (elementRef.current?.mounted) {
-    //     bt?.disposeElement(id);
-    //     // let React do the unmounting
-    //   }
-    // };
     // the only two dependencies that we need to watch for
     // are bt and wrapperRef. Anything else changing should not
     // be considered for creating/mounting an element
