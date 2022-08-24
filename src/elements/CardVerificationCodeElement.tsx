@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, ForwardedRef } from 'react';
 import type {
   CardVerificationCodeElement as ICardVerificationCodeElement,
   CreateCardVerificationCodeElementOptions,
@@ -11,7 +11,7 @@ import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardVerificationCodeElementProps {
+interface CardVerificationCodeElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
@@ -28,11 +28,10 @@ export interface CardVerificationCodeElementProps {
     CardVerificationCodeElementEvents,
     'keydown'
   >;
+  elementRef?: ForwardedRef<ICardVerificationCodeElement>;
 }
 
-export const CardVerificationCodeElement: FC<
-  CardVerificationCodeElementProps
-> = ({
+const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
   id,
   bt,
   style,
@@ -46,6 +45,7 @@ export const CardVerificationCodeElement: FC<
   onFocus,
   onBlur,
   onKeyDown,
+  elementRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -64,7 +64,8 @@ export const CardVerificationCodeElement: FC<
       placeholder,
       cardBrand,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -75,3 +76,13 @@ export const CardVerificationCodeElement: FC<
 
   return <div id={id} ref={wrapperRef} />;
 };
+
+export const CardVerificationCodeElement = React.forwardRef<
+  ICardVerificationCodeElement,
+  CardVerificationCodeElementProps
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+>(function CardVerificationCodeElement(props, ref) {
+  return <CardVerificationCodeElementC {...props} elementRef={ref} />;
+});
+
+export type { CardVerificationCodeElementProps };

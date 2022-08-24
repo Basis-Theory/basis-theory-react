@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {
+  CardNumberElement as ICardNumberElement,
   ElementStyle,
   CreateCardNumberElementOptions,
 } from '@basis-theory/basis-theory-js/types/elements';
@@ -14,6 +15,7 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardNumberElement', () => {
   const chance = new Chance();
+  const refArray = [React.createRef<ICardNumberElement>(), undefined];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;
@@ -29,6 +31,7 @@ describe('CardNumberElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: any;
 
   beforeEach(() => {
     id = 'my-card-number';
@@ -51,6 +54,7 @@ describe('CardNumberElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -69,6 +73,7 @@ describe('CardNumberElement', () => {
         onKeyDown={onKeyDown}
         onReady={onReady}
         placeholder={placeholder}
+        ref={ref}
         style={style}
       />
     );
@@ -87,7 +92,9 @@ describe('CardNumberElement', () => {
         placeholder,
         iconPosition,
       },
-      undefined
+      undefined,
+      // eslint-disable-next-line unicorn/no-null
+      typeof ref === 'undefined' ? null : ref // undefined ref gets forwarded as null
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

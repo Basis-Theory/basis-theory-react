@@ -1,5 +1,8 @@
 import * as React from 'react';
-import type { ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
+import type {
+  CardElement as ICardElement,
+  ElementStyle,
+} from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
 import { CardElement } from '../../src';
@@ -11,6 +14,7 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardElement', () => {
   const chance = new Chance();
+  const refArray = [React.createRef<ICardElement>(), undefined];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;
@@ -23,6 +27,7 @@ describe('CardElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: any;
 
   beforeEach(() => {
     id = 'my-card';
@@ -41,6 +46,7 @@ describe('CardElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -56,6 +62,7 @@ describe('CardElement', () => {
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         onReady={onReady}
+        ref={ref}
         style={style}
       />
     );
@@ -70,7 +77,9 @@ describe('CardElement', () => {
         disabled,
         autoComplete,
       },
-      undefined
+      undefined,
+      // eslint-disable-next-line unicorn/no-null
+      typeof ref === 'undefined' ? null : ref // undefined ref gets forwarded as null
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

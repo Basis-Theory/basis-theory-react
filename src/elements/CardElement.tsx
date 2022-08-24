@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, ForwardedRef } from 'react';
 import type {
   CardElement as ICardElement,
   CreateCardElementOptions,
@@ -10,7 +10,7 @@ import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardElementProps {
+interface CardElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
@@ -21,9 +21,10 @@ export interface CardElementProps {
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
+  elementRef?: ForwardedRef<ICardElement>;
 }
 
-export const CardElement: FC<CardElementProps> = ({
+const CardElementC: FC<CardElementProps> = ({
   id,
   bt,
   style,
@@ -34,6 +35,7 @@ export const CardElement: FC<CardElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  elementRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ICardElement, CreateCardElementOptions>(
@@ -45,7 +47,8 @@ export const CardElement: FC<CardElementProps> = ({
       disabled,
       autoComplete,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -56,3 +59,12 @@ export const CardElement: FC<CardElementProps> = ({
 
   return <div id={id} ref={wrapperRef} />;
 };
+
+export const CardElement = React.forwardRef<ICardElement, CardElementProps>(
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+  function CardElement(props, ref) {
+    return <CardElementC {...props} elementRef={ref} />;
+  }
+);
+
+export type { CardElementProps };

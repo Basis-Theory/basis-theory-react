@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, ForwardedRef } from 'react';
 import type {
   CardNumberElement as ICardNumberElement,
   CreateCardNumberElementOptions,
@@ -11,7 +11,7 @@ import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardNumberElementProps {
+interface CardNumberElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
@@ -25,9 +25,10 @@ export interface CardNumberElementProps {
   onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardNumberElementEvents, 'keydown'>;
+  elementRef?: ForwardedRef<ICardNumberElement>;
 }
 
-export const CardNumberElement: FC<CardNumberElementProps> = ({
+const CardNumberElementC: FC<CardNumberElementProps> = ({
   id,
   bt,
   style,
@@ -41,6 +42,7 @@ export const CardNumberElement: FC<CardNumberElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  elementRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -59,7 +61,8 @@ export const CardNumberElement: FC<CardNumberElementProps> = ({
       placeholder,
       iconPosition,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -70,3 +73,13 @@ export const CardNumberElement: FC<CardNumberElementProps> = ({
 
   return <div id={id} ref={wrapperRef} />;
 };
+
+export const CardNumberElement = React.forwardRef<
+  ICardNumberElement,
+  CardNumberElementProps
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+>(function CardNumberElement(props, ref) {
+  return <CardNumberElementC {...props} elementRef={ref} />;
+});
+
+export type { CardNumberElementProps };

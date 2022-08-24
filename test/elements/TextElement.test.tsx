@@ -1,5 +1,8 @@
 import * as React from 'react';
-import type { ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
+import type {
+  TextElement as ITextElement,
+  ElementStyle,
+} from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
 import { TextElement } from '../../src';
@@ -11,6 +14,7 @@ jest.mock('../../src/elements/useListener');
 
 describe('TextElement', () => {
   const chance = new Chance();
+  const refArray = [React.createRef<ITextElement>(), undefined];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;
@@ -28,6 +32,7 @@ describe('TextElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: any;
 
   beforeEach(() => {
     id = 'my-input';
@@ -58,6 +63,7 @@ describe('TextElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -77,6 +83,7 @@ describe('TextElement', () => {
         onReady={onReady}
         password={password}
         placeholder={placeholder}
+        ref={ref}
         style={style}
         transform={transform}
       />
@@ -98,7 +105,9 @@ describe('TextElement', () => {
         placeholder,
         transform,
       },
-      undefined
+      undefined,
+      // eslint-disable-next-line unicorn/no-null
+      typeof ref === 'undefined' ? null : ref // undefined ref gets forwarded as null
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

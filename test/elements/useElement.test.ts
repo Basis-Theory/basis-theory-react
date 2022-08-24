@@ -66,7 +66,11 @@ describe('useElement', () => {
     const id = chance.string();
     const type = chance.pickone<ElementType>(['card', 'text']);
     const mockRef = { current: document.createElement('div') };
-    const { result } = renderHook(() => useElement(id, type, mockRef, {}));
+    // eslint-disable-next-line unicorn/no-null
+    const testRef = { current: null };
+    const { result } = renderHook(() =>
+      useElement(id, type, mockRef, {}, undefined, testRef)
+    );
 
     expect(bt.createElement).toHaveBeenCalledTimes(1);
     expect(bt.createElement).toHaveBeenCalledWith(type, {});
@@ -74,6 +78,40 @@ describe('useElement', () => {
     expect(mount).toHaveBeenCalledWith(`#${id}`);
     expect(result.current).toBeDefined();
     expect(bt.indexElement).toHaveBeenCalledWith(id, result.current);
+  });
+
+  test('should forward object ref to element on creation', () => {
+    const id = chance.string();
+    const type = chance.pickone<ElementType>(['card', 'text']);
+    const wrapperRef = { current: document.createElement('div') };
+
+    // eslint-disable-next-line unicorn/no-null
+    const objectRef = { current: null };
+    const { result } = renderHook(() =>
+      useElement(id, type, wrapperRef, {}, undefined, objectRef)
+    );
+
+    expect(result.current).toBeDefined();
+    expect(objectRef.current).toBe(result.current);
+  });
+
+  test('should forward function ref to element on creation', () => {
+    const id = chance.string();
+    const type = chance.pickone<ElementType>(['card', 'text']);
+    const wrapperRef = { current: document.createElement('div') };
+
+    // eslint-disable-next-line unicorn/no-null
+    let createdElement = null;
+    const functionRef = (element: any): void => {
+      createdElement = element;
+    };
+
+    const { result } = renderHook(() =>
+      useElement(id, type, wrapperRef, {}, undefined, functionRef)
+    );
+
+    expect(result.current).toBeDefined();
+    expect(createdElement).toBe(result.current);
   });
 
   test('should throw mount error in lifecycle', async () => {

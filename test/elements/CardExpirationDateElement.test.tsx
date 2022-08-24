@@ -1,5 +1,8 @@
 import * as React from 'react';
-import type { ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
+import type {
+  CardExpirationDateElement as ICardExpirationDateElement,
+  ElementStyle,
+} from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
 import { CardExpirationDateElement } from '../../src';
@@ -11,6 +14,7 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardExpirationDateElement', () => {
   const chance = new Chance();
+  const refArray = [React.createRef<ICardExpirationDateElement>(), undefined];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;
@@ -25,6 +29,7 @@ describe('CardExpirationDateElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: any;
 
   beforeEach(() => {
     id = 'my-card-expiration-date';
@@ -46,6 +51,7 @@ describe('CardExpirationDateElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -63,6 +69,7 @@ describe('CardExpirationDateElement', () => {
         onKeyDown={onKeyDown}
         onReady={onReady}
         placeholder={placeholder}
+        ref={ref}
         style={style}
       />
     );
@@ -80,7 +87,9 @@ describe('CardExpirationDateElement', () => {
         'aria-label': ariaLabel,
         placeholder,
       },
-      undefined
+      undefined,
+      // eslint-disable-next-line unicorn/no-null
+      typeof ref === 'undefined' ? null : ref // undefined ref gets forwarded as null
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);
