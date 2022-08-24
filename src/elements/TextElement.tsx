@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, ForwardedRef } from 'react';
 import type {
   TextElement as ITextElement,
   CreateTextElementOptions,
@@ -24,6 +24,7 @@ interface BaseTextElementProps {
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
   onReady?: ElementEventListener<TextElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<TextElementEvents, 'keydown'>;
+  elementRef?: ForwardedRef<ITextElement>;
 }
 
 interface MaskedTextElementProps extends BaseTextElementProps {
@@ -36,11 +37,9 @@ interface PasswordTextElementProps extends BaseTextElementProps {
   password: true;
 }
 
-export type TextElementProps =
-  | MaskedTextElementProps
-  | PasswordTextElementProps;
+type TextElementProps = MaskedTextElementProps | PasswordTextElementProps;
 
-export const TextElement: FC<TextElementProps> = ({
+const TextElementC: FC<TextElementProps> = ({
   id,
   bt,
   style,
@@ -56,6 +55,7 @@ export const TextElement: FC<TextElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  elementRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ITextElement, CreateTextElementOptions>(
@@ -73,7 +73,8 @@ export const TextElement: FC<TextElementProps> = ({
       placeholder,
       transform,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -84,3 +85,9 @@ export const TextElement: FC<TextElementProps> = ({
 
   return <div id={id} ref={wrapperRef} />;
 };
+
+export const TextElement = React.forwardRef<ITextElement, TextElementProps>(
+  (props, ref) => <TextElementC {...props} elementRef={ref} />
+);
+
+export type { TextElementProps };

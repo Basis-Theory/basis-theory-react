@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
+import type { CardExpirationDateElement as ICardExpirationDateElement, ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
 import { CardExpirationDateElement } from '../../src';
@@ -25,6 +25,7 @@ describe('CardExpirationDateElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: React.RefObject<ICardExpirationDateElement>;
 
   beforeEach(() => {
     id = 'my-card-expiration-date';
@@ -46,6 +47,7 @@ describe('CardExpirationDateElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = React.createRef<ICardExpirationDateElement>();
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -63,6 +65,7 @@ describe('CardExpirationDateElement', () => {
         onKeyDown={onKeyDown}
         onReady={onReady}
         placeholder={placeholder}
+        ref={ref}
         style={style}
       />
     );
@@ -80,7 +83,8 @@ describe('CardExpirationDateElement', () => {
         'aria-label': ariaLabel,
         placeholder,
       },
-      undefined
+      undefined,
+      ref
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

@@ -1,5 +1,8 @@
 import * as React from 'react';
-import type { ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
+import type {
+  TextElement as ITextElement,
+  ElementStyle,
+} from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
 import { TextElement } from '../../src';
@@ -28,6 +31,7 @@ describe('TextElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: React.RefObject<ITextElement>;
 
   beforeEach(() => {
     id = 'my-input';
@@ -58,6 +62,7 @@ describe('TextElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = React.createRef<ITextElement>();
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -77,6 +82,7 @@ describe('TextElement', () => {
         onReady={onReady}
         password={password}
         placeholder={placeholder}
+        ref={ref}
         style={style}
         transform={transform}
       />
@@ -98,7 +104,8 @@ describe('TextElement', () => {
         placeholder,
         transform,
       },
-      undefined
+      undefined,
+      ref
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

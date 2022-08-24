@@ -1,5 +1,8 @@
 import * as React from 'react';
-import type { ElementStyle } from '@basis-theory/basis-theory-js/types/elements';
+import {
+  CardElement as ICardElement,
+  ElementStyle,
+} from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
 import { CardElement } from '../../src';
@@ -23,6 +26,7 @@ describe('CardElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: React.RefObject<ICardElement>;
 
   beforeEach(() => {
     id = 'my-card';
@@ -41,6 +45,7 @@ describe('CardElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = React.createRef<ICardElement>();
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -56,6 +61,7 @@ describe('CardElement', () => {
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         onReady={onReady}
+        ref={ref}
         style={style}
       />
     );
@@ -70,7 +76,8 @@ describe('CardElement', () => {
         disabled,
         autoComplete,
       },
-      undefined
+      undefined,
+      ref
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

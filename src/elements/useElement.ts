@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ForwardedRef, useEffect, useRef, useState } from 'react';
 import type {
   BaseElement,
   ElementType,
@@ -38,6 +38,7 @@ const shallowDifference = <
  * @param options
  * @param wrapperRef
  * @param btFromProps
+ * @param ref optional ref to set the underlying element
  * @returns created element and initial options used for mounting
  */
 const useElement = <
@@ -49,12 +50,11 @@ const useElement = <
   type: ElementType,
   wrapperRef: React.RefObject<HTMLDivElement>,
   options: Options,
-  btFromProps?: BasisTheoryReact
+  btFromProps?: BasisTheoryReact,
+  ref?: ForwardedRef<Element>
 ): Element | undefined => {
   const bt = useBasisTheoryValue(btFromProps);
-
   const [lastOptions, setLastOptions] = useState<Options>();
-
   const elementRef = useRef<Element | null>(null);
 
   useEffect(() => {
@@ -65,6 +65,15 @@ const useElement = <
       ) as Element;
 
       elementRef.current = newElement;
+
+      if (typeof ref === 'function') {
+        ref(newElement);
+      }
+
+      if (ref && typeof ref === 'object') {
+        // eslint-disable-next-line no-param-reassign
+        ref.current = newElement;
+      }
 
       newElement.mount(`#${id}`).catch((mountError) => {
         setLastOptions(() => {
@@ -81,10 +90,8 @@ const useElement = <
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bt, wrapperRef]);
 
-  const element = elementRef.current;
-
   useEffect(() => {
-    if (element && options !== lastOptions) {
+    if (elementRef.current && lastOptions && options !== lastOptions) {
       const optionsDifference = shallowDifference(
         lastOptions as Record<string, unknown>,
         options as Record<string, unknown>
@@ -92,14 +99,13 @@ const useElement = <
 
       if (Object.keys(optionsDifference).length) {
         setLastOptions(options);
-        element.update(optionsDifference).catch((updateError) => {
+        elementRef.current.update(optionsDifference).catch((updateError) => {
           setLastOptions(() => {
             throw updateError;
           });
         });
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options, lastOptions]);
 
   return elementRef?.current || undefined;
