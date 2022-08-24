@@ -15,16 +15,7 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardNumberElement', () => {
   const chance = new Chance();
-  const refArray = [
-    React.createRef<ICardNumberElement>(),
-    (element: any): void => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const test = element;
-    },
-    // eslint-disable-next-line unicorn/no-null
-    null,
-    undefined,
-  ];
+  const refArray = [React.createRef<ICardNumberElement>(), undefined];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;

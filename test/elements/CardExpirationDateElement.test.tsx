@@ -14,16 +14,7 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardExpirationDateElement', () => {
   const chance = new Chance();
-  const refArray = [
-    React.createRef<ICardExpirationDateElement>(),
-    (element: any): void => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const test = element;
-    },
-    // eslint-disable-next-line unicorn/no-null
-    null,
-    undefined,
-  ];
+  const refArray = [React.createRef<ICardExpirationDateElement>(), undefined];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;

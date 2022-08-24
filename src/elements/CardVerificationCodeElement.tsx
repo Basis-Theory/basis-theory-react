@@ -81,7 +81,7 @@ export const CardVerificationCodeElement = React.forwardRef<
   ICardVerificationCodeElement,
   CardVerificationCodeElementProps
   // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
->(function (props, ref) {
+>(function CardVerificationCodeElement(props, ref) {
   return <CardVerificationCodeElementC {...props} elementRef={ref} />;
 });
 
