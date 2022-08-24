@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.2...v1.5.0) (2022-08-24)
+
+
+### Features
+
+* introduce element refs ([#112](https://github.com/Basis-Theory/basis-theory-react/issues/112)) ([17e7b84](https://github.com/Basis-Theory/basis-theory-react/commit/17e7b849a3edce559c150a5380cda8665f3d2ed8))
+
 ## [1.4.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.1...v1.4.2) (2022-08-22)
 
 
