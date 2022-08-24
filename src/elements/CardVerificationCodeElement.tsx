@@ -77,13 +77,12 @@ const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-const CardVerificationCodeElement = React.forwardRef<
+export const CardVerificationCodeElement = React.forwardRef<
   ICardVerificationCodeElement,
   CardVerificationCodeElementProps
->((props, ref) => <CardVerificationCodeElementC {...props} elementRef={ref} />);
-
-CardVerificationCodeElement.displayName = 'CardVerificationCodeElement';
-
-export { CardVerificationCodeElement };
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+>(function (props, ref) {
+  return <CardVerificationCodeElementC {...props} elementRef={ref} />;
+});
 
 export type { CardVerificationCodeElementProps };

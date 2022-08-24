@@ -74,13 +74,12 @@ const CardNumberElementC: FC<CardNumberElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-const CardNumberElement = React.forwardRef<
+export const CardNumberElement = React.forwardRef<
   ICardNumberElement,
   CardNumberElementProps
->((props, ref) => <CardNumberElementC {...props} elementRef={ref} />);
-
-CardNumberElement.displayName = 'CardNumberElement';
-
-export { CardNumberElement };
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+>(function CardNumberElement(props, ref) {
+  return <CardNumberElementC {...props} elementRef={ref} />;
+});
 
 export type { CardNumberElementProps };

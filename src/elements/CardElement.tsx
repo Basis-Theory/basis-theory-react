@@ -60,12 +60,11 @@ const CardElementC: FC<CardElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-const CardElement = React.forwardRef<ICardElement, CardElementProps>(
-  (props, ref) => <CardElementC {...props} elementRef={ref} />
+export const CardElement = React.forwardRef<ICardElement, CardElementProps>(
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+  function CardElement(props, ref) {
+    return <CardElementC {...props} elementRef={ref} />;
+  }
 );
-
-CardElement.displayName = 'CardElement';
-
-export { CardElement };
 
 export type { CardElementProps };
