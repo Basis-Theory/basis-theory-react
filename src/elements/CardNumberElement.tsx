@@ -74,9 +74,13 @@ const CardNumberElementC: FC<CardNumberElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-export const CardNumberElement = React.forwardRef<
+const CardNumberElement = React.forwardRef<
   ICardNumberElement,
   CardNumberElementProps
 >((props, ref) => <CardNumberElementC {...props} elementRef={ref} />);
+
+CardNumberElement.displayName = 'CardNumberElement';
+
+export { CardNumberElement };
 
 export type { CardNumberElementProps };

@@ -14,6 +14,16 @@ jest.mock('../../src/elements/useListener');
 
 describe('TextElement', () => {
   const chance = new Chance();
+  const refArray = [
+    React.createRef<ITextElement>(),
+    (element: any): void => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const test = element;
+    },
+    // eslint-disable-next-line unicorn/no-null
+    null,
+    undefined,
+  ];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;
@@ -31,7 +41,7 @@ describe('TextElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
-  let ref: React.RefObject<ITextElement>;
+  let ref: any;
 
   beforeEach(() => {
     id = 'my-input';
@@ -62,7 +72,7 @@ describe('TextElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
-    ref = React.createRef<ITextElement>();
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });

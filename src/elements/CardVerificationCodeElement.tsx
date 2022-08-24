@@ -77,9 +77,13 @@ const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-export const CardVerificationCodeElement = React.forwardRef<
+const CardVerificationCodeElement = React.forwardRef<
   ICardVerificationCodeElement,
   CardVerificationCodeElementProps
 >((props, ref) => <CardVerificationCodeElementC {...props} elementRef={ref} />);
+
+CardVerificationCodeElement.displayName = 'CardVerificationCodeElement';
+
+export { CardVerificationCodeElement };
 
 export type { CardVerificationCodeElementProps };

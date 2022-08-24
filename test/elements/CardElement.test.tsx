@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {
+import type {
   CardElement as ICardElement,
   ElementStyle,
 } from '@basis-theory/basis-theory-js/types/elements';
@@ -14,6 +14,16 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardElement', () => {
   const chance = new Chance();
+  const refArray = [
+    React.createRef<ICardElement>(),
+    (element: any): void => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const test = element;
+    },
+    // eslint-disable-next-line unicorn/no-null
+    null,
+    undefined,
+  ];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;
@@ -26,7 +36,7 @@ describe('CardElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
-  let ref: React.RefObject<ICardElement>;
+  let ref: any;
 
   beforeEach(() => {
     id = 'my-card';
@@ -45,7 +55,7 @@ describe('CardElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
-    ref = React.createRef<ICardElement>();
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });

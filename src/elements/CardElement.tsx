@@ -60,8 +60,12 @@ const CardElementC: FC<CardElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-export const CardElement = React.forwardRef<ICardElement, CardElementProps>(
+const CardElement = React.forwardRef<ICardElement, CardElementProps>(
   (props, ref) => <CardElementC {...props} elementRef={ref} />
 );
+
+CardElement.displayName = 'CardElement';
+
+export { CardElement };
 
 export type { CardElementProps };

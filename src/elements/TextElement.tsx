@@ -86,8 +86,12 @@ const TextElementC: FC<TextElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-export const TextElement = React.forwardRef<ITextElement, TextElementProps>(
+const TextElement = React.forwardRef<ITextElement, TextElementProps>(
   (props, ref) => <TextElementC {...props} elementRef={ref} />
 );
+
+TextElement.displayName = 'TextElement';
+
+export { TextElement };
 
 export type { TextElementProps };

@@ -70,9 +70,13 @@ const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-export const CardExpirationDateElement = React.forwardRef<
+const CardExpirationDateElement = React.forwardRef<
   ICardExpirationDateElement,
   CardExpirationDateElementProps
 >((props, ref) => <CardExpirationDateElementC {...props} elementRef={ref} />);
+
+CardExpirationDateElement.displayName = 'CardExpirationDateElement';
+
+export { CardExpirationDateElement };
 
 export type { CardExpirationDateElementProps };

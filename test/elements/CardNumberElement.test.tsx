@@ -15,6 +15,16 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardNumberElement', () => {
   const chance = new Chance();
+  const refArray = [
+    React.createRef<ICardNumberElement>(),
+    (element: any): void => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const test = element;
+    },
+    // eslint-disable-next-line unicorn/no-null
+    null,
+    undefined,
+  ];
 
   let id: string;
   let wrapperDiv: HTMLDivElement;
@@ -30,7 +40,7 @@ describe('CardNumberElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
-  let ref: React.RefObject<ICardNumberElement>;
+  let ref: any;
 
   beforeEach(() => {
     id = 'my-card-number';
@@ -53,7 +63,7 @@ describe('CardNumberElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
-    ref = React.createRef<ICardNumberElement>();
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
