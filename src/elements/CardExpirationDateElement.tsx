@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ForwardedRef, useRef } from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CreateCardExpirationDateElementOptions,
@@ -10,7 +10,7 @@ import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
 import { useListener } from './useListener';
 
-export interface CardExpirationDateElementProps {
+interface CardExpirationDateElementProps {
   id: string;
   bt?: BasisTheoryReact;
   style?: ElementStyle;
@@ -23,9 +23,10 @@ export interface CardExpirationDateElementProps {
   onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
+  elementRef?: ForwardedRef<ICardExpirationDateElement>;
 }
 
-export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
+const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
   id,
   bt,
   style,
@@ -38,13 +39,16 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  elementRef,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
     ICardExpirationDateElement,
     CreateCardExpirationDateElementOptions
   >(
     id,
     'cardExpirationDate',
+    wrapperRef,
     {
       targetId: id,
       style,
@@ -53,7 +57,8 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
       'aria-label': ariaLabel,
       placeholder,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -62,5 +67,15 @@ export const CardExpirationDateElement: FC<CardExpirationDateElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={wrapperRef} />;
 };
+
+export const CardExpirationDateElement = React.forwardRef<
+  ICardExpirationDateElement,
+  CardExpirationDateElementProps
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+>(function CardExpirationDateElement(props, ref) {
+  return <CardExpirationDateElementC {...props} elementRef={ref} />;
+});
+
+export type { CardExpirationDateElementProps };

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {
+  CardNumberElement as ICardNumberElement,
   ElementStyle,
   CreateCardNumberElementOptions,
 } from '@basis-theory/basis-theory-js/types/elements';
@@ -14,7 +15,10 @@ jest.mock('../../src/elements/useListener');
 
 describe('CardNumberElement', () => {
   const chance = new Chance();
+  const refArray = [React.createRef<ICardNumberElement>(), undefined];
 
+  let id: string;
+  let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
   let autoComplete: string;
@@ -27,8 +31,12 @@ describe('CardNumberElement', () => {
   let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
   let element: unknown;
+  let ref: any;
 
   beforeEach(() => {
+    id = 'my-card-number';
+    wrapperDiv = document.createElement('div');
+    wrapperDiv.setAttribute('id', id);
     style = {
       [chance.string()]: chance.string(),
     };
@@ -46,6 +54,7 @@ describe('CardNumberElement', () => {
     element = {
       [chance.string()]: chance.string(),
     };
+    ref = chance.pickone(refArray);
 
     jest.mocked(useElement).mockReturnValue(element as any);
   });
@@ -57,23 +66,25 @@ describe('CardNumberElement', () => {
         autoComplete={autoComplete}
         disabled={disabled}
         iconPosition={iconPosition}
-        id="my-card-number"
+        id={id}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         onReady={onReady}
         placeholder={placeholder}
+        ref={ref}
         style={style}
       />
     );
 
     expect(container).toMatchSnapshot();
     expect(useElement).toHaveBeenCalledWith(
-      'my-card-number',
+      id,
       'cardNumber',
+      { current: wrapperDiv },
       {
-        targetId: 'my-card-number',
+        targetId: id,
         style,
         disabled,
         autoComplete,
@@ -81,7 +92,9 @@ describe('CardNumberElement', () => {
         placeholder,
         iconPosition,
       },
-      undefined
+      undefined,
+      // eslint-disable-next-line unicorn/no-null
+      typeof ref === 'undefined' ? null : ref // undefined ref gets forwarded as null
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

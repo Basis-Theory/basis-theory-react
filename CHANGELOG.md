@@ -1,3 +1,24 @@
+# [1.5.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.2...v1.5.0) (2022-08-24)
+
+
+### Features
+
+* introduce element refs ([#112](https://github.com/Basis-Theory/basis-theory-react/issues/112)) ([17e7b84](https://github.com/Basis-Theory/basis-theory-react/commit/17e7b849a3edce559c150a5380cda8665f3d2ed8))
+
+## [1.4.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.1...v1.4.2) (2022-08-22)
+
+
+### Bug Fixes
+
+* remove unmount logic and use internal element ref ([#111](https://github.com/Basis-Theory/basis-theory-react/issues/111)) ([52976f5](https://github.com/Basis-Theory/basis-theory-react/commit/52976f51568835dd20fffcaa3064779460ea8c4f))
+
+## [1.4.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.0...v1.4.1) (2022-08-12)
+
+
+### Bug Fixes
+
+* add wrapper ref to wrapper div and use element hook ([#110](https://github.com/Basis-Theory/basis-theory-react/issues/110)) ([030304a](https://github.com/Basis-Theory/basis-theory-react/commit/030304a5693f3d06fc7873e92b4a765c57ebd52e))
+
 # [1.4.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.3.3...v1.4.0) (2022-07-01)
 
 

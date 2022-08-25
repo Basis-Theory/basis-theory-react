@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { ForwardedRef, useEffect, useRef, useState } from 'react';
 import type {
   BaseElement,
   ElementType,
@@ -36,7 +36,9 @@ const shallowDifference = <
  * @param id
  * @param type
  * @param options
+ * @param wrapperRef
  * @param btFromProps
+ * @param ref optional ref to set the underlying element
  * @returns created element and initial options used for mounting
  */
 const useElement = <
@@ -46,43 +48,50 @@ const useElement = <
 >(
   id: string,
   type: ElementType,
+  wrapperRef: React.RefObject<HTMLDivElement>,
   options: Options,
-  btFromProps?: BasisTheoryReact
+  btFromProps?: BasisTheoryReact,
+  ref?: ForwardedRef<Element>
 ): Element | undefined => {
   const bt = useBasisTheoryValue(btFromProps);
-
-  const [element, setElement] = useState<Element>();
   const [lastOptions, setLastOptions] = useState<Options>();
+  const elementRef = useRef<Element | null>(null);
 
   useEffect(() => {
-    if (bt && !element) {
-      const newElement = bt.createElement(type as never, options as never);
+    if (bt && wrapperRef.current && !elementRef.current) {
+      const newElement = bt.createElement(
+        type as never,
+        options as never
+      ) as Element;
+
+      elementRef.current = newElement;
+
+      if (typeof ref === 'function') {
+        ref(newElement);
+      }
+
+      if (ref && typeof ref === 'object') {
+        // eslint-disable-next-line no-param-reassign
+        ref.current = newElement;
+      }
 
       newElement.mount(`#${id}`).catch((mountError) => {
-        setElement(() => {
+        setLastOptions(() => {
           throw mountError;
         });
       });
       bt.indexElement(id, newElement);
       setLastOptions(options);
-      setElement(newElement as Element);
     }
 
-    return (): void => {
-      if (element?.mounted) {
-        element.unmount();
-        bt?.disposeElement(id);
-        setElement(undefined);
-      }
-    };
     // the only two dependencies that we need to watch for
-    // are bt and element. Anything else changing should not
+    // are bt and wrapperRef. Anything else changing should not
     // be considered for creating/mounting an element
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bt, element]);
+  }, [bt, wrapperRef]);
 
   useEffect(() => {
-    if (element?.mounted && options !== lastOptions) {
+    if (elementRef.current && lastOptions && options !== lastOptions) {
       const optionsDifference = shallowDifference(
         lastOptions as Record<string, unknown>,
         options as Record<string, unknown>
@@ -90,16 +99,16 @@ const useElement = <
 
       if (Object.keys(optionsDifference).length) {
         setLastOptions(options);
-        element.update(optionsDifference).catch((updateError) => {
+        elementRef.current.update(optionsDifference).catch((updateError) => {
           setLastOptions(() => {
             throw updateError;
           });
         });
       }
     }
-  }, [element, options, lastOptions]);
+  }, [options, lastOptions]);
 
-  return element;
+  return elementRef?.current || undefined;
 };
 
 export { useElement };

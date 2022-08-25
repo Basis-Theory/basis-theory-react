@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef, ForwardedRef } from 'react';
 import type {
   TextElement as ITextElement,
   CreateTextElementOptions,
@@ -24,6 +24,7 @@ interface BaseTextElementProps {
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
   onReady?: ElementEventListener<TextElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<TextElementEvents, 'keydown'>;
+  elementRef?: ForwardedRef<ITextElement>;
 }
 
 interface MaskedTextElementProps extends BaseTextElementProps {
@@ -36,11 +37,9 @@ interface PasswordTextElementProps extends BaseTextElementProps {
   password: true;
 }
 
-export type TextElementProps =
-  | MaskedTextElementProps
-  | PasswordTextElementProps;
+type TextElementProps = MaskedTextElementProps | PasswordTextElementProps;
 
-export const TextElement: FC<TextElementProps> = ({
+const TextElementC: FC<TextElementProps> = ({
   id,
   bt,
   style,
@@ -56,10 +55,13 @@ export const TextElement: FC<TextElementProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  elementRef,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ITextElement, CreateTextElementOptions>(
     id,
     'text',
+    wrapperRef,
     {
       targetId: id,
       style,
@@ -71,7 +73,8 @@ export const TextElement: FC<TextElementProps> = ({
       placeholder,
       transform,
     },
-    bt
+    bt,
+    elementRef
   );
 
   useListener('ready', element, onReady);
@@ -80,5 +83,14 @@ export const TextElement: FC<TextElementProps> = ({
   useListener('blur', element, onBlur);
   useListener('keydown', element, onKeyDown);
 
-  return <div id={id} />;
+  return <div id={id} ref={wrapperRef} />;
 };
+
+export const TextElement = React.forwardRef<ITextElement, TextElementProps>(
+  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
+  function TextElement(props, ref) {
+    return <TextElementC {...props} elementRef={ref} />;
+  }
+);
+
+export type { TextElementProps };
