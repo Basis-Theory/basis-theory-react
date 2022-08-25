@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.0...v1.5.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* add card last 4 to change event ([#114](https://github.com/Basis-Theory/basis-theory-react/issues/114)) ([d7388ba](https://github.com/Basis-Theory/basis-theory-react/commit/d7388ba325f52b016b3e240ab2027d30cc68e2e7))
+
 # [1.5.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.4.2...v1.5.0) (2022-08-24)
 
 
