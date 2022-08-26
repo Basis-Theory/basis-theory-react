@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.1...v1.5.2) (2022-08-26)
+
+
+### Bug Fixes
+
+* omit internal ref type from elements ([#116](https://github.com/Basis-Theory/basis-theory-react/issues/116)) ([38617a6](https://github.com/Basis-Theory/basis-theory-react/commit/38617a662eee9cbd33ed3e13f7ac5fa3d24e9488))
+
 ## [1.5.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.0...v1.5.1) (2022-08-25)
 
 
