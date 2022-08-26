@@ -21,10 +21,11 @@ interface CardElementProps {
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
-  elementRef?: ForwardedRef<ICardElement>;
 }
 
-const CardElementC: FC<CardElementProps> = ({
+const CardElementC: FC<
+  CardElementProps & { elementRef?: ForwardedRef<ICardElement> }
+> = ({
   id,
   bt,
   style,

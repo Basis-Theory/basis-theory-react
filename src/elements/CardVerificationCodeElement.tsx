@@ -28,10 +28,13 @@ interface CardVerificationCodeElementProps {
     CardVerificationCodeElementEvents,
     'keydown'
   >;
-  elementRef?: ForwardedRef<ICardVerificationCodeElement>;
 }
 
-const CardVerificationCodeElementC: FC<CardVerificationCodeElementProps> = ({
+const CardVerificationCodeElementC: FC<
+  CardVerificationCodeElementProps & {
+    elementRef?: ForwardedRef<ICardVerificationCodeElement>;
+  }
+> = ({
   id,
   bt,
   style,

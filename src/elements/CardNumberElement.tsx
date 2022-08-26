@@ -25,10 +25,11 @@ interface CardNumberElementProps {
   onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardNumberElementEvents, 'keydown'>;
-  elementRef?: ForwardedRef<ICardNumberElement>;
 }
 
-const CardNumberElementC: FC<CardNumberElementProps> = ({
+const CardNumberElementC: FC<
+  CardNumberElementProps & { elementRef?: ForwardedRef<ICardNumberElement> }
+> = ({
   id,
   bt,
   style,
