@@ -24,7 +24,6 @@ interface BaseTextElementProps {
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
   onReady?: ElementEventListener<TextElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<TextElementEvents, 'keydown'>;
-  elementRef?: ForwardedRef<ITextElement>;
 }
 
 interface MaskedTextElementProps extends BaseTextElementProps {
@@ -39,7 +38,9 @@ interface PasswordTextElementProps extends BaseTextElementProps {
 
 type TextElementProps = MaskedTextElementProps | PasswordTextElementProps;
 
-const TextElementC: FC<TextElementProps> = ({
+const TextElementC: FC<
+  TextElementProps & { elementRef?: ForwardedRef<ITextElement> }
+> = ({
   id,
   bt,
   style,

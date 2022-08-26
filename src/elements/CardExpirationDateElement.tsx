@@ -23,10 +23,13 @@ interface CardExpirationDateElementProps {
   onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
-  elementRef?: ForwardedRef<ICardExpirationDateElement>;
 }
 
-const CardExpirationDateElementC: FC<CardExpirationDateElementProps> = ({
+const CardExpirationDateElementC: FC<
+  CardExpirationDateElementProps & {
+    elementRef?: ForwardedRef<ICardExpirationDateElement>;
+  }
+> = ({
   id,
   bt,
   style,
