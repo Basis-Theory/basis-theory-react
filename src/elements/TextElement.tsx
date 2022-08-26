@@ -86,7 +86,7 @@ const TextElementC: FC<TextElementProps> = ({
   return <div id={id} ref={wrapperRef} />;
 };
 
-export const TextElement = React.forwardRef<ITextElement, TextElementProps>(
+export const TextElement = React.forwardRef<ITextElement, Omit<TextElementProps, 'elementRef'>>(
   // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
   function TextElement(props, ref) {
     return <TextElementC {...props} elementRef={ref} />;
