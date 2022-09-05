@@ -15,7 +15,7 @@ interface BaseTextElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
-  autoComplete?: string;
+  autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
   transform?: RegExp | [RegExp, string?];

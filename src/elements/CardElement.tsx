@@ -15,7 +15,7 @@ interface CardElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
-  autoComplete?: string;
+  autoComplete?: 'on' | 'off';
   onChange?: ElementEventListener<CardElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardElementEvents, 'focus'>;
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;

@@ -20,7 +20,7 @@ describe('TextElement', () => {
   let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
-  let autoComplete: string;
+  let autoComplete: 'on' | 'off';
   let ariaLabel: string;
   let password: boolean;
   let mask: (RegExp | string)[];

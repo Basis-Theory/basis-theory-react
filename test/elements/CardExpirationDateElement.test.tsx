@@ -20,7 +20,7 @@ describe('CardExpirationDateElement', () => {
   let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
-  let autoComplete: string;
+  let autoComplete: 'on' | 'off';
   let ariaLabel: string;
   let placeholder: string;
   let onReady: jest.Mock;

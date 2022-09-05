@@ -30,7 +30,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@basis-theory/basis-theory-js": "^1.48.0"
+    "@basis-theory/basis-theory-js": "^1.49.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
