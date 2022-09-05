@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.2...v1.5.3) (2022-09-05)
+
+
+### Bug Fixes
+
+* match inherited SDK types ([#117](https://github.com/Basis-Theory/basis-theory-react/issues/117)) ([2c24ad7](https://github.com/Basis-Theory/basis-theory-react/commit/2c24ad7c85774eda79b60cde829b3afe731b9757))
+
 ## [1.5.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.1...v1.5.2) (2022-08-26)
 
 
