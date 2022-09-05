@@ -20,7 +20,7 @@ describe('CardElement', () => {
   let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
-  let autoComplete: string;
+  let autoComplete: 'on' | 'off';
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;

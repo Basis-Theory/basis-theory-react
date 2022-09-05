@@ -16,7 +16,7 @@ interface CardVerificationCodeElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
-  autoComplete?: string;
+  autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
   cardBrand?: Brand;
