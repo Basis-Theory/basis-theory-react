@@ -2,11 +2,12 @@ import type {
   BasisTheoryElements,
   ElementType,
 } from '@basis-theory/basis-theory-js/types/elements';
-import { renderHook } from '@testing-library/react-hooks';
+import { waitFor } from '@testing-library/react';
 import { Chance } from 'chance';
 import { useBasisTheoryValue } from '../../src/elements/useBasisTheoryValue';
 import { useElement } from '../../src/elements/useElement';
 import { ElementMapper } from '../../src/types';
+import { renderHook } from '../customRenderHook';
 
 jest.mock('../../src/elements/useBasisTheoryValue');
 
@@ -122,13 +123,11 @@ describe('useElement', () => {
 
     mount.mockRejectedValue(errorMessage);
 
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useElement(id, type, mockRef, {})
-    );
+    const { result } = renderHook(() => useElement(id, type, mockRef, {}));
 
-    await waitForNextUpdate();
-
-    expect(result.error).toStrictEqual(errorMessage);
+    await waitFor(() => {
+      expect(result.error).toStrictEqual(errorMessage);
+    });
   });
 
   test('should update options', () => {
@@ -217,7 +216,7 @@ describe('useElement', () => {
 
     update.mockRejectedValue(errorMessage);
 
-    const { result, rerender, waitForNextUpdate } = renderHook(
+    const { result, rerender } = renderHook(
       ({ options }) => useElement(id, type, mockRef, options),
       {
         initialProps: {
@@ -235,7 +234,8 @@ describe('useElement', () => {
         [chance.string()]: chance.string(),
       },
     });
-    await waitForNextUpdate();
-    expect(result.error).toStrictEqual(errorMessage);
+    await waitFor(() => {
+      expect(result.error).toStrictEqual(errorMessage);
+    });
   });
 });
