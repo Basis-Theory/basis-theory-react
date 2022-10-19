@@ -99,7 +99,7 @@ describe('useBasisTheory', () => {
 
   describe('Context', () => {
     let btFromContext: BasisTheoryReact;
-    let wrapper: React.FC<{ apiKey?: string }>;
+    let wrapper: React.FC<{ apiKey?: string; children?: React.ReactNode }>;
 
     beforeEach(() => {
       btFromContext = {
