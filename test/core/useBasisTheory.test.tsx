@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { BasisTheoryInitOptions } from '@basis-theory/basis-theory-js/types/sdk';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, waitFor } from '@testing-library/react';
 import { Chance } from 'chance';
 import { useBasisTheory } from '../../src';
 import { BasisTheoryProvider } from '../../src/core/BasisTheoryProvider';
@@ -11,7 +11,7 @@ jest.mock('../../src/core/BasisTheoryReact');
 describe('useBasisTheory', () => {
   const chance = new Chance();
 
-  let key: string;
+  let key: string | undefined;
   let options: BasisTheoryInitOptions;
 
   beforeEach(() => {
@@ -23,15 +23,17 @@ describe('useBasisTheory', () => {
   });
 
   test('should not initialize if key is falsy', async () => {
-    const { result, rerender, waitForNextUpdate } = renderHook(() =>
-      useBasisTheory('')
-    );
+    const { result, rerender } = renderHook(() => useBasisTheory(''));
+    const initialValue = result.current;
 
     expect(result.current.bt).toBeUndefined();
+
     rerender();
-    // expect rejection, because value never changes
-    // eslint-disable-next-line jest/require-to-throw-message
-    await expect(() => waitForNextUpdate()).rejects.toThrow();
+
+    await waitFor(() => {
+      expect(result.current).toStrictEqual(initialValue);
+    });
+
     expect(result.current.bt).toBeUndefined();
     expect(BasisTheoryReact).toHaveBeenCalledTimes(0);
   });
@@ -55,26 +57,21 @@ describe('useBasisTheory', () => {
       .spyOn(BasisTheoryReact.prototype, 'init')
       .mockRejectedValueOnce(new Error(errorMessage));
 
-    const { waitForNextUpdate, result } = renderHook(() =>
-      useBasisTheory(key, options)
-    );
+    const { result } = renderHook(() => useBasisTheory(key, options));
 
     expect(result.current.error).toBeUndefined();
 
-    await waitForNextUpdate();
-
-    expect(result.current.error).toStrictEqual(new Error(errorMessage));
+    await waitFor(() =>
+      expect(result.current.error).toStrictEqual(new Error(errorMessage))
+    );
   });
 
   test('should pass parameters to BasisTheory init', async () => {
     const init = jest.spyOn(BasisTheoryReact.prototype, 'init');
 
-    const { waitForNextUpdate } = renderHook(() =>
-      useBasisTheory(key, options)
-    );
+    renderHook(() => useBasisTheory(key, options));
 
-    await waitForNextUpdate();
-    expect(init).toHaveBeenCalledWith(key, options);
+    await waitFor(() => expect(init).toHaveBeenCalledWith(key, options));
   });
 
   test('should not update instance if props change', async () => {
@@ -84,14 +81,15 @@ describe('useBasisTheory', () => {
     bt.init = init;
     jest.mocked(BasisTheoryReact).mockReturnValue(bt);
 
-    const { waitForNextUpdate, rerender } = renderHook(() =>
-      useBasisTheory(key, options)
-    );
+    const { result, rerender } = renderHook(() => useBasisTheory(key, options));
 
-    await waitForNextUpdate();
+    const initialValue = result.current;
+
+    await waitFor(() => {
+      expect(result.current).not.toBe(initialValue);
+    });
 
     key = chance.string();
-
     rerender();
 
     expect(init).toHaveBeenCalledTimes(1);
@@ -117,6 +115,10 @@ describe('useBasisTheory', () => {
       expect(result.current.bt).toStrictEqual(btFromContext);
     });
 
+    interface RenderProps {
+      apiKey?: string;
+    }
+
     test('should favor new instance created from props over Context', async () => {
       const bt = {
         [chance.string()]: chance.string(),
@@ -125,8 +127,8 @@ describe('useBasisTheory', () => {
         .spyOn(BasisTheoryReact.prototype, 'init')
         .mockResolvedValue(bt);
 
-      const { result, rerender, waitForNextUpdate } = renderHook(
-        ({ apiKey }) => useBasisTheory(apiKey),
+      const { result, rerender } = renderHook(
+        ({ apiKey }: RenderProps) => useBasisTheory(apiKey),
         {
           wrapper,
           initialProps: {},
@@ -139,12 +141,13 @@ describe('useBasisTheory', () => {
 
       // passes apiKey to hook
       rerender({ apiKey: key });
-      await waitForNextUpdate();
 
-      // should get back initialized instance
-      expect(result.current.bt).toStrictEqual(bt);
-      expect(init).toHaveBeenCalledTimes(1);
-      expect(init).toHaveBeenLastCalledWith(key, undefined);
+      await waitFor(() => {
+        // should get back initialized instance
+        expect(result.current.bt).toStrictEqual(bt);
+        expect(init).toHaveBeenCalledTimes(1);
+        expect(init).toHaveBeenLastCalledWith(key, undefined);
+      });
 
       // goes back passing undefined apiKey to hook
       rerender({ apiKey: undefined });
