@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.3...v1.6.0) (2022-10-20)
+
+
+### Features
+
+* support react 18 ([#120](https://github.com/Basis-Theory/basis-theory-react/issues/120)) ([d66c41b](https://github.com/Basis-Theory/basis-theory-react/commit/d66c41b6ad2e824e6dabaf5ce52998a7a95332ef))
+
 ## [1.5.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.2...v1.5.3) (2022-09-05)
 
 
