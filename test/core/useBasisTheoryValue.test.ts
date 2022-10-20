@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import type { BasisTheoryReact } from '../../src';
 import { useBasisTheory } from '../../src/core/useBasisTheory';
 import { useBasisTheoryValue } from '../../src/elements/useBasisTheoryValue';

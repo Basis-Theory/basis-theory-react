@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type,@typescript-eslint/explicit-member-accessibility */
+import React from 'react';
 import type {
   BasisTheoryElements,
   ElementType,
 } from '@basis-theory/basis-theory-js/types/elements';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, waitFor } from '@testing-library/react';
 import { Chance } from 'chance';
 import { useBasisTheoryValue } from '../../src/elements/useBasisTheoryValue';
 import { useElement } from '../../src/elements/useElement';
@@ -17,7 +19,22 @@ describe('useElement', () => {
   let mount: jest.Mock;
   let update: jest.Mock;
 
+  let asyncError: unknown;
+
+  class ErrorBoundary extends React.Component<{
+    children: React.ReactElement;
+  }> {
+    componentDidCatch(error: unknown) {
+      asyncError = error;
+    }
+
+    render() {
+      return !asyncError && this.props.children;
+    }
+  }
+
   beforeEach(() => {
+    asyncError = undefined;
     mount = jest.fn().mockResolvedValue(undefined);
     update = jest.fn().mockResolvedValue(undefined);
     bt = {
@@ -122,13 +139,11 @@ describe('useElement', () => {
 
     mount.mockRejectedValue(errorMessage);
 
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useElement(id, type, mockRef, {})
-    );
+    renderHook(() => useElement(id, type, mockRef, {}), {
+      wrapper: ErrorBoundary,
+    });
 
-    await waitForNextUpdate();
-
-    expect(result.error).toStrictEqual(errorMessage);
+    await waitFor(() => expect(asyncError).toStrictEqual(errorMessage));
   });
 
   test('should update options', () => {
@@ -217,17 +232,18 @@ describe('useElement', () => {
 
     update.mockRejectedValue(errorMessage);
 
-    const { result, rerender, waitForNextUpdate } = renderHook(
+    const { rerender } = renderHook(
       ({ options }) => useElement(id, type, mockRef, options),
       {
         initialProps: {
           options: {},
         },
+        wrapper: ErrorBoundary,
       }
     );
 
     // no error yet
-    expect(result.error).toBeUndefined();
+    await waitFor(() => expect(asyncError).toBeUndefined());
 
     // trigger error by updating (triggered options update)
     rerender({
@@ -235,7 +251,8 @@ describe('useElement', () => {
         [chance.string()]: chance.string(),
       },
     });
-    await waitForNextUpdate();
-    expect(result.error).toStrictEqual(errorMessage);
+
+    await waitFor(() => expect(asyncError).toStrictEqual(errorMessage));
   });
 });
+/* eslint-enable @typescript-eslint/explicit-function-return-type,@typescript-eslint/explicit-member-accessibility */
