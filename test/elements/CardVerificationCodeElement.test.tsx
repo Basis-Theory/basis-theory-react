@@ -26,6 +26,7 @@ describe('CardVerificationCodeElement', () => {
   let ariaLabel: string;
   let placeholder: string;
   let cardBrand: Brand;
+  let value: string;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -45,6 +46,7 @@ describe('CardVerificationCodeElement', () => {
     autoComplete = chance.pickone(['on', 'off']);
     ariaLabel = chance.string();
     placeholder = chance.string();
+    value = chance.string();
 
     cardBrand = chance.pickone<Brand>([...CARD_BRANDS]);
     onReady = jest.fn();
@@ -76,6 +78,7 @@ describe('CardVerificationCodeElement', () => {
         placeholder={placeholder}
         ref={ref}
         style={style}
+        value={value}
       />
     );
 
@@ -92,6 +95,7 @@ describe('CardVerificationCodeElement', () => {
         'aria-label': ariaLabel,
         placeholder,
         cardBrand,
+        value,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null

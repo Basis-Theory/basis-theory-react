@@ -23,7 +23,7 @@ function useBasisTheory(
 ): UseBasisTheory<false>;
 
 function useBasisTheory(
-  apiKey: string,
+  apiKey: string | undefined,
   options: BasisTheoryInitOptionsWithElements
 ): UseBasisTheory<true>;
 

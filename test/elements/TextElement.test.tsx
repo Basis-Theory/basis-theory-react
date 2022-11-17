@@ -26,6 +26,7 @@ describe('TextElement', () => {
   let mask: (RegExp | string)[];
   let placeholder: string;
   let transform: RegExp;
+  let value: string;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -54,6 +55,7 @@ describe('TextElement', () => {
     );
     placeholder = chance.string();
     transform = chance.pickone([/\d/u, /./u]);
+    value = chance.string();
 
     onReady = jest.fn();
     onChange = jest.fn();
@@ -86,6 +88,7 @@ describe('TextElement', () => {
         ref={ref}
         style={style}
         transform={transform}
+        value={value}
       />
     );
 
@@ -104,6 +107,7 @@ describe('TextElement', () => {
         password,
         placeholder,
         transform,
+        value,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null

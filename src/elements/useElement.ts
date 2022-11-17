@@ -62,7 +62,7 @@ const useElement = <
       const newElement = bt.createElement(
         type as never,
         options as never
-      ) as Element;
+      ) as unknown as Element; // conversion to unknown necessary because of different value prop types
 
       elementRef.current = newElement;
 

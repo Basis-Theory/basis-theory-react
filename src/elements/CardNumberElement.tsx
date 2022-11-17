@@ -20,6 +20,7 @@ interface CardNumberElementProps {
   'aria-label'?: string;
   placeholder?: string;
   iconPosition?: SanitizedElementOptions['iconPosition'];
+  value?: string;
   onChange?: ElementEventListener<CardNumberElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardNumberElementEvents, 'focus'>;
   onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
@@ -38,6 +39,7 @@ const CardNumberElementC: FC<
   'aria-label': ariaLabel,
   placeholder,
   iconPosition,
+  value,
   onReady,
   onChange,
   onFocus,
@@ -61,6 +63,7 @@ const CardNumberElementC: FC<
       'aria-label': ariaLabel,
       placeholder,
       iconPosition,
+      value,
     },
     bt,
     elementRef

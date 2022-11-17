@@ -5,6 +5,7 @@ import type {
   ElementEventListener,
   ElementStyle,
   CardExpirationDateElementEvents,
+  CardExpirationDateValue,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -18,6 +19,7 @@ interface CardExpirationDateElementProps {
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
+  value?: CardExpirationDateValue<'static'> | string;
   onChange?: ElementEventListener<CardExpirationDateElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardExpirationDateElementEvents, 'focus'>;
   onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
@@ -37,6 +39,7 @@ const CardExpirationDateElementC: FC<
   autoComplete,
   'aria-label': ariaLabel,
   placeholder,
+  value,
   onReady,
   onChange,
   onFocus,
@@ -59,6 +62,7 @@ const CardExpirationDateElementC: FC<
       autoComplete,
       'aria-label': ariaLabel,
       placeholder,
+      value,
     },
     bt,
     elementRef

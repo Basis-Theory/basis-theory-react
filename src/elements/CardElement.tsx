@@ -5,6 +5,7 @@ import type {
   CardElementEvents,
   ElementEventListener,
   ElementStyle,
+  CardElementValue,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -16,6 +17,7 @@ interface CardElementProps {
   style?: ElementStyle;
   disabled?: boolean;
   autoComplete?: 'on' | 'off';
+  value?: CardElementValue<'static'>;
   onChange?: ElementEventListener<CardElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardElementEvents, 'focus'>;
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
@@ -31,6 +33,7 @@ const CardElementC: FC<
   style,
   disabled,
   autoComplete,
+  value,
   onReady,
   onChange,
   onFocus,
@@ -47,6 +50,7 @@ const CardElementC: FC<
       style,
       disabled,
       autoComplete,
+      value,
     },
     bt,
     elementRef

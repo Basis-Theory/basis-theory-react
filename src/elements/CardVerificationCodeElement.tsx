@@ -20,6 +20,7 @@ interface CardVerificationCodeElementProps {
   'aria-label'?: string;
   placeholder?: string;
   cardBrand?: Brand;
+  value?: string;
   onChange?: ElementEventListener<CardVerificationCodeElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardVerificationCodeElementEvents, 'focus'>;
   onBlur?: ElementEventListener<CardVerificationCodeElementEvents, 'blur'>;
@@ -43,6 +44,7 @@ const CardVerificationCodeElementC: FC<
   'aria-label': ariaLabel,
   placeholder,
   cardBrand,
+  value,
   onReady,
   onChange,
   onFocus,
@@ -66,6 +68,7 @@ const CardVerificationCodeElementC: FC<
       'aria-label': ariaLabel,
       placeholder,
       cardBrand,
+      value,
     },
     bt,
     elementRef

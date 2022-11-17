@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
+  CardExpirationDateValue,
   ElementStyle,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
@@ -23,6 +24,7 @@ describe('CardExpirationDateElement', () => {
   let autoComplete: 'on' | 'off';
   let ariaLabel: string;
   let placeholder: string;
+  let value: CardExpirationDateValue<'static'>;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -42,7 +44,13 @@ describe('CardExpirationDateElement', () => {
     autoComplete = chance.pickone(['on', 'off']);
     ariaLabel = chance.string();
     placeholder = chance.string();
-
+    value = {
+      month: chance.integer({
+        min: 1,
+        max: 12,
+      }),
+      year: new Date().getFullYear() + 1,
+    };
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -71,6 +79,7 @@ describe('CardExpirationDateElement', () => {
         placeholder={placeholder}
         ref={ref}
         style={style}
+        value={value}
       />
     );
 
@@ -86,6 +95,7 @@ describe('CardExpirationDateElement', () => {
         autoComplete,
         'aria-label': ariaLabel,
         placeholder,
+        value,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null
