@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {
   CardElement as ICardElement,
+  CardElementValue,
   ElementStyle,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
@@ -21,6 +22,7 @@ describe('CardElement', () => {
   let style: ElementStyle;
   let disabled: boolean;
   let autoComplete: 'on' | 'off';
+  let value: CardElementValue<'static'>;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -38,6 +40,20 @@ describe('CardElement', () => {
     };
     disabled = chance.bool();
     autoComplete = chance.pickone(['on', 'off']);
+    value = {
+      number: chance.cc({ type: 'mc' }),
+      /* eslint-disable camelcase */
+      expiration_month: chance.integer({
+        min: 1,
+        max: 12,
+      }),
+      expiration_year: new Date().getFullYear() + 1,
+      /* eslint-enable camelcase */
+      cvc: chance.string({
+        length: 3,
+        numeric: true,
+      }),
+    };
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -64,6 +80,7 @@ describe('CardElement', () => {
         onReady={onReady}
         ref={ref}
         style={style}
+        value={value}
       />
     );
 
@@ -76,6 +93,7 @@ describe('CardElement', () => {
         style,
         disabled,
         autoComplete,
+        value,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null

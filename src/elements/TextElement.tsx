@@ -19,6 +19,7 @@ interface BaseTextElementProps {
   'aria-label'?: string;
   placeholder?: string;
   transform?: RegExp | [RegExp, string?];
+  value?: string;
   onChange?: ElementEventListener<TextElementEvents, 'change'>;
   onFocus?: ElementEventListener<TextElementEvents, 'focus'>;
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
@@ -51,6 +52,7 @@ const TextElementC: FC<
   transform,
   mask,
   password,
+  value,
   onReady,
   onChange,
   onFocus,
@@ -73,6 +75,7 @@ const TextElementC: FC<
       password,
       placeholder,
       transform,
+      value,
     },
     bt,
     elementRef

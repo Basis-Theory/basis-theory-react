@@ -25,6 +25,7 @@ describe('CardNumberElement', () => {
   let ariaLabel: string;
   let placeholder: string;
   let iconPosition: CreateCardNumberElementOptions['iconPosition'];
+  let value: string;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -45,6 +46,7 @@ describe('CardNumberElement', () => {
     ariaLabel = chance.string();
     placeholder = chance.string();
     iconPosition = chance.pickone(['left', 'right', 'none', undefined]);
+    value = chance.cc({ type: 'mc' });
 
     onReady = jest.fn();
     onChange = jest.fn();
@@ -75,6 +77,7 @@ describe('CardNumberElement', () => {
         placeholder={placeholder}
         ref={ref}
         style={style}
+        value={value}
       />
     );
 
@@ -91,6 +94,7 @@ describe('CardNumberElement', () => {
         'aria-label': ariaLabel,
         placeholder,
         iconPosition,
+        value,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null
