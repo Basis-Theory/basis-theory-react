@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.6.0...v1.7.0) (2022-11-18)
+
+
+### Features
+
+* add value prop to elements, allow undefined apiKey w elements ([#124](https://github.com/Basis-Theory/basis-theory-react/issues/124)) ([3cfa865](https://github.com/Basis-Theory/basis-theory-react/commit/3cfa86521a0f2c60af2fb1de5afbaf7ecc95edc9))
+
 # [1.6.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.5.3...v1.6.0) (2022-10-20)
 
 
