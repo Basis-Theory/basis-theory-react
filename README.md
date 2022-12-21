@@ -1,6 +1,7 @@
 # Basis Theory React
 
 [![Version](https://img.shields.io/npm/v/@basis-theory/basis-theory-react.svg)](https://www.npmjs.org/package/@basis-theory/basis-theory-react)
+[![Downloads](https://img.shields.io/npm/dm/@basis-theory/basis-theory-react.svg)](https://www.npmjs.org/package/@basis-theory/basis-theory-react)
 [![Verify](https://github.com/Basis-Theory/basis-theory-react/actions/workflows/release.yml/badge.svg)](https://github.com/Basis-Theory/basis-theory-react/actions/workflows/release.yml)
 
 A thin React wrapper for [Basis Theory](https://basistheory.com/) JS SDK.
