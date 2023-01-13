@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.7.0...v1.7.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* bump btjs, export all btjs elements types, add string option to cardBrand ([#133](https://github.com/Basis-Theory/basis-theory-react/issues/133)) ([e1c30c7](https://github.com/Basis-Theory/basis-theory-react/commit/e1c30c7342d5cf6030914c332c0988e055751fbc))
+
 # [1.7.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.6.0...v1.7.0) (2022-11-18)
 
 
