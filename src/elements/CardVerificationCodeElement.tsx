@@ -19,7 +19,7 @@ interface CardVerificationCodeElementProps {
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
-  cardBrand?: Brand;
+  cardBrand?: Brand | string;
   value?: string;
   onChange?: ElementEventListener<CardVerificationCodeElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardVerificationCodeElementEvents, 'focus'>;
