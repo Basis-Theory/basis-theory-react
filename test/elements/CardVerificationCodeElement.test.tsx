@@ -25,7 +25,7 @@ describe('CardVerificationCodeElement', () => {
   let autoComplete: 'on' | 'off';
   let ariaLabel: string;
   let placeholder: string;
-  let cardBrand: Brand;
+  let cardBrand: Brand | string;
   let value: string;
   let onReady: jest.Mock;
   let onChange: jest.Mock;

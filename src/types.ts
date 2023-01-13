@@ -25,10 +25,4 @@ type BasisTheoryReact<Elements extends boolean = boolean> =
 
 export type { GetElement, ElementMapper, BasisTheoryReact };
 
-export type {
-  CardElement,
-  TextElement,
-  CardExpirationDateElement,
-  CardVerificationCodeElement,
-  CardNumberElement,
-} from '@basis-theory/basis-theory-js/types/elements';
+export * from '@basis-theory/basis-theory-js/types/elements';
