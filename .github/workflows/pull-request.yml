@@ -15,6 +15,9 @@ jobs:
       CI: 1
       HUSKY: 0 # disables husky hooks
       NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    permissions: 
+      statuses: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
