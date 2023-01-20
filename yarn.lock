@@ -1465,10 +1465,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@basis-theory/basis-theory-js@^1.62.1":
-  version "1.62.1"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.62.1.tgz#f6cb25226fd3af0f7df6b76cef5ac22e2a28f343"
-  integrity sha512-rrwB0SPUrc/xEO6VBFIctzXuAFao21PEfS5cvFtAvFgVp6TxgAOqXwcpvPGWD/4MsK+COcUTaO2urzfWqlbYVw==
+"@basis-theory/basis-theory-js@^1.63.0":
+  version "1.63.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.63.0.tgz#b2873c48e49e28a13494ec40a5e3a84aa088e079"
+  integrity sha512-Bpmj3NQ2pThHo3g5JxNmKei/MmQc2XzLU7fSZQsEDMAo5rQozNMMA2Q21hYCmZCl7BXwN1YvW+nWcjAd+vjDAQ==
   dependencies:
     axios "^0.21.2"
     camelcase-keys "^6.2.2"
@@ -1478,10 +1478,10 @@
     snake-case "^3.0.4"
     snakecase-keys "^3.2.1"
 
-"@basis-theory/eslint-config@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/@basis-theory/eslint-config/-/eslint-config-1.0.12.tgz"
-  integrity sha512-wJinPBhmdMcG719iMsIm6f3HNwb70Dd6fGYVk3X2KB19KKkPDU3lsLGRT4ntGCgX+N4M8F8CCNq6PC5vOAbtUA==
+"@basis-theory/eslint-config@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@basis-theory/eslint-config/-/eslint-config-1.0.13.tgz#18e13108f11c49bc3232b110ff5358d6ae0df733"
+  integrity sha512-6a9EtSoaW/Ks/dT8MY1C/Ed+DdQAwkpomJ9Lp9fhRiZzNnH7OpNQtG5ilUw/zoE/sY0uT5rZXgBLlQTc+o4a1A==
   dependencies:
     "@rushstack/eslint-patch" "^1.0.8"
     "@trivago/prettier-plugin-sort-imports" "^3.1.1"
