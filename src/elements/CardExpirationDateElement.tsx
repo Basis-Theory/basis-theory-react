@@ -25,6 +25,7 @@ interface CardExpirationDateElementProps {
   onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
+  validateOnChange?: boolean;
 }
 
 const CardExpirationDateElementC: FC<
@@ -46,6 +47,7 @@ const CardExpirationDateElementC: FC<
   onBlur,
   onKeyDown,
   elementRef,
+  validateOnChange,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -63,6 +65,7 @@ const CardExpirationDateElementC: FC<
       'aria-label': ariaLabel,
       placeholder,
       value,
+      validateOnChange,
     },
     bt,
     elementRef
