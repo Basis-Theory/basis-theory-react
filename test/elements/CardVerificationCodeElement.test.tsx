@@ -27,6 +27,7 @@ describe('CardVerificationCodeElement', () => {
   let placeholder: string;
   let cardBrand: Brand | string;
   let value: string;
+  let validateOnChange: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -47,7 +48,7 @@ describe('CardVerificationCodeElement', () => {
     ariaLabel = chance.string();
     placeholder = chance.string();
     value = chance.string();
-
+    validateOnChange = chance.bool();
     cardBrand = chance.pickone<Brand>([...CARD_BRANDS]);
     onReady = jest.fn();
     onChange = jest.fn();
@@ -78,6 +79,7 @@ describe('CardVerificationCodeElement', () => {
         placeholder={placeholder}
         ref={ref}
         style={style}
+        validateOnChange={validateOnChange}
         value={value}
       />
     );
@@ -96,6 +98,7 @@ describe('CardVerificationCodeElement', () => {
         placeholder,
         cardBrand,
         value,
+        validateOnChange,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null
