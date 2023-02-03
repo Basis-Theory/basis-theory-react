@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.7.1...v1.8.0) (2023-02-03)
+
+
+### Features
+
+* add support for validateOnChange ([#136](https://github.com/Basis-Theory/basis-theory-react/issues/136)) ([c02e1f8](https://github.com/Basis-Theory/basis-theory-react/commit/c02e1f8e0e45d2298aeb603d40c5ab04195d0cdf))
+
 ## [1.7.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.7.0...v1.7.1) (2023-01-13)
 
 
