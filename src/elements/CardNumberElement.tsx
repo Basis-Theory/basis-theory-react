@@ -26,6 +26,7 @@ interface CardNumberElementProps {
   onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardNumberElementEvents, 'keydown'>;
+  validateOnChange?: boolean;
 }
 
 const CardNumberElementC: FC<
@@ -46,6 +47,7 @@ const CardNumberElementC: FC<
   onBlur,
   onKeyDown,
   elementRef,
+  validateOnChange,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -64,6 +66,7 @@ const CardNumberElementC: FC<
       placeholder,
       iconPosition,
       value,
+      validateOnChange,
     },
     bt,
     elementRef

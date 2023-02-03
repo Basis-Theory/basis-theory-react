@@ -25,6 +25,7 @@ describe('CardExpirationDateElement', () => {
   let ariaLabel: string;
   let placeholder: string;
   let value: CardExpirationDateValue<'static'>;
+  let validateOnChange: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -51,6 +52,7 @@ describe('CardExpirationDateElement', () => {
       }),
       year: new Date().getFullYear() + 1,
     };
+    validateOnChange = chance.bool();
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -79,6 +81,7 @@ describe('CardExpirationDateElement', () => {
         placeholder={placeholder}
         ref={ref}
         style={style}
+        validateOnChange={validateOnChange}
         value={value}
       />
     );
@@ -95,6 +98,7 @@ describe('CardExpirationDateElement', () => {
         autoComplete,
         'aria-label': ariaLabel,
         placeholder,
+        validateOnChange,
         value,
       },
       undefined,

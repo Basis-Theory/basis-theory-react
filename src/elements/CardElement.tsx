@@ -23,6 +23,7 @@ interface CardElementProps {
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
+  validateOnChange?: boolean;
 }
 
 const CardElementC: FC<
@@ -40,6 +41,7 @@ const CardElementC: FC<
   onBlur,
   onKeyDown,
   elementRef,
+  validateOnChange,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ICardElement, CreateCardElementOptions>(
@@ -47,6 +49,7 @@ const CardElementC: FC<
     'card',
     wrapperRef,
     {
+      validateOnChange,
       style,
       disabled,
       autoComplete,

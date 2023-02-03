@@ -29,6 +29,7 @@ interface CardVerificationCodeElementProps {
     CardVerificationCodeElementEvents,
     'keydown'
   >;
+  validateOnChange?: boolean;
 }
 
 const CardVerificationCodeElementC: FC<
@@ -51,6 +52,7 @@ const CardVerificationCodeElementC: FC<
   onBlur,
   onKeyDown,
   elementRef,
+  validateOnChange,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -69,6 +71,7 @@ const CardVerificationCodeElementC: FC<
       placeholder,
       cardBrand,
       value,
+      validateOnChange,
     },
     bt,
     elementRef
