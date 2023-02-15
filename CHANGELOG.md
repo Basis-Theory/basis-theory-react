@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.8.0...v1.9.0) (2023-02-15)
+
+
+### Features
+
+* bump btjs to add elements metadata ([#138](https://github.com/Basis-Theory/basis-theory-react/issues/138)) ([89ff33c](https://github.com/Basis-Theory/basis-theory-react/commit/89ff33c4651cb206d6ab78a19f91801d1447cca0))
+
 # [1.8.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.7.1...v1.8.0) (2023-02-03)
 
 
