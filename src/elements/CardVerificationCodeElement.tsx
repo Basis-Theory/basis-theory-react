@@ -30,6 +30,7 @@ interface CardVerificationCodeElementProps {
     'keydown'
   >;
   validateOnChange?: boolean;
+  enableCopy?: boolean;
 }
 
 const CardVerificationCodeElementC: FC<
@@ -53,6 +54,7 @@ const CardVerificationCodeElementC: FC<
   onKeyDown,
   elementRef,
   validateOnChange,
+  enableCopy,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -72,6 +74,7 @@ const CardVerificationCodeElementC: FC<
       cardBrand,
       value,
       validateOnChange,
+      enableCopy,
     },
     bt,
     elementRef

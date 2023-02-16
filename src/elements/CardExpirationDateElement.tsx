@@ -26,6 +26,7 @@ interface CardExpirationDateElementProps {
   onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
   validateOnChange?: boolean;
+  enableCopy?: boolean;
 }
 
 const CardExpirationDateElementC: FC<
@@ -48,6 +49,7 @@ const CardExpirationDateElementC: FC<
   onKeyDown,
   elementRef,
   validateOnChange,
+  enableCopy,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -59,6 +61,7 @@ const CardExpirationDateElementC: FC<
     wrapperRef,
     {
       targetId: id,
+      enableCopy,
       style,
       disabled,
       autoComplete,
