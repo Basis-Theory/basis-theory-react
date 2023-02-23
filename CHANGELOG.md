@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.9.1...v1.10.0) (2023-02-23)
+
+
+### Features
+
+* add enableCopy prop to all card elements ([#141](https://github.com/Basis-Theory/basis-theory-react/issues/141)) ([e69bf31](https://github.com/Basis-Theory/basis-theory-react/commit/e69bf31421b0b72120c1c902e6e005b66a407ab4))
+
 ## [1.9.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.9.0...v1.9.1) (2023-02-16)
 
 
