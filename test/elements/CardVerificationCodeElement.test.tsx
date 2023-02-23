@@ -28,6 +28,7 @@ describe('CardVerificationCodeElement', () => {
   let cardBrand: Brand | string;
   let value: string;
   let validateOnChange: boolean;
+  let enableCopy: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -49,6 +50,7 @@ describe('CardVerificationCodeElement', () => {
     placeholder = chance.string();
     value = chance.string();
     validateOnChange = chance.bool();
+    enableCopy = chance.bool();
     cardBrand = chance.pickone<Brand>([...CARD_BRANDS]);
     onReady = jest.fn();
     onChange = jest.fn();
@@ -70,6 +72,7 @@ describe('CardVerificationCodeElement', () => {
         autoComplete={autoComplete}
         cardBrand={cardBrand}
         disabled={disabled}
+        enableCopy={enableCopy}
         id={id}
         onBlur={onBlur}
         onChange={onChange}
@@ -93,6 +96,7 @@ describe('CardVerificationCodeElement', () => {
         targetId: id,
         style,
         disabled,
+        enableCopy,
         autoComplete,
         'aria-label': ariaLabel,
         placeholder,

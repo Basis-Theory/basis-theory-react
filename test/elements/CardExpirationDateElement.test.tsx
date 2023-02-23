@@ -26,6 +26,7 @@ describe('CardExpirationDateElement', () => {
   let placeholder: string;
   let value: CardExpirationDateValue<'static'>;
   let validateOnChange: boolean;
+  let enableCopy: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -53,6 +54,7 @@ describe('CardExpirationDateElement', () => {
       year: new Date().getFullYear() + 1,
     };
     validateOnChange = chance.bool();
+    enableCopy = chance.bool();
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -72,6 +74,7 @@ describe('CardExpirationDateElement', () => {
         aria-label={ariaLabel}
         autoComplete={autoComplete}
         disabled={disabled}
+        enableCopy={enableCopy}
         id={id}
         onBlur={onBlur}
         onChange={onChange}
@@ -95,6 +98,7 @@ describe('CardExpirationDateElement', () => {
         targetId: id,
         style,
         disabled,
+        enableCopy,
         autoComplete,
         'aria-label': ariaLabel,
         placeholder,
