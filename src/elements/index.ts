@@ -1,5 +1,10 @@
 export { CardElement } from './CardElement';
+export type { CardElementProps } from './CardElement';
 export { TextElement } from './TextElement';
+export type { TextElementProps } from './TextElement';
 export { CardNumberElement } from './CardNumberElement';
+export type { CardNumberElementProps } from './CardNumberElement';
 export { CardExpirationDateElement } from './CardExpirationDateElement';
+export type { CardExpirationDateElementProps } from './CardExpirationDateElement';
 export { CardVerificationCodeElement } from './CardVerificationCodeElement';
+export type { CardVerificationCodeElementProps } from './CardVerificationCodeElement';
