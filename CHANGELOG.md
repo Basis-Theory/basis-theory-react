@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.10.0...v1.10.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* export Elements props from root ([#143](https://github.com/Basis-Theory/basis-theory-react/issues/143)) ([cf9dacd](https://github.com/Basis-Theory/basis-theory-react/commit/cf9dacdc35150ac300382deca7e0e39c915183d3))
+
 # [1.10.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.9.1...v1.10.0) (2023-02-23)
 
 
