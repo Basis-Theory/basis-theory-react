@@ -53,7 +53,7 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "chance": "^1.1.8",
-    "concurrently": "^7.2.1",
+    "concurrently": "^8.0.1",
     "eslint": "^7.32.0",
     "husky": "^5.1.1",
     "jest": "^27.4.7",
