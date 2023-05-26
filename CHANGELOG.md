@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.11.0...v1.12.0) (2023-05-26)
+
+
+### Features
+
+* add validation prop to text element ([#149](https://github.com/Basis-Theory/basis-theory-react/issues/149)) ([56665df](https://github.com/Basis-Theory/basis-theory-react/commit/56665dfc852351695a6b1fa33daff1855ee46113))
+
 # [1.11.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.10.1...v1.11.0) (2023-03-30)
 
 
