@@ -26,6 +26,8 @@ interface CardNumberElementProps {
   onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardNumberElementEvents, 'keydown'>;
+  validateOnChange?: boolean;
+  enableCopy?: boolean;
 }
 
 const CardNumberElementC: FC<
@@ -46,6 +48,8 @@ const CardNumberElementC: FC<
   onBlur,
   onKeyDown,
   elementRef,
+  validateOnChange,
+  enableCopy,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -64,6 +68,8 @@ const CardNumberElementC: FC<
       placeholder,
       iconPosition,
       value,
+      validateOnChange,
+      enableCopy,
     },
     bt,
     elementRef

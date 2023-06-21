@@ -23,6 +23,8 @@ interface CardElementProps {
   onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
+  validateOnChange?: boolean;
+  enableCopy?: boolean;
 }
 
 const CardElementC: FC<
@@ -40,6 +42,8 @@ const CardElementC: FC<
   onBlur,
   onKeyDown,
   elementRef,
+  validateOnChange,
+  enableCopy,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ICardElement, CreateCardElementOptions>(
@@ -47,6 +51,8 @@ const CardElementC: FC<
     'card',
     wrapperRef,
     {
+      enableCopy,
+      validateOnChange,
       style,
       disabled,
       autoComplete,

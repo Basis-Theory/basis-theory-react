@@ -23,6 +23,8 @@ describe('CardElement', () => {
   let disabled: boolean;
   let autoComplete: 'on' | 'off';
   let value: CardElementValue<'static'>;
+  let validateOnChange: boolean;
+  let enableCopy: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -54,6 +56,8 @@ describe('CardElement', () => {
         numeric: true,
       }),
     };
+    validateOnChange = chance.bool();
+    enableCopy = chance.bool();
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -72,6 +76,7 @@ describe('CardElement', () => {
       <CardElement
         autoComplete={autoComplete}
         disabled={disabled}
+        enableCopy={enableCopy}
         id={id}
         onBlur={onBlur}
         onChange={onChange}
@@ -80,6 +85,7 @@ describe('CardElement', () => {
         onReady={onReady}
         ref={ref}
         style={style}
+        validateOnChange={validateOnChange}
         value={value}
       />
     );
@@ -92,8 +98,10 @@ describe('CardElement', () => {
       {
         style,
         disabled,
+        enableCopy,
         autoComplete,
         value,
+        validateOnChange,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null

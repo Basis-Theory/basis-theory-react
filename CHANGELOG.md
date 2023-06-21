@@ -1,3 +1,52 @@
+# [1.12.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.11.0...v1.12.0) (2023-05-26)
+
+
+### Features
+
+* add validation prop to text element ([#149](https://github.com/Basis-Theory/basis-theory-react/issues/149)) ([56665df](https://github.com/Basis-Theory/basis-theory-react/commit/56665dfc852351695a6b1fa33daff1855ee46113))
+
+# [1.11.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.10.1...v1.11.0) (2023-03-30)
+
+
+### Features
+
+* upgrade btjs ([#145](https://github.com/Basis-Theory/basis-theory-react/issues/145)) ([2a971cb](https://github.com/Basis-Theory/basis-theory-react/commit/2a971cb74e14c157f38725d1c8cc7a27606b6e9d))
+
+## [1.10.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.10.0...v1.10.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* export Elements props from root ([#143](https://github.com/Basis-Theory/basis-theory-react/issues/143)) ([cf9dacd](https://github.com/Basis-Theory/basis-theory-react/commit/cf9dacdc35150ac300382deca7e0e39c915183d3))
+
+# [1.10.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.9.1...v1.10.0) (2023-02-23)
+
+
+### Features
+
+* add enableCopy prop to all card elements ([#141](https://github.com/Basis-Theory/basis-theory-react/issues/141)) ([e69bf31](https://github.com/Basis-Theory/basis-theory-react/commit/e69bf31421b0b72120c1c902e6e005b66a407ab4))
+
+## [1.9.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.9.0...v1.9.1) (2023-02-16)
+
+
+### Bug Fixes
+
+* bump btjs ([#140](https://github.com/Basis-Theory/basis-theory-react/issues/140)) ([c05831a](https://github.com/Basis-Theory/basis-theory-react/commit/c05831ad8241b696d6dc436f8ef1cac2c40900b6))
+
+# [1.9.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.8.0...v1.9.0) (2023-02-15)
+
+
+### Features
+
+* bump btjs to add elements metadata ([#138](https://github.com/Basis-Theory/basis-theory-react/issues/138)) ([89ff33c](https://github.com/Basis-Theory/basis-theory-react/commit/89ff33c4651cb206d6ab78a19f91801d1447cca0))
+
+# [1.8.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.7.1...v1.8.0) (2023-02-03)
+
+
+### Features
+
+* add support for validateOnChange ([#136](https://github.com/Basis-Theory/basis-theory-react/issues/136)) ([c02e1f8](https://github.com/Basis-Theory/basis-theory-react/commit/c02e1f8e0e45d2298aeb603d40c5ab04195d0cdf))
+
 ## [1.7.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.7.0...v1.7.1) (2023-01-13)
 
 

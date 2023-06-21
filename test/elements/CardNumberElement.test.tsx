@@ -26,6 +26,8 @@ describe('CardNumberElement', () => {
   let placeholder: string;
   let iconPosition: CreateCardNumberElementOptions['iconPosition'];
   let value: string;
+  let validateOnChange: boolean;
+  let enableCopy: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -47,7 +49,8 @@ describe('CardNumberElement', () => {
     placeholder = chance.string();
     iconPosition = chance.pickone(['left', 'right', 'none', undefined]);
     value = chance.cc({ type: 'mc' });
-
+    validateOnChange = chance.bool();
+    enableCopy = chance.bool();
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -67,6 +70,7 @@ describe('CardNumberElement', () => {
         aria-label={ariaLabel}
         autoComplete={autoComplete}
         disabled={disabled}
+        enableCopy={enableCopy}
         iconPosition={iconPosition}
         id={id}
         onBlur={onBlur}
@@ -77,6 +81,7 @@ describe('CardNumberElement', () => {
         placeholder={placeholder}
         ref={ref}
         style={style}
+        validateOnChange={validateOnChange}
         value={value}
       />
     );
@@ -90,11 +95,13 @@ describe('CardNumberElement', () => {
         targetId: id,
         style,
         disabled,
+        enableCopy,
         autoComplete,
         'aria-label': ariaLabel,
         placeholder,
         iconPosition,
         value,
+        validateOnChange,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null
