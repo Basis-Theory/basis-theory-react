@@ -20,6 +20,7 @@ interface BaseTextElementProps {
   placeholder?: string;
   transform?: RegExp | [RegExp, string?];
   value?: string;
+  validation?: RegExp;
   onChange?: ElementEventListener<TextElementEvents, 'change'>;
   onFocus?: ElementEventListener<TextElementEvents, 'focus'>;
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
@@ -53,6 +54,7 @@ const TextElementC: FC<
   mask,
   password,
   value,
+  validation,
   onReady,
   onChange,
   onFocus,
@@ -76,6 +78,7 @@ const TextElementC: FC<
       placeholder,
       transform,
       value,
+      validation,
     },
     bt,
     elementRef
