@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.0...v1.12.1) (2023-07-06)
+
+
+### Bug Fixes
+
+* fixes infinite loop when running into an error ([#160](https://github.com/Basis-Theory/basis-theory-react/issues/160)) ([9c5eaed](https://github.com/Basis-Theory/basis-theory-react/commit/9c5eaed491d61012619db065b75e1229bdb00634))
+
 # [1.12.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.11.0...v1.12.0) (2023-05-26)
 
 
