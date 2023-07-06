@@ -40,7 +40,7 @@ function useBasisTheory(
 
   useEffect(() => {
     (async (): Promise<void> => {
-      if (!state.bt && apiKey) {
+      if (!state.bt && apiKey && !state.error) {
         try {
           const bt = (await new BasisTheoryReact().init(
             apiKey,
