@@ -58,7 +58,7 @@ function useBasisTheory(
         }
       }
     })();
-  }, [state.bt, apiKey, options]);
+  }, [state.bt, apiKey, options, state.error]);
 
   if (state.bt || state.error) {
     return {
