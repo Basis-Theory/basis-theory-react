@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.1...v1.12.2) (2023-07-18)
+
+
+### Bug Fixes
+
+* upgrade js sdk ([#170](https://github.com/Basis-Theory/basis-theory-react/issues/170)) ([babd348](https://github.com/Basis-Theory/basis-theory-react/commit/babd3483b3805290c9c743ac4d4b0c4ba7942a94))
+
 ## [1.12.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.0...v1.12.1) (2023-07-06)
 
 
