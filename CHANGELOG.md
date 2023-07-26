@@ -1,3 +1,10 @@
+## [1.12.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.2...v1.12.3) (2023-07-26)
+
+
+### Bug Fixes
+
+* bump btjs ([#172](https://github.com/Basis-Theory/basis-theory-react/issues/172)) ([478fcfd](https://github.com/Basis-Theory/basis-theory-react/commit/478fcfd06f0358cecedec7bf01dbae8870ed3384))
+
 ## [1.12.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.1...v1.12.2) (2023-07-18)
 
 
