@@ -1,3 +1,11 @@
+## [1.12.4](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.3...v1.12.4) (2023-08-11)
+
+
+### Bug Fixes
+
+* release build to 18 to support semantic ([#177](https://github.com/Basis-Theory/basis-theory-react/issues/177)) ([d2ba62a](https://github.com/Basis-Theory/basis-theory-react/commit/d2ba62aee1d24a5661af92f83013308483d68067))
+* upgrading CRA message and dependecies ([#175](https://github.com/Basis-Theory/basis-theory-react/issues/175)) ([0fed7a5](https://github.com/Basis-Theory/basis-theory-react/commit/0fed7a5f6dc00ccfcdeeb33b91db0526b56acffd))
+
 ## [1.12.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.2...v1.12.3) (2023-07-26)
 
 
