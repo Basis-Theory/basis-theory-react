@@ -16,6 +16,7 @@ interface CardVerificationCodeElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  readOnly?: boolean;
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
@@ -42,6 +43,7 @@ const CardVerificationCodeElementC: FC<
   bt,
   style,
   disabled,
+  readOnly,
   autoComplete,
   'aria-label': ariaLabel,
   placeholder,
@@ -68,6 +70,7 @@ const CardVerificationCodeElementC: FC<
       targetId: id,
       style,
       disabled,
+      readOnly,
       autoComplete,
       'aria-label': ariaLabel,
       placeholder,

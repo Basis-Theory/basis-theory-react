@@ -16,6 +16,7 @@ interface CardNumberElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  readOnly?: boolean;
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
@@ -37,6 +38,7 @@ const CardNumberElementC: FC<
   bt,
   style,
   disabled,
+  readOnly,
   autoComplete,
   'aria-label': ariaLabel,
   placeholder,
@@ -62,6 +64,7 @@ const CardNumberElementC: FC<
     {
       targetId: id,
       style,
+      readOnly,
       disabled,
       autoComplete,
       'aria-label': ariaLabel,

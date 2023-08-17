@@ -16,6 +16,7 @@ interface CardExpirationDateElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  readOnly?: boolean;
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
@@ -38,6 +39,7 @@ const CardExpirationDateElementC: FC<
   bt,
   style,
   disabled,
+  readOnly,
   autoComplete,
   'aria-label': ariaLabel,
   placeholder,
@@ -64,6 +66,7 @@ const CardExpirationDateElementC: FC<
       enableCopy,
       style,
       disabled,
+      readOnly,
       autoComplete,
       'aria-label': ariaLabel,
       placeholder,

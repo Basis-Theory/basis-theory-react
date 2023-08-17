@@ -25,6 +25,7 @@ describe('CardElement', () => {
   let value: CardElementValue<'static'>;
   let validateOnChange: boolean;
   let enableCopy: boolean;
+  let readOnly: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -41,6 +42,7 @@ describe('CardElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    readOnly = chance.bool();
     autoComplete = chance.pickone(['on', 'off']);
     value = {
       number: chance.cc({ type: 'mc' }),
@@ -83,6 +85,7 @@ describe('CardElement', () => {
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         onReady={onReady}
+        readOnly={readOnly}
         ref={ref}
         style={style}
         validateOnChange={validateOnChange}
@@ -100,6 +103,7 @@ describe('CardElement', () => {
         disabled,
         enableCopy,
         autoComplete,
+        readOnly,
         value,
         validateOnChange,
       },

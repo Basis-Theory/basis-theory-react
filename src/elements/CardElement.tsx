@@ -25,6 +25,7 @@ interface CardElementProps {
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
   validateOnChange?: boolean;
   enableCopy?: boolean;
+  readOnly?: boolean;
 }
 
 const CardElementC: FC<
@@ -44,6 +45,7 @@ const CardElementC: FC<
   elementRef,
   validateOnChange,
   enableCopy,
+  readOnly,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ICardElement, CreateCardElementOptions>(
@@ -55,6 +57,7 @@ const CardElementC: FC<
       validateOnChange,
       style,
       disabled,
+      readOnly,
       autoComplete,
       value,
     },
