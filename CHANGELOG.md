@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.4...v1.13.0) (2023-08-17)
+
+
+### Features
+
+* adds readOnly ([#182](https://github.com/Basis-Theory/basis-theory-react/issues/182)) ([b2b1f8e](https://github.com/Basis-Theory/basis-theory-react/commit/b2b1f8e9b9980196f646250e335149a898412cf4))
+
 ## [1.12.4](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.3...v1.12.4) (2023-08-11)
 
 
