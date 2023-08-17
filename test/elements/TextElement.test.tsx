@@ -20,6 +20,7 @@ describe('TextElement', () => {
   let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
+  let readOnly: boolean;
   let autoComplete: 'on' | 'off';
   let ariaLabel: string;
   let password: boolean;
@@ -44,6 +45,7 @@ describe('TextElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    readOnly = chance.bool();
     autoComplete = chance.pickone(['on', 'off']);
     ariaLabel = chance.string();
     password = chance.bool();
@@ -87,6 +89,7 @@ describe('TextElement', () => {
         onReady={onReady}
         password={password}
         placeholder={placeholder}
+        readOnly={readOnly}
         ref={ref}
         style={style}
         transform={transform}
@@ -109,6 +112,7 @@ describe('TextElement', () => {
         mask,
         password,
         placeholder,
+        readOnly,
         transform,
         value,
         validation,

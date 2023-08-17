@@ -15,6 +15,7 @@ interface BaseTextElementProps {
   bt?: BasisTheoryReact;
   style?: ElementStyle;
   disabled?: boolean;
+  readOnly?: boolean;
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
@@ -47,6 +48,7 @@ const TextElementC: FC<
   bt,
   style,
   disabled,
+  readOnly,
   autoComplete,
   'aria-label': ariaLabel,
   placeholder,
@@ -71,6 +73,7 @@ const TextElementC: FC<
       targetId: id,
       style,
       disabled,
+      readOnly,
       autoComplete,
       'aria-label': ariaLabel,
       mask,

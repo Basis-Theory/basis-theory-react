@@ -21,6 +21,7 @@ describe('CardExpirationDateElement', () => {
   let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
   let disabled: boolean;
+  let readOnly: boolean;
   let autoComplete: 'on' | 'off';
   let ariaLabel: string;
   let placeholder: string;
@@ -43,6 +44,7 @@ describe('CardExpirationDateElement', () => {
       [chance.string()]: chance.string(),
     };
     disabled = chance.bool();
+    readOnly = chance.bool();
     autoComplete = chance.pickone(['on', 'off']);
     ariaLabel = chance.string();
     placeholder = chance.string();
@@ -82,6 +84,7 @@ describe('CardExpirationDateElement', () => {
         onKeyDown={onKeyDown}
         onReady={onReady}
         placeholder={placeholder}
+        readOnly={readOnly}
         ref={ref}
         style={style}
         validateOnChange={validateOnChange}
@@ -100,6 +103,7 @@ describe('CardExpirationDateElement', () => {
         disabled,
         enableCopy,
         autoComplete,
+        readOnly,
         'aria-label': ariaLabel,
         placeholder,
         validateOnChange,
