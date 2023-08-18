@@ -2,6 +2,7 @@ import * as React from 'react';
 import type {
   TextElement as ITextElement,
   ElementStyle,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -23,6 +24,7 @@ describe('TextElement', () => {
   let readOnly: boolean;
   let autoComplete: 'on' | 'off';
   let ariaLabel: string;
+  let inputMode: `${InputMode}`;
   let password: boolean;
   let mask: (RegExp | string)[];
   let placeholder: string;
@@ -58,6 +60,7 @@ describe('TextElement', () => {
     );
     placeholder = chance.string();
     transform = chance.pickone([/\d/u, /./u]);
+    inputMode = 'numeric';
     value = chance.string();
     validation = chance.pickone([/\d/u, /./u]);
 
@@ -81,6 +84,7 @@ describe('TextElement', () => {
         autoComplete={autoComplete}
         disabled={disabled}
         id={id}
+        inputMode={inputMode}
         mask={mask as never} // the need of this cast acts a props typings test :-)
         onBlur={onBlur}
         onChange={onChange}
@@ -110,6 +114,7 @@ describe('TextElement', () => {
         autoComplete,
         'aria-label': ariaLabel,
         mask,
+        inputMode,
         password,
         placeholder,
         readOnly,

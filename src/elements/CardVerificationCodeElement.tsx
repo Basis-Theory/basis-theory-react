@@ -6,6 +6,7 @@ import type {
   ElementStyle,
   CardVerificationCodeElementEvents,
   Brand,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -21,6 +22,7 @@ interface CardVerificationCodeElementProps {
   'aria-label'?: string;
   placeholder?: string;
   cardBrand?: Brand | string;
+  inputMode?: `${InputMode}`;
   value?: string;
   onChange?: ElementEventListener<CardVerificationCodeElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardVerificationCodeElementEvents, 'focus'>;
@@ -46,6 +48,7 @@ const CardVerificationCodeElementC: FC<
   readOnly,
   autoComplete,
   'aria-label': ariaLabel,
+  inputMode,
   placeholder,
   cardBrand,
   value,
@@ -72,6 +75,7 @@ const CardVerificationCodeElementC: FC<
       disabled,
       readOnly,
       autoComplete,
+      inputMode,
       'aria-label': ariaLabel,
       placeholder,
       cardBrand,

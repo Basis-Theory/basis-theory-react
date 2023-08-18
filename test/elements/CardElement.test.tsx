@@ -3,6 +3,7 @@ import type {
   CardElement as ICardElement,
   CardElementValue,
   ElementStyle,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -22,6 +23,7 @@ describe('CardElement', () => {
   let style: ElementStyle;
   let disabled: boolean;
   let autoComplete: 'on' | 'off';
+  let inputMode: `${InputMode}`;
   let value: CardElementValue<'static'>;
   let validateOnChange: boolean;
   let enableCopy: boolean;
@@ -60,6 +62,7 @@ describe('CardElement', () => {
     };
     validateOnChange = chance.bool();
     enableCopy = chance.bool();
+    inputMode = 'numeric';
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -80,6 +83,7 @@ describe('CardElement', () => {
         disabled={disabled}
         enableCopy={enableCopy}
         id={id}
+        inputMode={inputMode}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
@@ -102,6 +106,7 @@ describe('CardElement', () => {
         style,
         disabled,
         enableCopy,
+        inputMode,
         autoComplete,
         readOnly,
         value,

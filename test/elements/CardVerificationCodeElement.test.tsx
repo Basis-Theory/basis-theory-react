@@ -4,6 +4,7 @@ import type {
   Brand,
   ElementStyle,
   CardVerificationCodeElement as ICardVerificationCodeElement,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -29,6 +30,7 @@ describe('CardVerificationCodeElement', () => {
   let cardBrand: Brand | string;
   let value: string;
   let validateOnChange: boolean;
+  let inputMode: `${InputMode}`;
   let enableCopy: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
@@ -53,6 +55,7 @@ describe('CardVerificationCodeElement', () => {
     value = chance.string();
     validateOnChange = chance.bool();
     enableCopy = chance.bool();
+    inputMode = 'numeric';
     cardBrand = chance.pickone<Brand>([...CARD_BRANDS]);
     onReady = jest.fn();
     onChange = jest.fn();
@@ -76,6 +79,7 @@ describe('CardVerificationCodeElement', () => {
         disabled={disabled}
         enableCopy={enableCopy}
         id={id}
+        inputMode={inputMode}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
@@ -101,6 +105,7 @@ describe('CardVerificationCodeElement', () => {
         disabled,
         enableCopy,
         autoComplete,
+        inputMode,
         'aria-label': ariaLabel,
         placeholder,
         readOnly,

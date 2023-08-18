@@ -6,6 +6,7 @@ import type {
   ElementStyle,
   CardNumberElementEvents,
   SanitizedElementOptions,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -17,6 +18,7 @@ interface CardNumberElementProps {
   style?: ElementStyle;
   disabled?: boolean;
   readOnly?: boolean;
+  inputMode?: `${InputMode}`;
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
@@ -42,6 +44,7 @@ const CardNumberElementC: FC<
   autoComplete,
   'aria-label': ariaLabel,
   placeholder,
+  inputMode,
   iconPosition,
   value,
   onReady,
@@ -66,6 +69,7 @@ const CardNumberElementC: FC<
       style,
       readOnly,
       disabled,
+      inputMode,
       autoComplete,
       'aria-label': ariaLabel,
       placeholder,
