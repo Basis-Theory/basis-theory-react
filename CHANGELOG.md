@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.13.0...v1.14.0) (2023-08-18)
+
+
+### Features
+
+* adds inputMode ([#183](https://github.com/Basis-Theory/basis-theory-react/issues/183)) ([2e2934e](https://github.com/Basis-Theory/basis-theory-react/commit/2e2934ecdf702188302d704fbbd52f4f1ccf7426))
+
 # [1.13.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.12.4...v1.13.0) (2023-08-17)
 
 
