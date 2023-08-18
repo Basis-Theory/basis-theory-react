@@ -6,6 +6,7 @@ import type {
   ElementStyle,
   CardExpirationDateElementEvents,
   CardExpirationDateValue,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -17,6 +18,7 @@ interface CardExpirationDateElementProps {
   style?: ElementStyle;
   disabled?: boolean;
   readOnly?: boolean;
+  inputMode?: `${InputMode}`;
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
@@ -42,6 +44,7 @@ const CardExpirationDateElementC: FC<
   readOnly,
   autoComplete,
   'aria-label': ariaLabel,
+  inputMode,
   placeholder,
   value,
   onReady,
@@ -67,6 +70,7 @@ const CardExpirationDateElementC: FC<
       style,
       disabled,
       readOnly,
+      inputMode,
       autoComplete,
       'aria-label': ariaLabel,
       placeholder,

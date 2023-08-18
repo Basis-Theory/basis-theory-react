@@ -1,5 +1,6 @@
 import React, { FC, useRef, ForwardedRef } from 'react';
-import type {
+import {
+  InputMode,
   CardElement as ICardElement,
   CreateCardElementOptions,
   CardElementEvents,
@@ -26,6 +27,7 @@ interface CardElementProps {
   validateOnChange?: boolean;
   enableCopy?: boolean;
   readOnly?: boolean;
+  inputMode?: `${InputMode}`;
 }
 
 const CardElementC: FC<
@@ -46,6 +48,7 @@ const CardElementC: FC<
   validateOnChange,
   enableCopy,
   readOnly,
+  inputMode,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ICardElement, CreateCardElementOptions>(
@@ -58,6 +61,7 @@ const CardElementC: FC<
       style,
       disabled,
       readOnly,
+      inputMode,
       autoComplete,
       value,
     },

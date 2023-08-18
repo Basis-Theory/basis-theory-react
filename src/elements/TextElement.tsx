@@ -5,6 +5,7 @@ import type {
   ElementEventListener,
   ElementStyle,
   TextElementEvents,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -16,6 +17,7 @@ interface BaseTextElementProps {
   style?: ElementStyle;
   disabled?: boolean;
   readOnly?: boolean;
+  inputMode?: `${InputMode}`;
   autoComplete?: 'on' | 'off';
   'aria-label'?: string;
   placeholder?: string;
@@ -49,6 +51,7 @@ const TextElementC: FC<
   style,
   disabled,
   readOnly,
+  inputMode,
   autoComplete,
   'aria-label': ariaLabel,
   placeholder,
@@ -74,6 +77,7 @@ const TextElementC: FC<
       style,
       disabled,
       readOnly,
+      inputMode,
       autoComplete,
       'aria-label': ariaLabel,
       mask,

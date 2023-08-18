@@ -3,6 +3,7 @@ import type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CardExpirationDateValue,
   ElementStyle,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -28,6 +29,7 @@ describe('CardExpirationDateElement', () => {
   let value: CardExpirationDateValue<'static'>;
   let validateOnChange: boolean;
   let enableCopy: boolean;
+  let inputMode: `${InputMode}`;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -57,6 +59,7 @@ describe('CardExpirationDateElement', () => {
     };
     validateOnChange = chance.bool();
     enableCopy = chance.bool();
+    inputMode = 'numeric';
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -78,6 +81,7 @@ describe('CardExpirationDateElement', () => {
         disabled={disabled}
         enableCopy={enableCopy}
         id={id}
+        inputMode={inputMode}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
@@ -104,6 +108,7 @@ describe('CardExpirationDateElement', () => {
         enableCopy,
         autoComplete,
         readOnly,
+        inputMode,
         'aria-label': ariaLabel,
         placeholder,
         validateOnChange,

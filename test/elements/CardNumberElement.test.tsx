@@ -3,6 +3,7 @@ import type {
   CardNumberElement as ICardNumberElement,
   ElementStyle,
   CreateCardNumberElementOptions,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -29,6 +30,7 @@ describe('CardNumberElement', () => {
   let value: string;
   let validateOnChange: boolean;
   let enableCopy: boolean;
+  let inputMode: `${InputMode}`;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -53,6 +55,7 @@ describe('CardNumberElement', () => {
     value = chance.cc({ type: 'mc' });
     validateOnChange = chance.bool();
     enableCopy = chance.bool();
+    inputMode = 'numeric';
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -75,6 +78,7 @@ describe('CardNumberElement', () => {
         enableCopy={enableCopy}
         iconPosition={iconPosition}
         id={id}
+        inputMode={inputMode}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
@@ -101,6 +105,7 @@ describe('CardNumberElement', () => {
         enableCopy,
         autoComplete,
         readOnly,
+        inputMode,
         'aria-label': ariaLabel,
         placeholder,
         iconPosition,
