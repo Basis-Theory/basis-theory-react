@@ -34,7 +34,7 @@ Initializing the SDK is done via calling the `useBasisTheory` hook with paramete
 import { useBasisTheory } from '@basis-theory/basis-theory-react';
 
 export default function MyWrapper() {
-  const { bt, error } = useBasisTheory('key_N88mVGsp3sCXkykyN2EFED'); // replace with your application key
+  const { bt, error } = useBasisTheory('<Public API Key>'); // replace with your application key
 
   // instance stays undefined during initialization
   if (bt) {
@@ -58,7 +58,7 @@ import {
 } from '@basis-theory/basis-theory-react';
 
 const App = () => {
-  const { bt } = useBasisTheory('key_N88mVGsp3sCXkykyN2EFED', {
+  const { bt } = useBasisTheory('<Public API Key>', {
     elements: true,
   });
 
@@ -89,7 +89,7 @@ import {
 } from '@basis-theory/basis-theory-react';
 
 const App = () => {
-  const { bt } = useBasisTheory('key_N88mVGsp3sCXkykyN2EFED', {
+  const { bt } = useBasisTheory('<Public API Key>', {
     elements: true,
   });
 
