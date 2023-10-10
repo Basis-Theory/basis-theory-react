@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.14.0...v1.14.1) (2023-10-10)
+
+
+### Bug Fixes
+
+* upgrades bt.js for elementsUseNgApi option ([#199](https://github.com/Basis-Theory/basis-theory-react/issues/199)) ([fcfe7b3](https://github.com/Basis-Theory/basis-theory-react/commit/fcfe7b31d5b5fc40a67e6d55e0e5838438c8181b))
+
 # [1.14.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.13.0...v1.14.0) (2023-08-18)
 
 
