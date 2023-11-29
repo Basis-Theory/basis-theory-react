@@ -7,6 +7,7 @@ import type {
   CardNumberElementEvents,
   SanitizedElementOptions,
   InputMode,
+  CreditCardType,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -29,6 +30,7 @@ interface CardNumberElementProps {
   onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
   onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardNumberElementEvents, 'keydown'>;
+  cardTypes?: CreditCardType[];
   validateOnChange?: boolean;
   enableCopy?: boolean;
 }
@@ -55,6 +57,7 @@ const CardNumberElementC: FC<
   elementRef,
   validateOnChange,
   enableCopy,
+  cardTypes,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -77,6 +80,7 @@ const CardNumberElementC: FC<
       value,
       validateOnChange,
       enableCopy,
+      cardTypes,
     },
     bt,
     elementRef
