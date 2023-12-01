@@ -1474,12 +1474,12 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@basis-theory/basis-theory-js@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-2.3.1.tgz#5b39f1a213f410aa3a3d3b6028d889a3412d671d"
-  integrity sha512-Fzu4BxongcYy3gcYdnKCIM34gwLkj4UuPLt3pFBlnYxzHDNBnsCdUkWoDygljQNzQCbkqUhj0wRa9r+33ONpPQ==
+"@basis-theory/basis-theory-js@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-2.5.0.tgz#fd3e5996dc854a3f2548ab55bd060a6a2f9745fd"
+  integrity sha512-ZIBBRu1lLEqpwMTAWbJES9HjTEOxdgrIbaWACQp9hUn/7RobUIMmsjTv4/DWB4PNdg0jJllECeKtaI5Jd0D66g==
   dependencies:
-    axios "^1.4.0"
+    axios "^1.6.0"
     camelcase-keys "^6.2.2"
     csstype "^3.0.11"
     os "^0.1.2"
@@ -3378,7 +3378,7 @@ axe-core@^4.0.2:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.3.2.tgz"
   integrity sha512-5LMaDRWm8ZFPAEdzTYmgjjEdj1YnQcpfrVajO/sn/LhbpGp0Y0H64c2hLZI1gRMxfA+w1S71Uc/nHaOXgcCvGg==
 
-axios@^0.21.4, axios@^1.4.0:
+axios@^0.21.4, axios@^1.6.0:
   version "0.21.4"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
