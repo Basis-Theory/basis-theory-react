@@ -40,7 +40,7 @@
     "@babel/preset-typescript": "^7.21.5",
     "@basis-theory/eslint-config": "^1.0.13",
     "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/config-conventional": "^18.4.3",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^11.0.0",
     "@semantic-release/git": "^10.0.1",
