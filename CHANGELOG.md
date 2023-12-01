@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.14.1...v1.15.0) (2023-12-01)
+
+
+### Features
+
+* adds support for custom cardTypes ([#223](https://github.com/Basis-Theory/basis-theory-react/issues/223)) ([850e14e](https://github.com/Basis-Theory/basis-theory-react/commit/850e14e760fe9754e972fb1dc6e5da2473811b51))
+
 ## [1.14.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.14.0...v1.14.1) (2023-10-10)
 
 
