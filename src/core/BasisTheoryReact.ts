@@ -12,7 +12,7 @@ export class BasisTheoryReact
   private elementMap: { [id: string]: BaseElement<unknown, unknown> } = {};
 
   /**
-   * @deprecated since v1.5.0 in favor of using {@link https://docs.basistheory.com/elements#basistheoryreact-using-refs refs}
+   * @deprecated since v1.5.0 in favor of using {@link https://developers.basistheory.com/docs/sdks/web/react/#using-refs refs}
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public getElement<Element extends BaseElement<any, any>>(
