@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.15.0...v1.16.0) (2024-02-16)
+
+
+### Features
+
+* update docs urls ([#233](https://github.com/Basis-Theory/basis-theory-react/issues/233)) ([f09b3b3](https://github.com/Basis-Theory/basis-theory-react/commit/f09b3b3cead466ae56e9cdc5404e542769ec1ddc))
+
 # [1.15.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.14.1...v1.15.0) (2023-12-01)
 
 
