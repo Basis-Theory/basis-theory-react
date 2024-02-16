@@ -22,7 +22,7 @@ yarn add @basis-theory/basis-theory-react
 
 ## Documentation
 
-For a complete list of endpoints and examples, please refer to our [React docs](https://docs.basistheory.com/elements#react-package)
+For a complete list of endpoints and examples, please refer to our [React docs](https://developers.basistheory.com/docs/sdks/web/react/)
 
 ## Usage
 
@@ -79,7 +79,7 @@ const MyComponent = () => {
 
 ### Elements
 
-[Elements](https://docs.basistheory.com/elements) capabilities are available when passing `elements: true` in initialization options.
+[Elements](https://developers.basistheory.com/docs/sdks/web/react/#initialization) capabilities are available when passing `elements: true` in initialization options.
 
 ```jsx
 import {
