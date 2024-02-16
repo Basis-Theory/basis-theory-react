@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import type {
   BasisTheoryInitOptionsWithElements,
   BasisTheoryInitOptionsWithoutElements,
@@ -35,13 +35,15 @@ function useBasisTheory(
     | BasisTheoryInitOptionsWithoutElements
 ): UseBasisTheory<boolean> {
   const [state, setState] = useState<UseBasisTheory<boolean>>({});
+  const isLoading = useRef(false);
 
   const { bt: btFromContext } = useBasisTheoryFromContext();
 
   useEffect(() => {
     (async (): Promise<void> => {
-      if (!state.bt && apiKey && !state.error) {
+      if (!state.bt && apiKey && !state.error && !isLoading.current) {
         try {
+          isLoading.current = true;
           const bt = (await new BasisTheoryReact().init(
             apiKey,
             options as BasisTheoryInitOptionsWithElements &
@@ -55,6 +57,8 @@ function useBasisTheory(
           setState({
             error: error as Error,
           });
+        } finally {
+          isLoading.current = false;
         }
       }
     })();
