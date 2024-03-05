@@ -30,6 +30,7 @@ describe('CardNumberElement', () => {
   let value: string;
   let validateOnChange: boolean;
   let enableCopy: boolean;
+  let skipLuhnValidation: boolean;
   let inputMode: `${InputMode}`;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
@@ -55,6 +56,7 @@ describe('CardNumberElement', () => {
     value = chance.cc({ type: 'mc' });
     validateOnChange = chance.bool();
     enableCopy = chance.bool();
+    skipLuhnValidation = chance.bool();
     inputMode = 'numeric';
     onReady = jest.fn();
     onChange = jest.fn();
@@ -87,6 +89,7 @@ describe('CardNumberElement', () => {
         placeholder={placeholder}
         readOnly={readOnly}
         ref={ref}
+        skipLuhnValidation={skipLuhnValidation}
         style={style}
         validateOnChange={validateOnChange}
         value={value}
@@ -99,18 +102,19 @@ describe('CardNumberElement', () => {
       'cardNumber',
       { current: wrapperDiv },
       {
-        targetId: id,
-        style,
+        'aria-label': ariaLabel,
+        autoComplete,
         disabled,
         enableCopy,
-        autoComplete,
-        readOnly,
-        inputMode,
-        'aria-label': ariaLabel,
-        placeholder,
         iconPosition,
-        value,
+        inputMode,
+        placeholder,
+        readOnly,
+        skipLuhnValidation,
+        style,
+        targetId: id,
         validateOnChange,
+        value,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null

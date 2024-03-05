@@ -14,50 +14,52 @@ import { useElement } from './useElement';
 import { useListener } from './useListener';
 
 interface CardNumberElementProps {
-  id: string;
-  bt?: BasisTheoryReact;
-  style?: ElementStyle;
-  disabled?: boolean;
-  readOnly?: boolean;
-  inputMode?: `${InputMode}`;
-  autoComplete?: 'on' | 'off';
   'aria-label'?: string;
-  placeholder?: string;
+  autoComplete?: 'on' | 'off';
+  bt?: BasisTheoryReact;
+  cardTypes?: CreditCardType[];
+  disabled?: boolean;
+  enableCopy?: boolean;
   iconPosition?: SanitizedElementOptions['iconPosition'];
-  value?: string;
+  id: string;
+  inputMode?: `${InputMode}`;
+  onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
   onChange?: ElementEventListener<CardNumberElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardNumberElementEvents, 'focus'>;
-  onBlur?: ElementEventListener<CardNumberElementEvents, 'blur'>;
-  onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardNumberElementEvents, 'keydown'>;
-  cardTypes?: CreditCardType[];
+  onReady?: ElementEventListener<CardNumberElementEvents, 'ready'>;
+  placeholder?: string;
+  readOnly?: boolean;
+  skipLuhnValidation?: boolean;
+  style?: ElementStyle;
   validateOnChange?: boolean;
-  enableCopy?: boolean;
+  value?: string;
 }
 
 const CardNumberElementC: FC<
   CardNumberElementProps & { elementRef?: ForwardedRef<ICardNumberElement> }
 > = ({
-  id,
-  bt,
-  style,
-  disabled,
-  readOnly,
-  autoComplete,
   'aria-label': ariaLabel,
-  placeholder,
-  inputMode,
+  autoComplete,
+  bt,
+  cardTypes,
+  disabled,
+  elementRef,
+  enableCopy,
   iconPosition,
-  value,
-  onReady,
+  id,
+  inputMode,
+  onBlur,
   onChange,
   onFocus,
-  onBlur,
   onKeyDown,
-  elementRef,
+  onReady,
+  placeholder,
+  readOnly,
+  skipLuhnValidation,
+  style,
   validateOnChange,
-  enableCopy,
-  cardTypes,
+  value,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -68,19 +70,20 @@ const CardNumberElementC: FC<
     'cardNumber',
     wrapperRef,
     {
-      targetId: id,
-      style,
-      readOnly,
-      disabled,
-      inputMode,
-      autoComplete,
       'aria-label': ariaLabel,
-      placeholder,
-      iconPosition,
-      value,
-      validateOnChange,
-      enableCopy,
+      autoComplete,
       cardTypes,
+      disabled,
+      enableCopy,
+      iconPosition,
+      inputMode,
+      placeholder,
+      readOnly,
+      skipLuhnValidation,
+      style,
+      targetId: id,
+      validateOnChange,
+      value,
     },
     bt,
     elementRef

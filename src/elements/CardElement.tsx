@@ -14,44 +14,46 @@ import { useElement } from './useElement';
 import { useListener } from './useListener';
 
 interface CardElementProps {
-  id: string;
-  bt?: BasisTheoryReact;
-  style?: ElementStyle;
-  disabled?: boolean;
   autoComplete?: 'on' | 'off';
-  value?: CardElementValue<'static'>;
+  bt?: BasisTheoryReact;
+  cardTypes?: CreditCardType[];
+  disabled?: boolean;
+  enableCopy?: boolean;
+  id: string;
+  inputMode?: `${InputMode}`;
+  onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
   onChange?: ElementEventListener<CardElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardElementEvents, 'focus'>;
-  onBlur?: ElementEventListener<CardElementEvents, 'blur'>;
-  onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
-  cardTypes?: CreditCardType[];
-  validateOnChange?: boolean;
-  enableCopy?: boolean;
+  onReady?: ElementEventListener<CardElementEvents, 'ready'>;
   readOnly?: boolean;
-  inputMode?: `${InputMode}`;
+  skipLuhnValidation?: boolean;
+  style?: ElementStyle;
+  validateOnChange?: boolean;
+  value?: CardElementValue<'static'>;
 }
 
 const CardElementC: FC<
   CardElementProps & { elementRef?: ForwardedRef<ICardElement> }
 > = ({
-  id,
-  bt,
-  style,
-  disabled,
   autoComplete,
-  value,
-  onReady,
+  bt,
+  cardTypes,
+  disabled,
+  elementRef,
+  enableCopy,
+  id,
+  inputMode,
+  onBlur,
   onChange,
   onFocus,
-  onBlur,
   onKeyDown,
-  elementRef,
-  validateOnChange,
-  enableCopy,
+  onReady,
   readOnly,
-  inputMode,
-  cardTypes,
+  skipLuhnValidation,
+  style,
+  validateOnChange,
+  value,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ICardElement, CreateCardElementOptions>(
@@ -59,15 +61,16 @@ const CardElementC: FC<
     'card',
     wrapperRef,
     {
-      enableCopy,
-      validateOnChange,
-      style,
-      disabled,
-      readOnly,
-      inputMode,
       autoComplete,
-      value,
       cardTypes,
+      disabled,
+      enableCopy,
+      inputMode,
+      readOnly,
+      skipLuhnValidation,
+      style,
+      validateOnChange,
+      value,
     },
     bt,
     elementRef
