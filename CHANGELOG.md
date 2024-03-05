@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.16.0...v1.17.0) (2024-03-05)
+
+
+### Features
+
+* adds skipLuhnValidation ([#234](https://github.com/Basis-Theory/basis-theory-react/issues/234)) ([6404d8a](https://github.com/Basis-Theory/basis-theory-react/commit/6404d8ab8e6fc00d77ef18ce1485f9fefd4611fd))
+
 # [1.16.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.15.0...v1.16.0) (2024-02-16)
 
 
