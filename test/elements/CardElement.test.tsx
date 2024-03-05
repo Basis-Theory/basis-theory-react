@@ -28,6 +28,7 @@ describe('CardElement', () => {
   let validateOnChange: boolean;
   let enableCopy: boolean;
   let readOnly: boolean;
+  let skipLuhnValidation: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -45,6 +46,7 @@ describe('CardElement', () => {
     };
     disabled = chance.bool();
     readOnly = chance.bool();
+    skipLuhnValidation = chance.bool();
     autoComplete = chance.pickone(['on', 'off']);
     value = {
       number: chance.cc({ type: 'mc' }),
@@ -91,6 +93,7 @@ describe('CardElement', () => {
         onReady={onReady}
         readOnly={readOnly}
         ref={ref}
+        skipLuhnValidation={skipLuhnValidation}
         style={style}
         validateOnChange={validateOnChange}
         value={value}
@@ -103,14 +106,15 @@ describe('CardElement', () => {
       'card',
       { current: wrapperDiv },
       {
-        style,
+        autoComplete,
         disabled,
         enableCopy,
         inputMode,
-        autoComplete,
         readOnly,
-        value,
+        skipLuhnValidation,
+        style,
         validateOnChange,
+        value,
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null
