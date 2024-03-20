@@ -1,4 +1,4 @@
-import React, { FC, ForwardedRef, useRef } from 'react';
+import React, { FC, ForwardedRef, MutableRefObject, useRef } from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CreateCardExpirationDateElementOptions,
@@ -30,6 +30,7 @@ interface CardExpirationDateElementProps {
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
   validateOnChange?: boolean;
   enableCopy?: boolean;
+  valueRef?: MutableRefObject<ICardExpirationDateElement>;
 }
 
 const CardExpirationDateElementC: FC<
@@ -55,6 +56,7 @@ const CardExpirationDateElementC: FC<
   elementRef,
   validateOnChange,
   enableCopy,
+  valueRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -80,6 +82,10 @@ const CardExpirationDateElementC: FC<
     bt,
     elementRef
   );
+
+  if (valueRef) {
+    element?.setValueRef(valueRef.current);
+  }
 
   useListener('ready', element, onReady);
   useListener('change', element, onChange);

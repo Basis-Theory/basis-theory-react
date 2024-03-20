@@ -1,4 +1,4 @@
-import React, { FC, useRef, ForwardedRef } from 'react';
+import React, { FC, useRef, ForwardedRef, MutableRefObject } from 'react';
 import type {
   CardVerificationCodeElement as ICardVerificationCodeElement,
   CreateCardVerificationCodeElementOptions,
@@ -24,6 +24,7 @@ interface CardVerificationCodeElementProps {
   cardBrand?: Brand | string;
   inputMode?: `${InputMode}`;
   value?: string;
+  valueRef?: MutableRefObject<ICardVerificationCodeElement>;
   onChange?: ElementEventListener<CardVerificationCodeElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardVerificationCodeElementEvents, 'focus'>;
   onBlur?: ElementEventListener<CardVerificationCodeElementEvents, 'blur'>;
@@ -59,6 +60,7 @@ const CardVerificationCodeElementC: FC<
   onKeyDown,
   elementRef,
   validateOnChange,
+  valueRef,
   enableCopy,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -86,6 +88,10 @@ const CardVerificationCodeElementC: FC<
     bt,
     elementRef
   );
+
+  if (valueRef) {
+    element?.setValueRef(valueRef.current);
+  }
 
   useListener('ready', element, onReady);
   useListener('change', element, onChange);

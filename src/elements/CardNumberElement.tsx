@@ -1,4 +1,4 @@
-import React, { FC, useRef, ForwardedRef } from 'react';
+import React, { FC, useRef, ForwardedRef, MutableRefObject } from 'react';
 import type {
   CardNumberElement as ICardNumberElement,
   CreateCardNumberElementOptions,
@@ -34,6 +34,7 @@ interface CardNumberElementProps {
   style?: ElementStyle;
   validateOnChange?: boolean;
   value?: string;
+  valueRef?: MutableRefObject<ICardNumberElement>;
 }
 
 const CardNumberElementC: FC<
@@ -60,6 +61,7 @@ const CardNumberElementC: FC<
   style,
   validateOnChange,
   value,
+  valueRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -88,6 +90,10 @@ const CardNumberElementC: FC<
     bt,
     elementRef
   );
+
+  if (valueRef) {
+    element?.setValueRef(valueRef.current);
+  }
 
   useListener('ready', element, onReady);
   useListener('change', element, onChange);

@@ -1,4 +1,4 @@
-import React, { FC, useRef, ForwardedRef } from 'react';
+import React, { FC, useRef, ForwardedRef, MutableRefObject } from 'react';
 import type {
   TextElement as ITextElement,
   CreateTextElementOptions,
@@ -19,6 +19,7 @@ interface BaseTextElementProps {
   readOnly?: boolean;
   inputMode?: `${InputMode}`;
   autoComplete?: 'on' | 'off';
+  valueRef?: MutableRefObject<ITextElement>;
   'aria-label'?: string;
   placeholder?: string;
   transform?: RegExp | [RegExp, string?];
@@ -63,6 +64,7 @@ const TextElementC: FC<
   onReady,
   onChange,
   onFocus,
+  valueRef,
   onBlur,
   onKeyDown,
   elementRef,
@@ -90,6 +92,10 @@ const TextElementC: FC<
     bt,
     elementRef
   );
+
+  if (valueRef) {
+    element?.setValueRef(valueRef.current);
+  }
 
   useListener('ready', element, onReady);
   useListener('change', element, onChange);
