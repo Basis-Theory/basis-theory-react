@@ -13,28 +13,28 @@ import { useElement } from './useElement';
 import { useListener } from './useListener';
 
 interface CardVerificationCodeElementProps {
-  id: string;
-  bt?: BasisTheoryReact;
-  style?: ElementStyle;
-  disabled?: boolean;
-  readOnly?: boolean;
-  autoComplete?: 'on' | 'off';
   'aria-label'?: string;
-  placeholder?: string;
+  autoComplete?: 'on' | 'off';
+  bt?: BasisTheoryReact;
   cardBrand?: Brand | string;
+  disabled?: boolean;
+  enableCopy?: boolean;
+  id: string;
   inputMode?: `${InputMode}`;
-  value?: string;
-  valueRef?: MutableRefObject<ICardVerificationCodeElement>;
+  onBlur?: ElementEventListener<CardVerificationCodeElementEvents, 'blur'>;
   onChange?: ElementEventListener<CardVerificationCodeElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardVerificationCodeElementEvents, 'focus'>;
-  onBlur?: ElementEventListener<CardVerificationCodeElementEvents, 'blur'>;
-  onReady?: ElementEventListener<CardVerificationCodeElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<
     CardVerificationCodeElementEvents,
     'keydown'
   >;
+  onReady?: ElementEventListener<CardVerificationCodeElementEvents, 'ready'>;
+  placeholder?: string;
+  readOnly?: boolean;
+  style?: ElementStyle;
   validateOnChange?: boolean;
-  enableCopy?: boolean;
+  value?: string;
+  valueRef?: MutableRefObject<ICardVerificationCodeElement>;
 }
 
 const CardVerificationCodeElementC: FC<
@@ -42,26 +42,26 @@ const CardVerificationCodeElementC: FC<
     elementRef?: ForwardedRef<ICardVerificationCodeElement>;
   }
 > = ({
-  id,
-  bt,
-  style,
-  disabled,
-  readOnly,
-  autoComplete,
   'aria-label': ariaLabel,
-  inputMode,
-  placeholder,
+  autoComplete,
+  bt,
   cardBrand,
-  value,
-  onReady,
+  disabled,
+  elementRef,
+  enableCopy,
+  id,
+  inputMode,
+  onBlur,
   onChange,
   onFocus,
-  onBlur,
   onKeyDown,
-  elementRef,
+  onReady,
+  placeholder,
+  readOnly,
+  style,
   validateOnChange,
+  value,
   valueRef,
-  enableCopy,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -72,18 +72,18 @@ const CardVerificationCodeElementC: FC<
     'cardVerificationCode',
     wrapperRef,
     {
-      targetId: id,
-      style,
-      disabled,
-      readOnly,
-      autoComplete,
-      inputMode,
       'aria-label': ariaLabel,
-      placeholder,
+      autoComplete,
       cardBrand,
-      value,
-      validateOnChange,
+      disabled,
       enableCopy,
+      inputMode,
+      placeholder,
+      readOnly,
+      style,
+      targetId: id,
+      validateOnChange,
+      value,
     },
     bt,
     elementRef

@@ -12,24 +12,24 @@ import { useElement } from './useElement';
 import { useListener } from './useListener';
 
 interface BaseTextElementProps {
-  id: string;
-  bt?: BasisTheoryReact;
-  style?: ElementStyle;
-  disabled?: boolean;
-  readOnly?: boolean;
-  inputMode?: `${InputMode}`;
-  autoComplete?: 'on' | 'off';
-  valueRef?: MutableRefObject<ITextElement>;
   'aria-label'?: string;
-  placeholder?: string;
-  transform?: RegExp | [RegExp, string?];
-  value?: string;
-  validation?: RegExp;
+  autoComplete?: 'on' | 'off';
+  bt?: BasisTheoryReact;
+  disabled?: boolean;
+  id: string;
+  inputMode?: `${InputMode}`;
+  onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
   onChange?: ElementEventListener<TextElementEvents, 'change'>;
   onFocus?: ElementEventListener<TextElementEvents, 'focus'>;
-  onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
-  onReady?: ElementEventListener<TextElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<TextElementEvents, 'keydown'>;
+  onReady?: ElementEventListener<TextElementEvents, 'ready'>;
+  placeholder?: string;
+  readOnly?: boolean;
+  style?: ElementStyle;
+  transform?: RegExp | [RegExp, string?];
+  validation?: RegExp;
+  value?: string;
+  valueRef?: MutableRefObject<ITextElement>;
 }
 
 interface MaskedTextElementProps extends BaseTextElementProps {
@@ -47,27 +47,27 @@ type TextElementProps = MaskedTextElementProps | PasswordTextElementProps;
 const TextElementC: FC<
   TextElementProps & { elementRef?: ForwardedRef<ITextElement> }
 > = ({
-  id,
-  bt,
-  style,
-  disabled,
-  readOnly,
-  inputMode,
-  autoComplete,
   'aria-label': ariaLabel,
-  placeholder,
-  transform,
+  autoComplete,
+  bt,
+  disabled,
+  elementRef,
+  id,
+  inputMode,
   mask,
-  password,
-  value,
-  validation,
-  onReady,
+  onBlur,
   onChange,
   onFocus,
-  valueRef,
-  onBlur,
   onKeyDown,
-  elementRef,
+  onReady,
+  password,
+  placeholder,
+  readOnly,
+  style,
+  transform,
+  validation,
+  value,
+  valueRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<ITextElement, CreateTextElementOptions>(
@@ -75,19 +75,19 @@ const TextElementC: FC<
     'text',
     wrapperRef,
     {
-      targetId: id,
-      style,
-      disabled,
-      readOnly,
-      inputMode,
-      autoComplete,
       'aria-label': ariaLabel,
+      autoComplete,
+      disabled,
+      inputMode,
       mask,
       password,
       placeholder,
+      readOnly,
+      style,
+      targetId: id,
       transform,
-      value,
       validation,
+      value,
     },
     bt,
     elementRef
