@@ -83,7 +83,7 @@ const CardExpirationDateElementC: FC<
     elementRef
   );
 
-  if (valueRef && valueRef.current) {
+  if (valueRef?.current) {
     element?.setValueRef(valueRef.current);
   }
 
