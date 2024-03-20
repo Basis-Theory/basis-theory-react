@@ -1,4 +1,4 @@
-import React, { FC, ForwardedRef, useRef } from 'react';
+import React, { FC, ForwardedRef, RefObject, useRef } from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CreateCardExpirationDateElementOptions,
@@ -13,23 +13,24 @@ import { useElement } from './useElement';
 import { useListener } from './useListener';
 
 interface CardExpirationDateElementProps {
-  id: string;
-  bt?: BasisTheoryReact;
-  style?: ElementStyle;
-  disabled?: boolean;
-  readOnly?: boolean;
-  inputMode?: `${InputMode}`;
-  autoComplete?: 'on' | 'off';
   'aria-label'?: string;
-  placeholder?: string;
-  value?: CardExpirationDateValue<'static'> | string;
+  autoComplete?: 'on' | 'off';
+  bt?: BasisTheoryReact;
+  disabled?: boolean;
+  enableCopy?: boolean;
+  id: string;
+  inputMode?: `${InputMode}`;
+  onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
   onChange?: ElementEventListener<CardExpirationDateElementEvents, 'change'>;
   onFocus?: ElementEventListener<CardExpirationDateElementEvents, 'focus'>;
-  onBlur?: ElementEventListener<CardExpirationDateElementEvents, 'blur'>;
-  onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
   onKeyDown?: ElementEventListener<CardExpirationDateElementEvents, 'keydown'>;
+  onReady?: ElementEventListener<CardExpirationDateElementEvents, 'ready'>;
+  placeholder?: string;
+  readOnly?: boolean;
+  style?: ElementStyle;
   validateOnChange?: boolean;
-  enableCopy?: boolean;
+  value?: CardExpirationDateValue<'static'> | string;
+  valueRef?: RefObject<ICardExpirationDateElement>;
 }
 
 const CardExpirationDateElementC: FC<
@@ -37,24 +38,25 @@ const CardExpirationDateElementC: FC<
     elementRef?: ForwardedRef<ICardExpirationDateElement>;
   }
 > = ({
-  id,
-  bt,
-  style,
-  disabled,
-  readOnly,
-  autoComplete,
   'aria-label': ariaLabel,
+  autoComplete,
+  bt,
+  disabled,
+  elementRef,
+  enableCopy,
+  id,
   inputMode,
-  placeholder,
-  value,
-  onReady,
+  onBlur,
   onChange,
   onFocus,
-  onBlur,
   onKeyDown,
-  elementRef,
+  onReady,
+  placeholder,
+  readOnly,
+  style,
   validateOnChange,
-  enableCopy,
+  value,
+  valueRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useElement<
@@ -65,21 +67,25 @@ const CardExpirationDateElementC: FC<
     'cardExpirationDate',
     wrapperRef,
     {
-      targetId: id,
-      enableCopy,
-      style,
-      disabled,
-      readOnly,
-      inputMode,
-      autoComplete,
       'aria-label': ariaLabel,
+      autoComplete,
+      disabled,
+      enableCopy,
+      inputMode,
       placeholder,
-      value,
+      readOnly,
+      style,
+      targetId: id,
       validateOnChange,
+      value,
     },
     bt,
     elementRef
   );
+
+  if (valueRef?.current) {
+    element?.setValueRef(valueRef.current);
+  }
 
   useListener('ready', element, onReady);
   useListener('change', element, onChange);

@@ -93,6 +93,7 @@ describe('CardNumberElement', () => {
         style={style}
         validateOnChange={validateOnChange}
         value={value}
+        valueRef={React.createRef()}
       />
     );
 
