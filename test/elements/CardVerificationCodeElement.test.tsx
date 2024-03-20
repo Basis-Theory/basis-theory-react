@@ -91,6 +91,7 @@ describe('CardVerificationCodeElement', () => {
         style={style}
         validateOnChange={validateOnChange}
         value={value}
+        valueRef={React.createRef()}
       />
     );
 

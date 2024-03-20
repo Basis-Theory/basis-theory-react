@@ -93,6 +93,7 @@ describe('CardExpirationDateElement', () => {
         style={style}
         validateOnChange={validateOnChange}
         value={value}
+        valueRef={React.createRef()}
       />
     );
 

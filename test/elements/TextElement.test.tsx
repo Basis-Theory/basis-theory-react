@@ -99,6 +99,7 @@ describe('TextElement', () => {
         transform={transform}
         validation={validation}
         value={value}
+        valueRef={React.createRef()}
       />
     );
 
