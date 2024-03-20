@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.17.0...v1.18.0) (2024-03-20)
+
+
+### Features
+
+* adds support for `setValueRef` ([#235](https://github.com/Basis-Theory/basis-theory-react/issues/235)) ([44de85d](https://github.com/Basis-Theory/basis-theory-react/commit/44de85d0e93eebeccdf1ce30aa32e45ddcf0eb07))
+
 # [1.17.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.16.0...v1.17.0) (2024-03-05)
 
 
