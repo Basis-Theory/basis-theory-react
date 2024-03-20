@@ -1,4 +1,4 @@
-import React, { FC, ForwardedRef, MutableRefObject, useRef } from 'react';
+import React, { FC, ForwardedRef, RefObject, useRef } from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CreateCardExpirationDateElementOptions,
@@ -30,7 +30,7 @@ interface CardExpirationDateElementProps {
   style?: ElementStyle;
   validateOnChange?: boolean;
   value?: CardExpirationDateValue<'static'> | string;
-  valueRef?: MutableRefObject<ICardExpirationDateElement>;
+  valueRef?: RefObject<ICardExpirationDateElement>;
 }
 
 const CardExpirationDateElementC: FC<
@@ -83,7 +83,7 @@ const CardExpirationDateElementC: FC<
     elementRef
   );
 
-  if (valueRef) {
+  if (valueRef && valueRef.current) {
     element?.setValueRef(valueRef.current);
   }
 

@@ -1,4 +1,4 @@
-import React, { FC, useRef, ForwardedRef, MutableRefObject } from 'react';
+import React, { FC, useRef, ForwardedRef, RefObject } from 'react';
 import type {
   TextElement as ITextElement,
   CreateTextElementOptions,
@@ -29,7 +29,7 @@ interface BaseTextElementProps {
   transform?: RegExp | [RegExp, string?];
   validation?: RegExp;
   value?: string;
-  valueRef?: MutableRefObject<ITextElement>;
+  valueRef?: RefObject<ITextElement>;
 }
 
 interface MaskedTextElementProps extends BaseTextElementProps {
@@ -93,7 +93,7 @@ const TextElementC: FC<
     elementRef
   );
 
-  if (valueRef) {
+  if (valueRef && valueRef.current) {
     element?.setValueRef(valueRef.current);
   }
 
