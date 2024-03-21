@@ -1,4 +1,4 @@
-import React, { FC, ForwardedRef, RefObject, useRef } from 'react';
+import React, { FC, ForwardedRef, MutableRefObject, useRef } from 'react';
 import type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CreateCardExpirationDateElementOptions,
@@ -30,12 +30,12 @@ interface CardExpirationDateElementProps {
   style?: ElementStyle;
   validateOnChange?: boolean;
   value?: CardExpirationDateValue<'static'> | string;
-  valueRef?: RefObject<ICardExpirationDateElement>;
+  valueRef?: MutableRefObject<ICardExpirationDateElement>;
 }
 
 const CardExpirationDateElementC: FC<
   CardExpirationDateElementProps & {
-    elementRef?: ForwardedRef<ICardExpirationDateElement>;
+    elementRef?: ForwardedRef<ICardExpirationDateElement | null>;
   }
 > = ({
   'aria-label': ariaLabel,
@@ -80,12 +80,9 @@ const CardExpirationDateElementC: FC<
       value,
     },
     bt,
-    elementRef
+    elementRef,
+    valueRef
   );
-
-  if (valueRef?.current) {
-    element?.setValueRef(valueRef.current);
-  }
 
   useListener('ready', element, onReady);
   useListener('change', element, onChange);

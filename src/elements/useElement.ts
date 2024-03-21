@@ -1,10 +1,23 @@
-import React, { ForwardedRef, useEffect, useRef, useState } from 'react';
+import React, {
+  ForwardedRef,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import type {
   BaseElement,
   ElementType,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { BasisTheoryReact } from '../core';
 import { useBasisTheoryValue } from './useBasisTheoryValue';
+
+type ElementWithSetValueRef = BaseElement<any, any> & {
+  setValueRef: (element: BaseElement<any, any>) => void;
+};
+
+const elementHasSetValueRef = (val: unknown): val is ElementWithSetValueRef =>
+  Boolean((val as ElementWithSetValueRef).setValueRef);
 
 const shallowDifference = <
   A extends Record<string, unknown>,
@@ -51,7 +64,8 @@ const useElement = <
   wrapperRef: React.RefObject<HTMLDivElement>,
   options: Options,
   btFromProps?: BasisTheoryReact,
-  ref?: ForwardedRef<Element>
+  ref?: ForwardedRef<Element>,
+  targetValueRef?: MutableRefObject<Element | null>
 ): Element | undefined => {
   const bt = useBasisTheoryValue(btFromProps);
   const [lastOptions, setLastOptions] = useState<Options>();
@@ -75,11 +89,18 @@ const useElement = <
         ref.current = newElement;
       }
 
-      newElement.mount(`#${id}`).catch((mountError) => {
-        setLastOptions(() => {
-          throw mountError;
+      (async () => {
+        await newElement.mount(`#${id}`).catch((mountError) => {
+          setLastOptions(() => {
+            throw mountError;
+          });
         });
-      });
+
+        if (elementHasSetValueRef(newElement) && targetValueRef?.current) {
+          newElement.setValueRef(targetValueRef.current);
+        }
+      })();
+
       bt.indexElement(id, newElement);
       setLastOptions(options);
     }
