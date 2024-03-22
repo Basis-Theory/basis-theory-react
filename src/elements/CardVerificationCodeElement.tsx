@@ -1,4 +1,4 @@
-import React, { FC, useRef, ForwardedRef, RefObject } from 'react';
+import React, { FC, useRef, ForwardedRef, MutableRefObject } from 'react';
 import type {
   CardVerificationCodeElement as ICardVerificationCodeElement,
   CreateCardVerificationCodeElementOptions,
@@ -34,7 +34,7 @@ interface CardVerificationCodeElementProps {
   style?: ElementStyle;
   validateOnChange?: boolean;
   value?: string;
-  valueRef?: RefObject<ICardVerificationCodeElement>;
+  valueRef?: MutableRefObject<ICardVerificationCodeElement | null>;
 }
 
 const CardVerificationCodeElementC: FC<
@@ -86,12 +86,9 @@ const CardVerificationCodeElementC: FC<
       value,
     },
     bt,
-    elementRef
+    elementRef,
+    valueRef
   );
-
-  if (valueRef?.current) {
-    element?.setValueRef(valueRef.current);
-  }
 
   useListener('ready', element, onReady);
   useListener('change', element, onChange);

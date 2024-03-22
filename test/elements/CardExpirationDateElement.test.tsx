@@ -18,6 +18,8 @@ describe('CardExpirationDateElement', () => {
   const chance = new Chance();
   const refArray = [React.createRef<ICardExpirationDateElement>(), undefined];
 
+  const valueRef = React.createRef<ICardExpirationDateElement>();
+
   let id: string;
   let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
@@ -93,7 +95,7 @@ describe('CardExpirationDateElement', () => {
         style={style}
         validateOnChange={validateOnChange}
         value={value}
-        valueRef={React.createRef()}
+        valueRef={valueRef}
       />
     );
 
@@ -117,7 +119,8 @@ describe('CardExpirationDateElement', () => {
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null
-      typeof ref === 'undefined' ? null : ref // undefined ref gets forwarded as null
+      typeof ref === 'undefined' ? null : ref, // undefined ref gets forwarded as null,
+      valueRef // undefined ref gets forwarded as null
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);

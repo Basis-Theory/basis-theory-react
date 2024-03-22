@@ -17,6 +17,8 @@ describe('TextElement', () => {
   const chance = new Chance();
   const refArray = [React.createRef<ITextElement>(), undefined];
 
+  const valueRef = React.createRef<ITextElement>();
+
   let id: string;
   let wrapperDiv: HTMLDivElement;
   let style: ElementStyle;
@@ -99,7 +101,7 @@ describe('TextElement', () => {
         transform={transform}
         validation={validation}
         value={value}
-        valueRef={React.createRef()}
+        valueRef={valueRef}
       />
     );
 
@@ -125,7 +127,8 @@ describe('TextElement', () => {
       },
       undefined,
       // eslint-disable-next-line unicorn/no-null
-      typeof ref === 'undefined' ? null : ref // undefined ref gets forwarded as null
+      typeof ref === 'undefined' ? null : ref, // undefined ref gets forwarded as null
+      valueRef
     );
     expect(useListener).toHaveBeenCalledWith('ready', element, onReady);
     expect(useListener).toHaveBeenCalledWith('change', element, onChange);
