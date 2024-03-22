@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.18.0...v1.18.1) (2024-03-22)
+
+
+### Bug Fixes
+
+* mismatch target/recipient origin error ([#236](https://github.com/Basis-Theory/basis-theory-react/issues/236)) ([86f2d7f](https://github.com/Basis-Theory/basis-theory-react/commit/86f2d7fb71190ea0ccefc2fd3723fd561e63b4e8))
+
 # [1.18.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.17.0...v1.18.0) (2024-03-20)
 
 
