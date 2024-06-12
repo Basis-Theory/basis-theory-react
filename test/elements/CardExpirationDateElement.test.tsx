@@ -4,6 +4,7 @@ import type {
   CardExpirationDateValue,
   ElementStyle,
   InputMode,
+  CopyIconStyles,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -20,25 +21,26 @@ describe('CardExpirationDateElement', () => {
 
   const valueRef = React.createRef<ICardExpirationDateElement>();
 
-  let id: string;
-  let wrapperDiv: HTMLDivElement;
-  let style: ElementStyle;
-  let disabled: boolean;
-  let readOnly: boolean;
-  let autoComplete: 'on' | 'off';
   let ariaLabel: string;
-  let placeholder: string;
-  let value: CardExpirationDateValue<'static'>;
-  let validateOnChange: boolean;
+  let autoComplete: 'on' | 'off';
+  let copyIconStyles: CopyIconStyles;
+  let disabled: boolean;
+  let element: unknown;
   let enableCopy: boolean;
+  let id: string;
   let inputMode: `${InputMode}`;
-  let onReady: jest.Mock;
+  let onBlur: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
-  let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
-  let element: unknown;
+  let onReady: jest.Mock;
+  let placeholder: string;
+  let readOnly: boolean;
   let ref: any;
+  let style: ElementStyle;
+  let validateOnChange: boolean;
+  let value: CardExpirationDateValue<'static'>;
+  let wrapperDiv: HTMLDivElement;
 
   beforeEach(() => {
     id = 'my-card-expiration-date';
@@ -58,6 +60,11 @@ describe('CardExpirationDateElement', () => {
         max: 12,
       }),
       year: new Date().getFullYear() + 1,
+    };
+    copyIconStyles = {
+      size: '10',
+      color: 'blue',
+      successColor: 'red',
     };
     validateOnChange = chance.bool();
     enableCopy = chance.bool();
@@ -80,6 +87,7 @@ describe('CardExpirationDateElement', () => {
       <CardExpirationDateElement
         aria-label={ariaLabel}
         autoComplete={autoComplete}
+        copyIconStyles={copyIconStyles}
         disabled={disabled}
         enableCopy={enableCopy}
         id={id}
@@ -108,6 +116,7 @@ describe('CardExpirationDateElement', () => {
         targetId: id,
         style,
         disabled,
+        copyIconStyles,
         enableCopy,
         autoComplete,
         readOnly,

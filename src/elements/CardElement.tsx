@@ -8,6 +8,7 @@ import {
   ElementStyle,
   CardElementValue,
   CreditCardType,
+  CopyIconStyles,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -17,6 +18,7 @@ interface CardElementProps {
   autoComplete?: 'on' | 'off';
   bt?: BasisTheoryReact;
   cardTypes?: CreditCardType[];
+  copyIconStyles?: CopyIconStyles;
   disabled?: boolean;
   enableCopy?: boolean;
   id: string;
@@ -39,6 +41,7 @@ const CardElementC: FC<
   autoComplete,
   bt,
   cardTypes,
+  copyIconStyles,
   disabled,
   elementRef,
   enableCopy,
@@ -63,6 +66,7 @@ const CardElementC: FC<
     {
       autoComplete,
       cardTypes,
+      copyIconStyles,
       disabled,
       enableCopy,
       inputMode,

@@ -7,6 +7,7 @@ import type {
   CardVerificationCodeElementEvents,
   Brand,
   InputMode,
+  CopyIconStyles,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -17,6 +18,7 @@ interface CardVerificationCodeElementProps {
   autoComplete?: 'on' | 'off';
   bt?: BasisTheoryReact;
   cardBrand?: Brand | string;
+  copyIconStyles?: CopyIconStyles;
   disabled?: boolean;
   enableCopy?: boolean;
   id: string;
@@ -46,6 +48,7 @@ const CardVerificationCodeElementC: FC<
   autoComplete,
   bt,
   cardBrand,
+  copyIconStyles,
   disabled,
   elementRef,
   enableCopy,
@@ -75,6 +78,7 @@ const CardVerificationCodeElementC: FC<
       'aria-label': ariaLabel,
       autoComplete,
       cardBrand,
+      copyIconStyles,
       disabled,
       enableCopy,
       inputMode,
