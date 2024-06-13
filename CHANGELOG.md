@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.18.1...v1.19.0) (2024-06-13)
+
+
+### Features
+
+* enables copy icon customization ([#237](https://github.com/Basis-Theory/basis-theory-react/issues/237)) ([03f1725](https://github.com/Basis-Theory/basis-theory-react/commit/03f1725938a294ba0db5d080fb4be146caa4f277))
+
 ## [1.18.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.18.0...v1.18.1) (2024-03-22)
 
 
