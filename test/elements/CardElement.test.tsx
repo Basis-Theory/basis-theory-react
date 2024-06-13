@@ -4,6 +4,7 @@ import type {
   CardElementValue,
   ElementStyle,
   InputMode,
+  CopyIconStyles,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -18,24 +19,25 @@ describe('CardElement', () => {
   const chance = new Chance();
   const refArray = [React.createRef<ICardElement>(), undefined];
 
-  let id: string;
-  let wrapperDiv: HTMLDivElement;
-  let style: ElementStyle;
-  let disabled: boolean;
   let autoComplete: 'on' | 'off';
-  let inputMode: `${InputMode}`;
-  let value: CardElementValue<'static'>;
-  let validateOnChange: boolean;
+  let copyIconStyles: CopyIconStyles;
+  let disabled: boolean;
+  let element: unknown;
   let enableCopy: boolean;
-  let readOnly: boolean;
-  let skipLuhnValidation: boolean;
-  let onReady: jest.Mock;
+  let id: string;
+  let inputMode: `${InputMode}`;
+  let onBlur: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
-  let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
-  let element: unknown;
+  let onReady: jest.Mock;
+  let readOnly: boolean;
   let ref: any;
+  let skipLuhnValidation: boolean;
+  let style: ElementStyle;
+  let validateOnChange: boolean;
+  let value: CardElementValue<'static'>;
+  let wrapperDiv: HTMLDivElement;
 
   beforeEach(() => {
     id = 'my-card';
@@ -62,6 +64,11 @@ describe('CardElement', () => {
         numeric: true,
       }),
     };
+    copyIconStyles = {
+      size: '10',
+      color: 'blue',
+      successColor: 'red',
+    };
     validateOnChange = chance.bool();
     enableCopy = chance.bool();
     inputMode = 'numeric';
@@ -82,6 +89,7 @@ describe('CardElement', () => {
     const { container } = render(
       <CardElement
         autoComplete={autoComplete}
+        copyIconStyles={copyIconStyles}
         disabled={disabled}
         enableCopy={enableCopy}
         id={id}
@@ -110,6 +118,7 @@ describe('CardElement', () => {
         disabled,
         enableCopy,
         inputMode,
+        copyIconStyles,
         readOnly,
         skipLuhnValidation,
         style,

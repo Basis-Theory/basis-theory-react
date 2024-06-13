@@ -8,6 +8,7 @@ import type {
   SanitizedElementOptions,
   InputMode,
   CreditCardType,
+  CopyIconStyles,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -18,6 +19,7 @@ interface CardNumberElementProps {
   autoComplete?: 'on' | 'off';
   bt?: BasisTheoryReact;
   cardTypes?: CreditCardType[];
+  copyIconStyles?: CopyIconStyles;
   disabled?: boolean;
   enableCopy?: boolean;
   iconPosition?: SanitizedElementOptions['iconPosition'];
@@ -44,6 +46,7 @@ const CardNumberElementC: FC<
   autoComplete,
   bt,
   cardTypes,
+  copyIconStyles,
   disabled,
   elementRef,
   enableCopy,
@@ -77,6 +80,7 @@ const CardNumberElementC: FC<
       'aria-label': ariaLabel,
       autoComplete,
       cardTypes,
+      copyIconStyles,
       disabled,
       enableCopy,
       iconPosition,

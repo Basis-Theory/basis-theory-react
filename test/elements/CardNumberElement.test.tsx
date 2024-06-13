@@ -4,6 +4,7 @@ import type {
   ElementStyle,
   CreateCardNumberElementOptions,
   InputMode,
+  CopyIconStyles,
 } from '@basis-theory/basis-theory-js/types/elements';
 import { render } from '@testing-library/react';
 import { Chance } from 'chance';
@@ -20,27 +21,28 @@ describe('CardNumberElement', () => {
 
   const valueRef = React.createRef<ICardNumberElement>();
 
-  let id: string;
-  let wrapperDiv: HTMLDivElement;
-  let style: ElementStyle;
-  let disabled: boolean;
-  let readOnly: boolean;
-  let autoComplete: 'on' | 'off';
   let ariaLabel: string;
-  let placeholder: string;
-  let iconPosition: CreateCardNumberElementOptions['iconPosition'];
-  let value: string;
-  let validateOnChange: boolean;
+  let autoComplete: 'on' | 'off';
+  let copyIconStyles: CopyIconStyles;
+  let disabled: boolean;
+  let element: unknown;
   let enableCopy: boolean;
-  let skipLuhnValidation: boolean;
+  let iconPosition: CreateCardNumberElementOptions['iconPosition'];
+  let id: string;
   let inputMode: `${InputMode}`;
-  let onReady: jest.Mock;
+  let onBlur: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
-  let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
-  let element: unknown;
+  let onReady: jest.Mock;
+  let placeholder: string;
+  let readOnly: boolean;
   let ref: any;
+  let skipLuhnValidation: boolean;
+  let style: ElementStyle;
+  let validateOnChange: boolean;
+  let value: string;
+  let wrapperDiv: HTMLDivElement;
 
   beforeEach(() => {
     id = 'my-card-number';
@@ -48,6 +50,11 @@ describe('CardNumberElement', () => {
     wrapperDiv.setAttribute('id', id);
     style = {
       [chance.string()]: chance.string(),
+    };
+    copyIconStyles = {
+      size: '10',
+      color: 'blue',
+      successColor: 'red',
     };
     disabled = chance.bool();
     readOnly = chance.bool();
@@ -78,6 +85,7 @@ describe('CardNumberElement', () => {
       <CardNumberElement
         aria-label={ariaLabel}
         autoComplete={autoComplete}
+        copyIconStyles={copyIconStyles}
         disabled={disabled}
         enableCopy={enableCopy}
         iconPosition={iconPosition}
@@ -108,6 +116,7 @@ describe('CardNumberElement', () => {
         'aria-label': ariaLabel,
         autoComplete,
         disabled,
+        copyIconStyles,
         enableCopy,
         iconPosition,
         inputMode,

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { CARD_BRANDS } from '@basis-theory/basis-theory-js/elements/constants';
 import type {
   Brand,
+  CopyIconStyles,
   ElementStyle,
   CardVerificationCodeElement as ICardVerificationCodeElement,
   InputMode,
@@ -21,26 +22,27 @@ describe('CardVerificationCodeElement', () => {
 
   const valueRef = React.createRef<ICardVerificationCodeElement>();
 
-  let id: string;
-  let wrapperDiv: HTMLDivElement;
-  let style: ElementStyle;
-  let disabled: boolean;
-  let readOnly: boolean;
-  let autoComplete: 'on' | 'off';
   let ariaLabel: string;
-  let placeholder: string;
+  let autoComplete: 'on' | 'off';
   let cardBrand: Brand | string;
-  let value: string;
-  let validateOnChange: boolean;
-  let inputMode: `${InputMode}`;
+  let copyIconStyles: CopyIconStyles;
+  let disabled: boolean;
+  let element: unknown;
   let enableCopy: boolean;
-  let onReady: jest.Mock;
+  let id: string;
+  let inputMode: `${InputMode}`;
+  let onBlur: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
-  let onBlur: jest.Mock;
   let onKeyDown: jest.Mock;
-  let element: unknown;
+  let onReady: jest.Mock;
+  let placeholder: string;
+  let readOnly: boolean;
   let ref: any;
+  let style: ElementStyle;
+  let validateOnChange: boolean;
+  let value: string;
+  let wrapperDiv: HTMLDivElement;
 
   beforeEach(() => {
     id = 'my-card-verification-code';
@@ -64,6 +66,11 @@ describe('CardVerificationCodeElement', () => {
     onFocus = jest.fn();
     onBlur = jest.fn();
     onKeyDown = jest.fn();
+    copyIconStyles = {
+      size: '10',
+      color: 'blue',
+      successColor: 'red',
+    };
     element = {
       [chance.string()]: chance.string(),
     };
@@ -78,6 +85,7 @@ describe('CardVerificationCodeElement', () => {
         aria-label={ariaLabel}
         autoComplete={autoComplete}
         cardBrand={cardBrand}
+        copyIconStyles={copyIconStyles}
         disabled={disabled}
         enableCopy={enableCopy}
         id={id}
@@ -108,6 +116,7 @@ describe('CardVerificationCodeElement', () => {
         disabled,
         enableCopy,
         autoComplete,
+        copyIconStyles,
         inputMode,
         'aria-label': ariaLabel,
         placeholder,

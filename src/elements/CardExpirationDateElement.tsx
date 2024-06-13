@@ -7,6 +7,7 @@ import type {
   CardExpirationDateElementEvents,
   CardExpirationDateValue,
   InputMode,
+  CopyIconStyles,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -16,6 +17,7 @@ interface CardExpirationDateElementProps {
   'aria-label'?: string;
   autoComplete?: 'on' | 'off';
   bt?: BasisTheoryReact;
+  copyIconStyles?: CopyIconStyles;
   disabled?: boolean;
   enableCopy?: boolean;
   id: string;
@@ -30,7 +32,7 @@ interface CardExpirationDateElementProps {
   style?: ElementStyle;
   validateOnChange?: boolean;
   value?: CardExpirationDateValue<'static'> | string;
-  valueRef?: MutableRefObject<ICardExpirationDateElement>;
+  valueRef?: MutableRefObject<ICardExpirationDateElement | null>;
 }
 
 const CardExpirationDateElementC: FC<
@@ -41,6 +43,7 @@ const CardExpirationDateElementC: FC<
   'aria-label': ariaLabel,
   autoComplete,
   bt,
+  copyIconStyles,
   disabled,
   elementRef,
   enableCopy,
@@ -69,6 +72,7 @@ const CardExpirationDateElementC: FC<
     {
       'aria-label': ariaLabel,
       autoComplete,
+      copyIconStyles,
       disabled,
       enableCopy,
       inputMode,
