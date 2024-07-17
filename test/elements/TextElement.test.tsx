@@ -29,6 +29,7 @@ describe('TextElement', () => {
   let inputMode: `${InputMode}`;
   let password: boolean;
   let mask: (RegExp | string)[];
+  let maxLength: HTMLInputElement['maxLength'];
   let placeholder: string;
   let transform: RegExp;
   let value: string;
@@ -60,6 +61,7 @@ describe('TextElement', () => {
         max: 10,
       })
     );
+    maxLength = chance.integer();
     placeholder = chance.string();
     transform = chance.pickone([/\d/u, /./u]);
     inputMode = 'numeric';
@@ -88,6 +90,7 @@ describe('TextElement', () => {
         id={id}
         inputMode={inputMode}
         mask={mask as never} // the need of this cast acts a props typings test :-)
+        maxLength={maxLength}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
@@ -117,6 +120,7 @@ describe('TextElement', () => {
         autoComplete,
         'aria-label': ariaLabel,
         mask,
+        maxLength,
         inputMode,
         password,
         placeholder,
