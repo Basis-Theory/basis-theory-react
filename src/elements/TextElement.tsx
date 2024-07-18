@@ -18,6 +18,7 @@ interface BaseTextElementProps {
   disabled?: boolean;
   id: string;
   inputMode?: `${InputMode}`;
+  maxLength?: HTMLInputElement['maxLength'];
   onBlur?: ElementEventListener<TextElementEvents, 'blur'>;
   onChange?: ElementEventListener<TextElementEvents, 'change'>;
   onFocus?: ElementEventListener<TextElementEvents, 'focus'>;
@@ -55,6 +56,7 @@ const TextElementC: FC<
   id,
   inputMode,
   mask,
+  maxLength,
   onBlur,
   onChange,
   onFocus,
@@ -80,6 +82,7 @@ const TextElementC: FC<
       disabled,
       inputMode,
       mask,
+      maxLength,
       password,
       placeholder,
       readOnly,
