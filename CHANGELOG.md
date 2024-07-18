@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.19.0...v1.20.0) (2024-07-18)
+
+
+### Features
+
+* adds maxLength to TextElement ([#238](https://github.com/Basis-Theory/basis-theory-react/issues/238)) ([0f2d78a](https://github.com/Basis-Theory/basis-theory-react/commit/0f2d78af263832f6ddc4bcfb45dd3af2c2e3d794))
+
 # [1.19.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.18.1...v1.19.0) (2024-06-13)
 
 
