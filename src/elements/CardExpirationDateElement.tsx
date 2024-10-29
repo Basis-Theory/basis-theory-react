@@ -15,7 +15,7 @@ import { useListener } from './useListener';
 
 interface CardExpirationDateElementProps {
   'aria-label'?: string;
-  autoComplete?: 'on' | 'off';
+  autoComplete?: CreateCardExpirationDateElementOptions['autoComplete'];
   bt?: BasisTheoryReact;
   copyIconStyles?: CopyIconStyles;
   disabled?: boolean;

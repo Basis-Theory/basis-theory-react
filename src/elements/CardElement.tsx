@@ -15,7 +15,7 @@ import { useElement } from './useElement';
 import { useListener } from './useListener';
 
 interface CardElementProps {
-  autoComplete?: 'on' | 'off';
+  autoComplete?: CreateCardElementOptions['autoComplete'];
   bt?: BasisTheoryReact;
   cardTypes?: CreditCardType[];
   copyIconStyles?: CopyIconStyles;

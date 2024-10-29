@@ -16,7 +16,7 @@ import { useListener } from './useListener';
 
 interface CardNumberElementProps {
   'aria-label'?: string;
-  autoComplete?: 'on' | 'off';
+  autoComplete?: CreateCardNumberElementOptions['autoComplete'];
   bt?: BasisTheoryReact;
   cardTypes?: CreditCardType[];
   copyIconStyles?: CopyIconStyles;

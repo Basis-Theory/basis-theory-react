@@ -15,7 +15,7 @@ import { useListener } from './useListener';
 
 interface CardVerificationCodeElementProps {
   'aria-label'?: string;
-  autoComplete?: 'on' | 'off';
+  autoComplete?: CreateCardVerificationCodeElementOptions['autoComplete'];
   bt?: BasisTheoryReact;
   cardBrand?: Brand | string;
   copyIconStyles?: CopyIconStyles;
