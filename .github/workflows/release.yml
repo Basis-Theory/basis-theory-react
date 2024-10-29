@@ -6,6 +6,7 @@ on:
 
 jobs:
   build-release:
+    environment: PROD
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -14,12 +15,12 @@ jobs:
     env:
       CI: 1
       HUSKY: 0 # disables husky hooks
-      NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.SEMANTIC_RELEASE_PAT }}
+          token: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
       - name: Start Deploy Message
         uses: Basis-Theory/github-actions/deploy-slack-action@master
         with:
@@ -43,17 +44,8 @@ jobs:
       - name: Release
         run: make release
         env:
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
 
-      - name: Slack Deploy / Release Alert
-        uses: 8398a7/action-slack@v3
-        if: always()
-        with:
-          status: ${{ job.status }}
-          channel: ${{ secrets.SLACK_RELEASE_CHANNEL_ID }}
-          fields: 'repo,commit,message,workflow,job'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Stop Deploy Message
         if: always()
         uses: Basis-Theory/github-actions/deploy-slack-action@master
