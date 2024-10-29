@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.20.0...v1.21.0) (2024-10-29)
+
+
+### Features
+
+* add support for granular autocomplete values ([#241](https://github.com/Basis-Theory/basis-theory-react/issues/241)) ([e625f6d](https://github.com/Basis-Theory/basis-theory-react/commit/e625f6d6b1096dc249b9200cc6a71fe4a06d8f96))
+
 # [1.20.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.19.0...v1.20.0) (2024-07-18)
 
 
