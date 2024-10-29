@@ -13,7 +13,7 @@ import { useListener } from './useListener';
 
 interface BaseTextElementProps {
   'aria-label'?: string;
-  autoComplete?: 'on' | 'off';
+  autoComplete?: CreateTextElementOptions['autoComplete'];
   bt?: BasisTheoryReact;
   disabled?: boolean;
   id: string;
