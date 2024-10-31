@@ -30,7 +30,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@basis-theory/basis-theory-js": "^4.11.0"
+    "@basis-theory/basis-theory-js": "^4.13.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.15",
@@ -90,5 +90,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
