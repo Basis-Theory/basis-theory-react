@@ -1,14 +1,15 @@
 import React, { FC, useRef, ForwardedRef } from 'react';
 import {
-  InputMode,
   CardElement as ICardElement,
-  CreateCardElementOptions,
   CardElementEvents,
+  CardElementPlaceholder,
+  CardElementValue,
+  CopyIconStyles,
+  CreateCardElementOptions,
+  CreditCardType,
   ElementEventListener,
   ElementStyle,
-  CardElementValue,
-  CreditCardType,
-  CopyIconStyles,
+  InputMode,
 } from '@basis-theory/basis-theory-js/types/elements';
 import type { BasisTheoryReact } from '../core';
 import { useElement } from './useElement';
@@ -28,6 +29,7 @@ interface CardElementProps {
   onFocus?: ElementEventListener<CardElementEvents, 'focus'>;
   onKeyDown?: ElementEventListener<CardElementEvents, 'keydown'>;
   onReady?: ElementEventListener<CardElementEvents, 'ready'>;
+  placeholder?: CardElementPlaceholder;
   readOnly?: boolean;
   skipLuhnValidation?: boolean;
   style?: ElementStyle;
@@ -52,6 +54,7 @@ const CardElementC: FC<
   onFocus,
   onKeyDown,
   onReady,
+  placeholder,
   readOnly,
   skipLuhnValidation,
   style,
@@ -70,6 +73,7 @@ const CardElementC: FC<
       disabled,
       enableCopy,
       inputMode,
+      placeholder,
       readOnly,
       skipLuhnValidation,
       style,
