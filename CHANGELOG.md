@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.22.0...v1.23.0) (2024-11-07)
+
+
+### Features
+
+* adds custom placeholder to card element ([#244](https://github.com/Basis-Theory/basis-theory-react/issues/244)) ([d071d57](https://github.com/Basis-Theory/basis-theory-react/commit/d071d57e8bd2d0efdba651244c81f0ce5c9e4331))
+
 # [1.22.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.21.0...v1.22.0) (2024-10-31)
 
 
