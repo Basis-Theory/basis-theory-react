@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.24.0...v1.25.0) (2024-12-23)
+
+
+### Features
+
+* upgrade btjs ([#247](https://github.com/Basis-Theory/basis-theory-react/issues/247)) ([efee90f](https://github.com/Basis-Theory/basis-theory-react/commit/efee90f519d440907a4bf1079be852c00759a0d1))
+
 # [1.24.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.23.0...v1.24.0) (2024-11-27)
 
 
