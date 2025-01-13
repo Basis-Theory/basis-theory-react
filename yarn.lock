@@ -1474,11 +1474,12 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@basis-theory/basis-theory-js@^4.19.0":
-  version "4.19.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-4.19.0.tgz#ead5646dd94d269251e07075a95583c0197e390b"
-  integrity sha512-N44lFQdM6pjiahUVP2aik8SOdvnqxyqU0puaGYD/p669GyqjmaZTileHG3Xi8OrHlo2uFBkCWaFmy7mOPPxKAA==
+"@basis-theory/basis-theory-js@^4.20.0":
+  version "4.20.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-4.20.0.tgz#a53bce021bd876169fbe4a3252fcfb7c64b10716"
+  integrity sha512-rwWhf6IwxLbMR3D0AR8OgIjAmMEVqOUqZASU0yLjUO8za3sorRpSbJSPg0yDcY5nZDGOuGq9EtdHQW7Pr44byw==
   dependencies:
+    "@datadog/browser-logs" "^5.35.0"
     axios "^1.7.4"
     camelcase-keys "^6.2.2"
     csstype "^3.0.11"
@@ -1682,6 +1683,18 @@
   integrity sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
+
+"@datadog/browser-core@5.35.0":
+  version "5.35.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-5.35.0.tgz#50f07fff9002f34babe8d24b4f377d5aa077de09"
+  integrity sha512-m4KxWufXsQ7nFiMumMZjlub4jJdvXQXrQcTR6Dg2MFER82rIl3npPfups3n4RaAbekFYtgKpo/JMnaxZJSq96g==
+
+"@datadog/browser-logs@^5.35.0":
+  version "5.35.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-logs/-/browser-logs-5.35.0.tgz#fdec6ab3b01a1dcce3bc7303fe606f3c3a5cc5f3"
+  integrity sha512-TNcqTk1TP4pYzeHFNsA4Fn/JmY54hxsbjBQaiuYmLBBWiVzwEIs64CybHecRlflPzvjOV955wEs7VU+2MTg/zw==
+  dependencies:
+    "@datadog/browser-core" "5.35.0"
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
