@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.26.0...v1.27.0) (2025-01-13)
+
+
+### Features
+
+* upgrade btjs and add telemetry ([#251](https://github.com/Basis-Theory/basis-theory-react/issues/251)) ([366cf5e](https://github.com/Basis-Theory/basis-theory-react/commit/366cf5ea84fdb0cce90026421508db85a7446359))
+
 # [1.26.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.25.0...v1.26.0) (2025-01-08)
 
 
