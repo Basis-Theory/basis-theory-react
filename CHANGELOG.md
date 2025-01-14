@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.27.0...v1.28.0) (2025-01-14)
+
+
+### Features
+
+* bump btjs to add useSameOriginApi ([#252](https://github.com/Basis-Theory/basis-theory-react/issues/252)) ([12efd26](https://github.com/Basis-Theory/basis-theory-react/commit/12efd26aea5e665b7bc7de77d1ed1878e03e0fb4))
+
 # [1.27.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.26.0...v1.27.0) (2025-01-13)
 
 
