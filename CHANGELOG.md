@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.28.1...v1.29.0) (2025-01-21)
+
+
+### Features
+
+* bump btjs and add elements script load retry ([#255](https://github.com/Basis-Theory/basis-theory-react/issues/255)) ([0bb3ffa](https://github.com/Basis-Theory/basis-theory-react/commit/0bb3ffa9396d7d06093fd65291d479fa8d4a8cb3))
+
 ## [1.28.1](https://github.com/Basis-Theory/basis-theory-react/compare/v1.28.0...v1.28.1) (2025-01-17)
 
 
