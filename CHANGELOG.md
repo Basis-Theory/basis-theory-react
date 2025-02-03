@@ -1,3 +1,10 @@
+# [1.30.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.29.0...v1.30.0) (2025-02-03)
+
+
+### Features
+
+* bump btjs to add debug prop ([#256](https://github.com/Basis-Theory/basis-theory-react/issues/256)) ([0c4f902](https://github.com/Basis-Theory/basis-theory-react/commit/0c4f902ddec910f883797c7ea2e58f6ddbaf9b5e))
+
 # [1.29.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.28.1...v1.29.0) (2025-01-21)
 
 
