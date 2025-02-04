@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.30.0...v1.31.0) (2025-02-04)
+
+
+### Features
+
+* bump btjs ([#257](https://github.com/Basis-Theory/basis-theory-react/issues/257)) ([cec6574](https://github.com/Basis-Theory/basis-theory-react/commit/cec6574b038bfaf1c49072f15847f17aa157568a))
+
 # [1.30.0](https://github.com/Basis-Theory/basis-theory-react/compare/v1.29.0...v1.30.0) (2025-02-03)
 
 
