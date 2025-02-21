@@ -1,6 +1,6 @@
 {
   "name": "@basis-theory/basis-theory-react",
-  "version": "1.32.1",
+  "version": "1.32.2",
   "description": "Thin React wrapper for BasisTheory JS SDK",
   "repository": "https://github.com/Basis-Theory/basis-theory-react",
   "license": "Apache-2.0",
