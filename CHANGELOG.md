@@ -1,3 +1,10 @@
+## [1.32.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.32.2...v1.32.3) (2025-03-07)
+
+
+### Bug Fixes
+
+* add react 19 to peer dependencies ([#262](https://github.com/Basis-Theory/basis-theory-react/issues/262)) ([366a109](https://github.com/Basis-Theory/basis-theory-react/commit/366a10959b2dad492b573b38eb427d12ba4104df))
+
 ## [1.32.2](https://github.com/Basis-Theory/basis-theory-react/compare/v1.32.1...v1.32.2) (2025-02-21)
 
 
