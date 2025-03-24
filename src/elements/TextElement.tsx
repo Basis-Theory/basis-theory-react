@@ -28,6 +28,7 @@ interface BaseTextElementProps {
   readOnly?: boolean;
   style?: ElementStyle;
   transform?: RegExp | [RegExp, string?];
+  validateOnChange?: boolean;
   validation?: RegExp;
   value?: string;
   valueRef?: MutableRefObject<ITextElement | null>;
@@ -67,6 +68,7 @@ const TextElementC: FC<
   readOnly,
   style,
   transform,
+  validateOnChange,
   validation,
   value,
   valueRef,
@@ -89,6 +91,7 @@ const TextElementC: FC<
       style,
       targetId: id,
       transform,
+      validateOnChange,
       validation,
       value,
     },

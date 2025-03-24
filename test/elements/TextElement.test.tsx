@@ -34,6 +34,7 @@ describe('TextElement', () => {
   let transform: RegExp;
   let value: string;
   let validation: RegExp;
+  let validateOnChange: boolean;
   let onReady: jest.Mock;
   let onChange: jest.Mock;
   let onFocus: jest.Mock;
@@ -67,7 +68,7 @@ describe('TextElement', () => {
     inputMode = 'numeric';
     value = chance.string();
     validation = chance.pickone([/\d/u, /./u]);
-
+    validateOnChange = chance.bool();
     onReady = jest.fn();
     onChange = jest.fn();
     onFocus = jest.fn();
@@ -102,6 +103,7 @@ describe('TextElement', () => {
         ref={ref}
         style={style}
         transform={transform}
+        validateOnChange={validateOnChange}
         validation={validation}
         value={value}
         valueRef={valueRef}
@@ -127,6 +129,7 @@ describe('TextElement', () => {
         readOnly,
         transform,
         value,
+        validateOnChange,
         validation,
       },
       undefined,
