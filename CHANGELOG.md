@@ -1,3 +1,10 @@
+## [1.32.4](https://github.com/Basis-Theory/basis-theory-react/compare/v1.32.3...v1.32.4) (2025-03-25)
+
+
+### Bug Fixes
+
+* **textelement:** surface validate on change ([#263](https://github.com/Basis-Theory/basis-theory-react/issues/263)) ([fa135d6](https://github.com/Basis-Theory/basis-theory-react/commit/fa135d6b461ad991979b89896bc23ac8c179224a))
+
 ## [1.32.3](https://github.com/Basis-Theory/basis-theory-react/compare/v1.32.2...v1.32.3) (2025-03-07)
 
 
