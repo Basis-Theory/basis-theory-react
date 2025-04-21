@@ -1,3 +1,10 @@
+## [1.32.5](https://github.com/Basis-Theory/basis-theory-react/compare/v1.32.4...v1.32.5) (2025-04-21)
+
+
+### Bug Fixes
+
+* patch btjs ([#264](https://github.com/Basis-Theory/basis-theory-react/issues/264)) ([2bd2ff8](https://github.com/Basis-Theory/basis-theory-react/commit/2bd2ff8e2add78572f85b91e4b759d856494c715))
+
 ## [1.32.4](https://github.com/Basis-Theory/basis-theory-react/compare/v1.32.3...v1.32.4) (2025-03-25)
 
 
