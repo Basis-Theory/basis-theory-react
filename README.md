@@ -1,3 +1,12 @@
+> [!CAUTION]
+> This SDK has been deprecated.
+>
+> Our new react elements library can be found at https://github.com/Basis-Theory/react-elements
+>
+> See our documentation site for more information. [https://developers.basistheory.com/docs/sdks/server-side/node](https://developers.basistheory.com/docs/sdks/web/web-elements/?implementation=react)
+
+
+
 # Basis Theory React
 
 [![Version](https://img.shields.io/npm/v/@basis-theory/basis-theory-react.svg)](https://www.npmjs.org/package/@basis-theory/basis-theory-react)
